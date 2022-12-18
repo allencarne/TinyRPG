@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 930830815
+    locked: 0
+  - name: FX
+    uniqueID: 561467601
+    locked: 0
+  - name: Weapon
+    uniqueID: 2866789303
+    locked: 0
   - name: Player
     uniqueID: 158391721
     locked: 0

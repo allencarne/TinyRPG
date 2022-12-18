@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
+    [SerializeField] GameObject weapon;
     Camera cam;
 
     [SerializeField] GameObject basicAttackPrefab;
@@ -94,29 +95,11 @@ public class Player : MonoBehaviour
 
         //Quaternion rot = Quaternion.FromToRotation(Vector3.up, moveDir);
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        // Dash Key Pressed
-        if (Input.GetKeyDown(dashKey) && canDash && isPlayerAlive)
-        {
-            isDashKeyDown = true;
-        }
     }
 
     void FixedUpdate()
     {
-        if (canMove)
-        {
-            // Input
-            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            movement = moveInput.normalized * moveSpeed;
-
-            // Movement
-            rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-        }
-
-        /*
-        // Movement
-        if (canMove)
+        if (isPlayerAlive)
         {
             float moveX = 0f;
             float moveY = 0f;
@@ -140,53 +123,36 @@ public class Player : MonoBehaviour
 
             moveDir = new Vector3(moveX, moveY).normalized;
 
-            rb.velocity = moveDir * moveSpeed;
-        }
-        */
-        // Rotation
-        if (isPlayerAlive)
-        {
             Vector2 lookDir = mousePos - rb.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - offset;
             rb.rotation = angle;
-        }
-
-        // Dash
-        if (isDashKeyDown)
-        {
-            StartCoroutine(DashCoolDown());
-        }
-
-        IEnumerator DashCoolDown()
-        {
-            isDashKeyDown = false;
-            canDash = false;
-            //Instantiate(dashPrefab, transform.position, rot);
-            rb.MovePosition(transform.position + moveDir * dashVelocity);
-
-            yield return new WaitForSeconds(dashCoolDown);
-
-            canDash = true;
         }
     }
 
     public void PlayerIdleState()
     {
-        canMove = false;
         MoveKeyPressed();
         AttackKeyPressed();
+        DashKeyPressed();
     }
 
     public void PlayerMoveState()
     {
-        canMove = true;
+        // Input
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movement = moveInput.normalized * moveSpeed;
+
+        // Movement
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+
         NoMoveKeyPressed();
         AttackKeyPressed();
+        DashKeyPressed();
     }
 
     public void PlayerAttackState()
     {
-        canMove = false;
+        //canMove = false;
         if (canBasicAttack)
         {
             StartCoroutine(BasicAttackCoolDown());
@@ -195,6 +161,7 @@ public class Player : MonoBehaviour
 
     IEnumerator BasicAttackCoolDown()
     {
+        weapon.SetActive(false);
         canBasicAttack = false;
         GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = basicAttack.GetComponent<Rigidbody2D>();
@@ -202,13 +169,37 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(basicAttackCoolDown);
 
+        weapon.SetActive(true);
         canBasicAttack = true;
         state = PlayerState.idle;
     }
 
     public void PlayerDashState()
     {
+        //canMove = false;
+        if (canDash)
+        {
+            StartCoroutine(DashDelay());
+            StartCoroutine(DashCoolDown());
+        }
+    }
 
+    IEnumerator DashDelay()
+    {
+        yield return new WaitForSeconds(.1f);
+
+        state = PlayerState.idle;
+    }
+
+    IEnumerator DashCoolDown()
+    {
+        canDash = false;
+        //Instantiate(dashPrefab, transform.position, rot);
+        rb.MovePosition(transform.position + moveDir * dashVelocity);
+
+        yield return new WaitForSeconds(dashCoolDown);
+
+        canDash = true;
     }
 
     public void PlayerHurtState()
@@ -249,6 +240,10 @@ public class Player : MonoBehaviour
 
     public void DashKeyPressed()
     {
-
+        // Dash Key Pressed
+        if (Input.GetKey(dashKey) && canDash && isPlayerAlive)
+        {
+            state = PlayerState.dash;
+        }
     }
 }
