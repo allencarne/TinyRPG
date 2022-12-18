@@ -245,19 +245,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  health: 0
   moveSpeed: 6
-  isPlayerAlive: 0
-  canMove: 0
-  offset: 0
+  basicAttackPrefab: {fileID: 662186980665146007, guid: 316235a7fafe4684580a19d56405daa4, type: 3}
+  basicAttackSlideVelocity: 20
   basicAttackCoolDown: 0.5
   basicAttackForce: 0
+  attackRange: 10.2
+  basicAttack2Prefab: {fileID: 813254988585959754, guid: 668cb717165a4b34a8c53afc9adc0bac, type: 3}
   dashCoolDown: 2
   dashVelocity: 3
   rb: {fileID: 299490164}
   firePoint: {fileID: 649467068}
   weapon: {fileID: 1860194900}
-  basicAttackPrefab: {fileID: 662186980665146007, guid: 316235a7fafe4684580a19d56405daa4, type: 3}
   basicAttackKey: 323
   dashKey: 32
   upKey: 119
@@ -2429,7 +2428,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff251e7ca00449a48b93af49b6296929, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.27883375, g: 0.9339623, b: 0.24230155, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
