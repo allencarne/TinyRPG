@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
 {
-    public void AE_BasicAttack2()
+    public static bool basicAttackTrigger;
+    public static bool basicAttack2Trigger;
+
+    public void AE_CanBasicAttack2()
     {
-        Player.canBasicAttack2 = true;
-        Destroy(gameObject);
+        //Player2.canBasicAttack2 = true;
+    }
+
+    public void AE_BasicAttackAnimationEnd()
+    {
+        //Player2.canBasicAttack2 = false;
+        basicAttackTrigger = true;
+    }
+
+    public void AE_BasicAttack2AnimationEnd()
+    {
+        //basicAttack2Trigger = true;
     }
 }

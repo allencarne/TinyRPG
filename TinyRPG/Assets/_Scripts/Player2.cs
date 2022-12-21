@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     [Header("Variables")]
-    [SerializeField] int maxHealth;
-    [HideInInspector] int health;
     [SerializeField] int moveSpeed;
     [HideInInspector] Vector2 movement;
-    [HideInInspector] bool isPlayerAlive;
-    [HideInInspector] bool canMove;
-    [HideInInspector] float offset;
-    [HideInInspector] Vector3 moveDir;
+
     [HideInInspector] Vector2 mousePos;
+    [HideInInspector] float offset;
+
+    [Header("Components")]
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject weapon;
+    [HideInInspector] Camera cam;
 
     [Header("Basic Attack")]
     [SerializeField] GameObject basicAttackPrefab;
@@ -23,21 +25,15 @@ public class Player : MonoBehaviour
     [SerializeField] float attackRange;
     public static bool canBasicAttack;
 
-    [Header("Basic Attack2")]
-    [SerializeField] GameObject basicAttack2Prefab;
-    public static bool canBasicAttack2;
-    bool isBasicAttack2;
+    //[Header("Basic Attack2")]
+    //[SerializeField] GameObject basicAttack2Prefab;
+    //public static bool canBasicAttack2;
+    //bool isBasicAttack2 = false;
 
     [Header("Dash")]
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [HideInInspector] bool canDash;
-
-    [Header("Components")]
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Transform firePoint;
-    [SerializeField] GameObject weapon;
-    [HideInInspector] Camera cam;
 
     [Header("Keys")]
     [SerializeField] KeyCode basicAttackKey;
@@ -65,19 +61,16 @@ public class Player : MonoBehaviour
         cam = Camera.main;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        canDash = true;
         canBasicAttack = true;
-        canBasicAttack2 = false;
-        isPlayerAlive = true;
+        canDash = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log(state);
+        //Debug.Log(canBasicAttack2);
 
         switch (state)
         {
@@ -104,72 +97,28 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        // Input for Basic Attack 2
-        if (canBasicAttack2 && Input.GetKeyDown(basicAttackKey))
-        {
-            isBasicAttack2 = true;
-            state = PlayerState.attack2;
-        }
+        // Rotation
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - offset;
+        rb.rotation = angle;
 
+        
         // Animation Event trigger for Basic Attack
         if (BasicAttack.basicAttackTrigger)
         {
             BasicAttack.basicAttackTrigger = false;
 
             canBasicAttack = true;
-            canBasicAttack2 = false;
-            weapon.SetActive(false);
+            weapon.SetActive(true);
             state = PlayerState.idle;
         }
-
-        // Animation Event trigger for Basic Attack 2
-        if (BasicAttack.basicAttack2Trigger)
-        {
-            BasicAttack.basicAttack2Trigger = false;
-
-            canBasicAttack = true;
-            canBasicAttack2 = false;
-            weapon.SetActive(false);
-            state = PlayerState.idle;
-        }
-
-        //Quaternion rot = Quaternion.FromToRotation(Vector3.up, moveDir);
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        
     }
 
-    void FixedUpdate()
-    {
-        if (isPlayerAlive)
-        {
-            float moveX = 0f;
-            float moveY = 0f;
+    /////// States \\\\\\\
 
-            if (Input.GetKey(upKey))
-            {
-                moveY = +1f;
-            }
-            if (Input.GetKey(downKey))
-            {
-                moveY = -1f;
-            }
-            if (Input.GetKey(leftKey))
-            {
-                moveX = -1f;
-            }
-            if (Input.GetKey(rightKey))
-            {
-                moveX = +1f;
-            }
-
-            moveDir = new Vector3(moveX, moveY).normalized;
-
-            Vector2 lookDir = mousePos - rb.position;
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - offset;
-            rb.rotation = angle;
-        }
-    }
-
-    public void PlayerIdleState()
+    void PlayerIdleState()
     {
         // Tranitions
         MoveKeyPressed();
@@ -177,7 +126,7 @@ public class Player : MonoBehaviour
         DashKeyPressed();
     }
 
-    public void PlayerMoveState()
+    void PlayerMoveState()
     {
         // Input
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -192,10 +141,11 @@ public class Player : MonoBehaviour
         DashKeyPressed();
     }
 
-    public void PlayerAttackState()
+    void PlayerAttackState()
     {
         if (canBasicAttack)
         {
+            // Prevents Attacking more than once
             canBasicAttack = false;
             weapon.SetActive(false);
 
@@ -205,40 +155,39 @@ public class Player : MonoBehaviour
             GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
             basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+
+            /*
+            // Basic Attack 2 Transition
+            if (canBasicAttack2 && Input.GetKey(basicAttackKey))
+            {
+                canBasicAttack2 = false;
+                isBasicAttack2 = true;
+                state = PlayerState.attack2;
+            }
+            */
         }
     }
 
-    public void PlayerAttack2State()
+    void PlayerAttack2State()
     {
-        weapon.SetActive(false);
-        if (canBasicAttack2)
-        {
-            StartCoroutine(BasicAttack2CoolDown());
-        }
+
     }
 
-    IEnumerator BasicAttack2CoolDown()
-    {
-        canBasicAttack2 = false;
-
-        SlideForwad();
-
-        // Instantiate Basic Attack and Add Force
-        GameObject basicAttack2 = Instantiate(basicAttack2Prefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D basicAttackRB = basicAttack2.GetComponent<Rigidbody2D>();
-        basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
-
-        yield return new WaitForSeconds(basicAttackCoolDown);
-
-        canBasicAttack = true;
-        weapon.SetActive(true);
-        state = PlayerState.idle;
-    }
-
-    public void PlayerDashState()
+    void PlayerDashState()
     {
         if (canDash)
         {
+            // Prevents Dashing more than once
+            canDash = false;
+
+            // Input
+            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            movement = moveInput.normalized * moveSpeed;
+
+            rb.MovePosition(rb.position + movement * dashVelocity);
+            //rb.MovePosition(transform.position + moveDir * dashVelocity);
+
+            // Transition
             StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
         }
@@ -253,21 +202,17 @@ public class Player : MonoBehaviour
 
     IEnumerator DashCoolDown()
     {
-        canDash = false;
-        //Instantiate(dashPrefab, transform.position, rot);
-        rb.MovePosition(transform.position + moveDir * dashVelocity);
-
         yield return new WaitForSeconds(dashCoolDown);
 
         canDash = true;
     }
 
-    public void PlayerHurtState()
+    void PlayerHurtState()
     {
 
     }
 
-    public void PlayerDeathState()
+    void PlayerDeathState()
     {
 
     }
@@ -294,7 +239,7 @@ public class Player : MonoBehaviour
     public void AttackKeyPressed()
     {
         // Basic Attack Key Pressed
-        if (Input.GetKey(basicAttackKey) && isPlayerAlive && canBasicAttack)
+        if (Input.GetKey(basicAttackKey) && canBasicAttack)
         {
             state = PlayerState.attack;
         }
@@ -303,7 +248,7 @@ public class Player : MonoBehaviour
     public void DashKeyPressed()
     {
         // Dash Key Pressed
-        if (Input.GetKey(dashKey) && canDash && isPlayerAlive)
+        if (Input.GetKey(dashKey) && canDash)
         {
             state = PlayerState.dash;
         }
