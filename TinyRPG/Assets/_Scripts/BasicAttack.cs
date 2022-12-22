@@ -6,6 +6,7 @@ public class BasicAttack : MonoBehaviour
 {
     public static bool basicAttackTrigger;
     public static bool basicAttack2Trigger;
+    public static bool basicAttack3Trigger;
 
     public void AE_CanBasicAttack2()
     {
@@ -27,5 +28,10 @@ public class BasicAttack : MonoBehaviour
     public void AE_BasicAttack2AnimationEnd()
     {
         basicAttack2Trigger = true;
+    }
+
+    public void AE_BasicAttack3AnimationEnd()
+    {
+        basicAttack3Trigger = true;
     }
 }

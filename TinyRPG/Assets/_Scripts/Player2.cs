@@ -116,8 +116,6 @@ public class Player2 : MonoBehaviour
         if (BasicAttack.basicAttackTrigger && state == PlayerState.attack)
         {
             BasicAttack.basicAttackTrigger = false;
-
-            //canBasicAttack = true;
             weapon.SetActive(true);
             state = PlayerState.idle;
         }
@@ -125,8 +123,13 @@ public class Player2 : MonoBehaviour
         if (BasicAttack.basicAttack2Trigger && state == PlayerState.attack2)
         {
             BasicAttack.basicAttack2Trigger = false;
+            weapon.SetActive(true);
+            state = PlayerState.idle;
+        }
 
-            //canBasicAttack = true;
+        if (BasicAttack.basicAttack3Trigger && state == PlayerState.attack3)
+        {
+            BasicAttack.basicAttack3Trigger = false;
             weapon.SetActive(true);
             state = PlayerState.idle;
         }
