@@ -9,17 +9,23 @@ public class BasicAttack : MonoBehaviour
 
     public void AE_CanBasicAttack2()
     {
-        //Player2.canBasicAttack2 = true;
+        Player2.canBasicAttack2 = true;
+    }
+
+    public void AE_CanBasicAttack3()
+    {
+        Player2.canBasicAttack3 = true;
     }
 
     public void AE_BasicAttackAnimationEnd()
     {
-        //Player2.canBasicAttack2 = false;
+        Player2.canBasicAttack2 = false;
+        Player2.canBasicAttack3 = false;
         basicAttackTrigger = true;
     }
 
     public void AE_BasicAttack2AnimationEnd()
     {
-        //basicAttack2Trigger = true;
+        basicAttack2Trigger = true;
     }
 }

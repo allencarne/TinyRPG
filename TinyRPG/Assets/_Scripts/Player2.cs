@@ -25,10 +25,13 @@ public class Player2 : MonoBehaviour
     [SerializeField] float attackRange;
     public static bool canBasicAttack;
 
-    //[Header("Basic Attack2")]
-    //[SerializeField] GameObject basicAttack2Prefab;
-    //public static bool canBasicAttack2;
-    //bool isBasicAttack2 = false;
+    [Header("Basic Attack2")]
+    [SerializeField] GameObject basicAttack2Prefab;
+    public static bool canBasicAttack2;
+
+    [Header("Basic Attack3")]
+    [SerializeField] GameObject basicAttack3Prefab;
+    public static bool canBasicAttack3;
 
     [Header("Dash")]
     [SerializeField] float dashCoolDown;
@@ -49,6 +52,7 @@ public class Player2 : MonoBehaviour
         move,
         attack,
         attack2,
+        attack3,
         dash,
         hurt,
         death
@@ -64,13 +68,14 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         canBasicAttack = true;
+        canBasicAttack2 = false;
         canDash = true;
     }
 
     void Update()
     {
         Debug.Log(state);
-        //Debug.Log(canBasicAttack2);
+        Debug.Log(canBasicAttack2);
 
         switch (state)
         {
@@ -85,6 +90,9 @@ public class Player2 : MonoBehaviour
                 break;
             case PlayerState.attack2:
                 PlayerAttack2State();
+                break;
+            case PlayerState.attack3:
+                PlayerAttack3State();
                 break;
             case PlayerState.dash:
                 PlayerDashState();
@@ -103,17 +111,43 @@ public class Player2 : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - offset;
         rb.rotation = angle;
 
-        
+
         // Animation Event trigger for Basic Attack
-        if (BasicAttack.basicAttackTrigger)
+        if (BasicAttack.basicAttackTrigger && state == PlayerState.attack)
         {
             BasicAttack.basicAttackTrigger = false;
 
-            canBasicAttack = true;
+            //canBasicAttack = true;
             weapon.SetActive(true);
             state = PlayerState.idle;
         }
-        
+
+        if (BasicAttack.basicAttack2Trigger && state == PlayerState.attack2)
+        {
+            BasicAttack.basicAttack2Trigger = false;
+
+            //canBasicAttack = true;
+            weapon.SetActive(true);
+            state = PlayerState.idle;
+        }
+
+        if (canBasicAttack2)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                state = PlayerState.attack2;
+            }
+        }
+
+        if (canBasicAttack3)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                state = PlayerState.attack3;
+            }
+
+        }
+
     }
 
     /////// States \\\\\\\
@@ -155,22 +189,41 @@ public class Player2 : MonoBehaviour
             GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
             basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
-
-            /*
-            // Basic Attack 2 Transition
-            if (canBasicAttack2 && Input.GetKey(basicAttackKey))
-            {
-                canBasicAttack2 = false;
-                isBasicAttack2 = true;
-                state = PlayerState.attack2;
-            }
-            */
         }
     }
 
     void PlayerAttack2State()
     {
+        if (canBasicAttack2)
+        {
+            // Prevents attacking more than once
+            canBasicAttack2 = false;
+            weapon.SetActive(false);
 
+            SlideForwad();
+
+            // Instantiate Basic Attack and Add Force
+            GameObject basicAttack2 = Instantiate(basicAttack2Prefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D basicAttack2RB = basicAttack2.GetComponent<Rigidbody2D>();
+            basicAttack2RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void PlayerAttack3State()
+    {
+        if (canBasicAttack3)
+        {
+            // Prevents attacking more than once
+            canBasicAttack3 = false;
+            weapon.SetActive(false);
+
+            SlideForwad();
+
+            // Instantiate Basic Attack and Add Force
+            GameObject basicAttack3 = Instantiate(basicAttack3Prefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D basicAttack3RB = basicAttack3.GetComponent<Rigidbody2D>();
+            basicAttack3RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+        }
     }
 
     void PlayerDashState()
@@ -242,7 +295,15 @@ public class Player2 : MonoBehaviour
         if (Input.GetKey(basicAttackKey) && canBasicAttack)
         {
             state = PlayerState.attack;
+            StartCoroutine(BasicAttackCoolDown());
         }
+    }
+
+    IEnumerator BasicAttackCoolDown()
+    {
+        yield return new WaitForSeconds(basicAttackCoolDown);
+
+        canBasicAttack = true;
     }
 
     public void DashKeyPressed()

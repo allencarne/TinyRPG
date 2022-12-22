@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
             weapon.SetActive(false);
             state = PlayerState.idle;
         }
-
+        /*
         // Animation Event trigger for Basic Attack 2
         if (BasicAttack.basicAttack2Trigger)
         {
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
             weapon.SetActive(false);
             state = PlayerState.idle;
         }
-
+        */
         //Quaternion rot = Quaternion.FromToRotation(Vector3.up, moveDir);
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
