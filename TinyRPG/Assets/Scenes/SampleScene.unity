@@ -252,7 +252,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299490161}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -350,7 +350,6 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 299490164}
   firePoint: {fileID: 205437939}
-  weapon: {fileID: 205437937}
   animator: {fileID: 299490168}
   basicAttackPrefab: {fileID: 662186980665146007, guid: 316235a7fafe4684580a19d56405daa4, type: 3}
   basicAttackSlideVelocity: 20

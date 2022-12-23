@@ -7,14 +7,13 @@ public class Player2 : MonoBehaviour
     [Header("Variables")]
     [SerializeField] int moveSpeed;
     [HideInInspector] Vector2 movement;
-
+    [HideInInspector] Vector2 difference;
     [HideInInspector] Vector2 mousePos;
     [HideInInspector] float offset;
 
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
-    [SerializeField] GameObject weapon;
     [HideInInspector] Camera cam;
     [SerializeField] Animator animator;
 
@@ -76,7 +75,6 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         Debug.Log(state);
-        Debug.Log(canBasicAttack2);
 
         switch (state)
         {
@@ -110,21 +108,18 @@ public class Player2 : MonoBehaviour
         if (BasicAttack.basicAttackTrigger && state == PlayerState.attack)
         {
             BasicAttack.basicAttackTrigger = false;
-            weapon.SetActive(true);
             state = PlayerState.idle;
         }
 
         if (BasicAttack.basicAttack2Trigger && state == PlayerState.attack2)
         {
             BasicAttack.basicAttack2Trigger = false;
-            weapon.SetActive(true);
             state = PlayerState.idle;
         }
 
         if (BasicAttack.basicAttack3Trigger && state == PlayerState.attack3)
         {
             BasicAttack.basicAttack3Trigger = false;
-            weapon.SetActive(true);
             state = PlayerState.idle;
         }
 
@@ -194,18 +189,11 @@ public class Player2 : MonoBehaviour
             animator.Play("Attack");
 
             // Calculate the difference between mouse position and player position
-            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-            // Set Attack Animation Depending on Mouse Position
-            animator.SetFloat("Aim Horizontal", difference.x);
-            animator.SetFloat("Aim Vertical", difference.y);
-            // Set Idle to last attack position
-            animator.SetFloat("Horizontal", difference.x);
-            animator.SetFloat("Vertical", difference.y);
+            Difference();
+            AnimationDirection();
 
             // Prevents Attacking more than once
             canBasicAttack = false;
-            weapon.SetActive(false);
 
             SlideForwad();
 
@@ -224,18 +212,11 @@ public class Player2 : MonoBehaviour
             animator.Play("Attack");
 
             // Calculate the difference between mouse position and player position
-            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-            // Set Attack Animation Depending on Mouse Position
-            animator.SetFloat("Aim Horizontal", difference.x);
-            animator.SetFloat("Aim Vertical", difference.y);
-            // Set Idle to last attack position
-            animator.SetFloat("Horizontal", difference.x);
-            animator.SetFloat("Vertical", difference.y);
+            Difference();
+            AnimationDirection();
 
             // Prevents attacking more than once
             canBasicAttack2 = false;
-            weapon.SetActive(false);
 
             SlideForwad();
 
@@ -254,18 +235,11 @@ public class Player2 : MonoBehaviour
             animator.Play("Attack");
 
             // Calculate the difference between mouse position and player position
-            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-            // Set Attack Animation Depending on Mouse Position
-            animator.SetFloat("Aim Horizontal", difference.x);
-            animator.SetFloat("Aim Vertical", difference.y);
-            // Set Idle to last attack position
-            animator.SetFloat("Horizontal", difference.x);
-            animator.SetFloat("Vertical", difference.y);
+            Difference();
+            AnimationDirection();
 
             // Prevents attacking more than once
             canBasicAttack3 = false;
-            weapon.SetActive(false);
 
             SlideForwad();
 
@@ -365,12 +339,16 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    // Helper Methods
+    /////// Helper Methods \\\\\\\
+    public void Difference()
+    {
+        difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+    }
 
     public void SlideForwad()
     {
         // Calculate the difference between mouse position and player position
-        Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Difference();
 
         if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > attackRange)
         {
@@ -379,5 +357,15 @@ public class Player2 : MonoBehaviour
             // Slide in Attack Direction
             rb.AddForce(difference, ForceMode2D.Impulse);
         }
+    }
+
+    public void AnimationDirection()
+    {
+        // Set Attack Animation Depending on Mouse Position
+        animator.SetFloat("Aim Horizontal", difference.x);
+        animator.SetFloat("Aim Vertical", difference.y);
+        // Set Idle to last attack position
+        animator.SetFloat("Horizontal", difference.x);
+        animator.SetFloat("Vertical", difference.y);
     }
 }
