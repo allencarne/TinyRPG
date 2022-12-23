@@ -16,6 +16,7 @@ public class Player2 : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject weapon;
     [HideInInspector] Camera cam;
+    [SerializeField] Animator animator;
 
     [Header("Basic Attack")]
     [SerializeField] GameObject basicAttackPrefab;
@@ -105,13 +106,6 @@ public class Player2 : MonoBehaviour
                 break;
         }
 
-        // Rotation
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - offset;
-        rb.rotation = angle;
-
-
         // Animation Event trigger for Basic Attack
         if (BasicAttack.basicAttackTrigger && state == PlayerState.attack)
         {
@@ -157,6 +151,9 @@ public class Player2 : MonoBehaviour
 
     void PlayerIdleState()
     {
+        // Animation
+        animator.Play("Idle");
+
         // Tranitions
         MoveKeyPressed();
         AttackKeyPressed();
@@ -165,6 +162,17 @@ public class Player2 : MonoBehaviour
 
     void PlayerMoveState()
     {
+        // Aniamtion
+        animator.Play("Run");
+
+        // Set idle Animation after move
+        if (movement != Vector2.zero)
+        {
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+        }
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
         // Input
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movement = moveInput.normalized * moveSpeed;
@@ -182,6 +190,19 @@ public class Player2 : MonoBehaviour
     {
         if (canBasicAttack)
         {
+            // Animation
+            animator.Play("Attack");
+
+            // Calculate the difference between mouse position and player position
+            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+            // Set Attack Animation Depending on Mouse Position
+            animator.SetFloat("Aim Horizontal", difference.x);
+            animator.SetFloat("Aim Vertical", difference.y);
+            // Set Idle to last attack position
+            animator.SetFloat("Horizontal", difference.x);
+            animator.SetFloat("Vertical", difference.y);
+
             // Prevents Attacking more than once
             canBasicAttack = false;
             weapon.SetActive(false);
@@ -199,6 +220,19 @@ public class Player2 : MonoBehaviour
     {
         if (canBasicAttack2)
         {
+            // Animation
+            animator.Play("Attack");
+
+            // Calculate the difference between mouse position and player position
+            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+            // Set Attack Animation Depending on Mouse Position
+            animator.SetFloat("Aim Horizontal", difference.x);
+            animator.SetFloat("Aim Vertical", difference.y);
+            // Set Idle to last attack position
+            animator.SetFloat("Horizontal", difference.x);
+            animator.SetFloat("Vertical", difference.y);
+
             // Prevents attacking more than once
             canBasicAttack2 = false;
             weapon.SetActive(false);
@@ -216,6 +250,19 @@ public class Player2 : MonoBehaviour
     {
         if (canBasicAttack3)
         {
+            // Animation
+            animator.Play("Attack");
+
+            // Calculate the difference between mouse position and player position
+            Vector2 difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+            // Set Attack Animation Depending on Mouse Position
+            animator.SetFloat("Aim Horizontal", difference.x);
+            animator.SetFloat("Aim Vertical", difference.y);
+            // Set Idle to last attack position
+            animator.SetFloat("Horizontal", difference.x);
+            animator.SetFloat("Vertical", difference.y);
+
             // Prevents attacking more than once
             canBasicAttack3 = false;
             weapon.SetActive(false);
