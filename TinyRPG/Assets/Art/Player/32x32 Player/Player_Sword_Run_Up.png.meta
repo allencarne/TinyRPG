@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d899bf43d7323674fb824910a6e76444
+guid: 8712fd8125f895e4b8818e1fe46b2ee2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_0
+      name: Player_Sword_Run_Up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f64c019dddedf3f4a9533989009d6b13
-      internalID: -179303604
+      spriteID: ef0b15f51215e13409dd6b4563a0aebf
+      internalID: -483068871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_1
+      name: Player_Sword_Run_Up_1
       rect:
         serializedVersion: 2
         x: 64
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcc0820e02e307549aa60e296c366f9c
-      internalID: 395641002
+      spriteID: e46ea2792a216084fa84d41db5807933
+      internalID: -2051798476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_2
+      name: Player_Sword_Run_Up_2
       rect:
         serializedVersion: 2
         x: 128
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b111b4df4f80aa644b935123d1600eb6
-      internalID: -903679806
+      spriteID: edd5e7971a95b5840abfa090dc61095e
+      internalID: 1498118034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_3
+      name: Player_Sword_Run_Up_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdf509ffa28523a428c0d9ac90df7dbf
-      internalID: 1334319602
+      spriteID: 10bdafa321a054545afdc05f5f3f4bb0
+      internalID: 1129749835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_4
+      name: Player_Sword_Run_Up_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6387422ae6b6124eb37874fae9ced92
-      internalID: -1756686688
+      spriteID: 0e4ddec205427d543ab012293029ef87
+      internalID: -1124420812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_5
+      name: Player_Sword_Run_Up_5
       rect:
         serializedVersion: 2
         x: 320
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f965fc7d7cf6d544a8a7ca7011c92f3
-      internalID: 1829386931
+      spriteID: ed842b768e8211d4fba73db2473f20ac
+      internalID: -2005649759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_6
+      name: Player_Sword_Run_Up_6
       rect:
         serializedVersion: 2
         x: 384
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a620c98f8e8bb9478038eb126663af2
-      internalID: 1304733179
+      spriteID: 5a7198177b855234382ddac8bc48511a
+      internalID: -737031310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Run_Down_7
+      name: Player_Sword_Run_Up_7
       rect:
         serializedVersion: 2
         x: 448
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01cede9db9b25e0409bc373f786bfe43
-      internalID: -1110580396
+      spriteID: 53248f04ac6db7b48ad7ea783d21520d
+      internalID: 1089617656
       vertices: []
       indices: 
       edges: []
@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Sword_Run_Down_1: 395641002
-      Player_Sword_Run_Down_6: 1304733179
-      Player_Sword_Run_Down_7: -1110580396
-      Player_Sword_Run_Down_4: -1756686688
-      Player_Sword_Run_Down_5: 1829386931
-      Player_Sword_Run_Down_2: -903679806
-      Player_Sword_Run_Down_0: -179303604
-      Player_Sword_Run_Down_3: 1334319602
+      Player_Sword_Run_Up_2: 1498118034
+      Player_Sword_Run_Up_7: 1089617656
+      Player_Sword_Run_Up_0: -483068871
+      Player_Sword_Run_Up_1: -2051798476
+      Player_Sword_Run_Up_5: -2005649759
+      Player_Sword_Run_Up_3: 1129749835
+      Player_Sword_Run_Up_4: -1124420812
+      Player_Sword_Run_Up_6: -737031310
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
