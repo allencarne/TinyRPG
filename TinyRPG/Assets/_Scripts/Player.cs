@@ -198,9 +198,9 @@ public class Player : MonoBehaviour
             SlideForwad();
 
             // Instantiate Basic Attack and Add Force
-            GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
-            basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            //GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
+            //Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
+            //basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
         }
     }
 
@@ -367,5 +367,12 @@ public class Player : MonoBehaviour
         // Set Idle to last attack position
         animator.SetFloat("Horizontal", difference.x);
         animator.SetFloat("Vertical", difference.y);
+    }
+
+    // Animation Events
+
+    public void AE_BasicAttackEnd()
+    {
+        state = PlayerState.idle;
     }
 }
