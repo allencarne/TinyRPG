@@ -104,25 +104,6 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        // Animation Event trigger for Basic Attack
-        if (BasicAttack.basicAttackTrigger && state == PlayerState.attack)
-        {
-            BasicAttack.basicAttackTrigger = false;
-            state = PlayerState.idle;
-        }
-
-        if (BasicAttack.basicAttack2Trigger && state == PlayerState.attack2)
-        {
-            BasicAttack.basicAttack2Trigger = false;
-            state = PlayerState.idle;
-        }
-
-        if (BasicAttack.basicAttack3Trigger && state == PlayerState.attack3)
-        {
-            BasicAttack.basicAttack3Trigger = false;
-            state = PlayerState.idle;
-        }
-
         if (canBasicAttack2)
         {
             if (Input.GetMouseButtonDown(0))
@@ -198,9 +179,9 @@ public class Player : MonoBehaviour
             SlideForwad();
 
             // Instantiate Basic Attack and Add Force
-            //GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
-            //Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
-            //basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
+            basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
         }
     }
 
