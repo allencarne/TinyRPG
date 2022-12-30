@@ -6378,8 +6378,9 @@ MonoBehaviour:
   basicAttackCoolDown: 1
   basicAttackForce: 0
   attackRange: 10.2
-  basicAttack2Prefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
-  basicAttack3Prefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
+  basicAttackSlideForce: 10
+  basicAttack2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
+  basicAttack3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
   dashCoolDown: 0.5
   dashVelocity: 0.5
   basicAttackKey: 323

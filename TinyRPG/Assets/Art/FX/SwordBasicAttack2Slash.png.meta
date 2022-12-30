@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36fc93312a4c2194e8c74c1641637361
+guid: 199d10f039b14eb4ba0b61d87d065cd6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SwordBasicAttack2_0
+      name: SwordBasicAttack2Slash_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f9954e97c231cb439fa89132675a5fa
-      internalID: 703361442
+      spriteID: 0e430d9e6f0ebaa4a929e74ac4f966f1
+      internalID: -2082978696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwordBasicAttack2_1
+      name: SwordBasicAttack2Slash_1
       rect:
         serializedVersion: 2
         x: 128
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122d908693ad5df4a9b3a82f57917c5d
-      internalID: 1616927603
+      spriteID: d3f8765205fd5ff499b51978d8b4da21
+      internalID: 866621873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwordBasicAttack2_2
+      name: SwordBasicAttack2Slash_2
       rect:
         serializedVersion: 2
         x: 256
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac98384a101627e428c038f3cd7804ef
-      internalID: -2109584003
+      spriteID: 8738c18900fcd4848940304ba610943e
+      internalID: 1170139722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwordBasicAttack2_3
+      name: SwordBasicAttack2Slash_3
       rect:
         serializedVersion: 2
         x: 384
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c89fb23a97e38f1418a72594039750c3
-      internalID: 1306617488
+      spriteID: 7033669894c1d6f4d8599eb8680c5f57
+      internalID: 1601551549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwordBasicAttack2_4
+      name: SwordBasicAttack2Slash_4
       rect:
         serializedVersion: 2
         x: 512
@@ -215,29 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47a71b7de1d124843b565caf45f57232
-      internalID: -1741604647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SwordBasicAttack2_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bad8d4dad9274694e8a30bd97ea0b51a
-      internalID: -1191647149
+      spriteID: 55765796b23ed374b9a325a5f73fd050
+      internalID: 1998225130
       vertices: []
       indices: 
       edges: []
@@ -253,12 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SwordBasicAttack2_3: 1306617488
-      SwordBasicAttack2_5: -1191647149
-      SwordBasicAttack2_0: 703361442
-      SwordBasicAttack2_1: 1616927603
-      SwordBasicAttack2_4: -1741604647
-      SwordBasicAttack2_2: -2109584003
+      SwordBasicAttack2Slash_4: 1998225130
+      SwordBasicAttack2Slash_0: -2082978696
+      SwordBasicAttack2Slash_2: 1170139722
+      SwordBasicAttack2Slash_1: 866621873
+      SwordBasicAttack2Slash_3: 1601551549
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

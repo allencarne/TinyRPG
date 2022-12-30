@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] float basicAttackCoolDown;
     [SerializeField] float basicAttackForce;
     [SerializeField] float attackRange;
+    [SerializeField] float basicAttackSlideForce;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
 
@@ -150,8 +151,6 @@ public class Player : MonoBehaviour
         // Prevents Attacking more than once
         canBasicAttack = false;
 
-        SlideForwad();
-
         if (isBasicAttacking)
         {
             // Prevents attacking more than once
@@ -161,6 +160,8 @@ public class Player : MonoBehaviour
             GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
             basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+
+            SlideForwad();
         }
 
         // Transition
@@ -182,8 +183,6 @@ public class Player : MonoBehaviour
         // Prevents attacking more than once
         canBasicAttack2 = false;
 
-        SlideForwad();
-
         if (isBasicAttacking)
         {
             // Prevents attacking more than once
@@ -193,29 +192,40 @@ public class Player : MonoBehaviour
             GameObject basicAttack2 = Instantiate(basicAttack2Prefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttack2RB = basicAttack2.GetComponent<Rigidbody2D>();
             basicAttack2RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+
+            SlideForwad();
+        }
+
+        // Transition
+        if (canBasicAttack3 && Input.GetKey(basicAttackKey))
+        {
+            state = PlayerState.attack3;
         }
     }
 
     void PlayerAttack3State()
     {
-        if (canBasicAttack3)
+        // Animation
+        animator.Play("Attack");
+
+        // Calculate the difference between mouse position and player position
+        Difference();
+        AnimationDirection();
+
+        // Prevents attacking more than once
+        canBasicAttack3 = false;
+
+        if (isBasicAttacking)
         {
-            // Animation
-            animator.Play("Attack");
-
-            // Calculate the difference between mouse position and player position
-            Difference();
-            AnimationDirection();
-
             // Prevents attacking more than once
-            canBasicAttack3 = false;
-
-            SlideForwad();
+            isBasicAttacking = false;
 
             // Instantiate Basic Attack and Add Force
             GameObject basicAttack3 = Instantiate(basicAttack3Prefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttack3RB = basicAttack3.GetComponent<Rigidbody2D>();
             basicAttack3RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+
+            SlideForwad();
         }
     }
 
@@ -325,7 +335,8 @@ public class Player : MonoBehaviour
             // Normalize movement vector and times it by attack move distance
             difference = difference.normalized * basicAttackSlideVelocity;
             // Slide in Attack Direction
-            rb.AddForce(difference, ForceMode2D.Impulse);
+            //rb.AddForce(difference, ForceMode2D.Impulse);
+            rb.MovePosition(rb.position + difference * basicAttackSlideForce);
         }
     }
 
@@ -346,14 +357,20 @@ public class Player : MonoBehaviour
         isBasicAttacking = true;
     }
 
-    public void AE_BasicAttackEnd()
-    {
-        canBasicAttack2 = false;
-        state = PlayerState.idle;
-    }
-
     public void AE_BasicAttack2()
     {
         canBasicAttack2 = true;
+    }
+
+    public void AE_BasicAttack3()
+    {
+        canBasicAttack3 = true;
+    }
+
+    public void AE_BasicAttackEnd()
+    {
+        canBasicAttack2 = false;
+        canBasicAttack3 = false;
+        state = PlayerState.idle;
     }
 }
