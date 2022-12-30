@@ -3905,7 +3905,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.41509432, g: 0.40922034, b: 0.40922034, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6373,13 +6373,13 @@ MonoBehaviour:
   rb: {fileID: 1486545529}
   firePoint: {fileID: 991706384}
   animator: {fileID: 1486545530}
-  basicAttackPrefab: {fileID: 662186980665146007, guid: 316235a7fafe4684580a19d56405daa4, type: 3}
-  basicAttackSlideVelocity: 20
+  basicAttackPrefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
+  basicAttackSlideVelocity: 0.1
   basicAttackCoolDown: 1
   basicAttackForce: 0
   attackRange: 10.2
-  basicAttack2Prefab: {fileID: 813254988585959754, guid: 668cb717165a4b34a8c53afc9adc0bac, type: 3}
-  basicAttack3Prefab: {fileID: 1045352122082257110, guid: 7949df836bd9457478766e25ccf452e6, type: 3}
+  basicAttack2Prefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
+  basicAttack3Prefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
   dashCoolDown: 0.5
   dashVelocity: 0.5
   basicAttackKey: 323

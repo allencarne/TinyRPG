@@ -23,20 +23,21 @@ public class Player : MonoBehaviour
     [SerializeField] float basicAttackCoolDown;
     [SerializeField] float basicAttackForce;
     [SerializeField] float attackRange;
-    public static bool canBasicAttack;
+    bool canBasicAttack = true;
+    bool isBasicAttacking = false;
 
     [Header("Basic Attack2")]
     [SerializeField] GameObject basicAttack2Prefab;
-    public static bool canBasicAttack2;
+    bool canBasicAttack2 = false;
 
     [Header("Basic Attack3")]
     [SerializeField] GameObject basicAttack3Prefab;
-    public static bool canBasicAttack3;
+    bool canBasicAttack3 = false;
 
     [Header("Dash")]
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
-    [HideInInspector] bool canDash;
+    bool canDash = true;
 
     [Header("Keys")]
     [SerializeField] KeyCode basicAttackKey;
@@ -63,13 +64,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-    }
-
-    void Start()
-    {
-        canBasicAttack = true;
-        canBasicAttack2 = false;
-        canDash = true;
     }
 
     void Update()
@@ -103,24 +97,6 @@ public class Player : MonoBehaviour
                 PlayerDeathState();
                 break;
         }
-
-        if (canBasicAttack2)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                state = PlayerState.attack2;
-            }
-        }
-
-        if (canBasicAttack3)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                state = PlayerState.attack3;
-            }
-
-        }
-
     }
 
     /////// States \\\\\\\
@@ -164,42 +140,54 @@ public class Player : MonoBehaviour
 
     void PlayerAttackState()
     {
-        if (canBasicAttack)
+        // Animation
+        animator.Play("Attack");
+
+        // Calculate the difference between mouse position and player position
+        Difference();
+        AnimationDirection();
+
+        // Prevents Attacking more than once
+        canBasicAttack = false;
+
+        SlideForwad();
+
+        if (isBasicAttacking)
         {
-            // Animation
-            animator.Play("Attack");
-
-            // Calculate the difference between mouse position and player position
-            Difference();
-            AnimationDirection();
-
-            // Prevents Attacking more than once
-            canBasicAttack = false;
-
-            SlideForwad();
+            // Prevents attacking more than once
+            isBasicAttacking = false;
 
             // Instantiate Basic Attack and Add Force
             GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
             basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
         }
+
+        // Transition
+        if (canBasicAttack2 && Input.GetKey(basicAttackKey))
+        {
+            state = PlayerState.attack2;
+        }
     }
 
     void PlayerAttack2State()
     {
-        if (canBasicAttack2)
+        // Animation
+        animator.Play("Attack2");
+
+        // Calculate the difference between mouse position and player position
+        Difference();
+        AnimationDirection();
+
+        // Prevents attacking more than once
+        canBasicAttack2 = false;
+
+        SlideForwad();
+
+        if (isBasicAttacking)
         {
-            // Animation
-            animator.Play("Attack");
-
-            // Calculate the difference between mouse position and player position
-            Difference();
-            AnimationDirection();
-
             // Prevents attacking more than once
-            canBasicAttack2 = false;
-
-            SlideForwad();
+            isBasicAttacking = false;
 
             // Instantiate Basic Attack and Add Force
             GameObject basicAttack2 = Instantiate(basicAttack2Prefab, firePoint.position, firePoint.rotation);
@@ -299,6 +287,7 @@ public class Player : MonoBehaviour
         // Basic Attack Key Pressed
         if (Input.GetKey(basicAttackKey) && canBasicAttack)
         {
+            canBasicAttack = false;
             state = PlayerState.attack;
             StartCoroutine(BasicAttackCoolDown());
         }
@@ -352,8 +341,19 @@ public class Player : MonoBehaviour
 
     // Animation Events
 
+    public void AE_BasicAttack()
+    {
+        isBasicAttacking = true;
+    }
+
     public void AE_BasicAttackEnd()
     {
+        canBasicAttack2 = false;
         state = PlayerState.idle;
+    }
+
+    public void AE_BasicAttack2()
+    {
+        canBasicAttack2 = true;
     }
 }
