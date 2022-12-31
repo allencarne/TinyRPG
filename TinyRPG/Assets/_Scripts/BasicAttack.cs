@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
-    public static bool enemyHit;
+    public bool enemyHit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

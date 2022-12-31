@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5822082935673669872}
   - component: {fileID: 7463988007606297832}
   - component: {fileID: 148392346951129587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwordBasicAttackSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,3 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
+  enemyHit: 0

@@ -104,6 +104,9 @@ public class Player : MonoBehaviour
 
     void PlayerIdleState()
     {
+        // Enables collision of Player and Enemy
+        Physics2D.IgnoreLayerCollision(3, 6, false);
+
         // Animation
         animator.Play("Idle");
 
@@ -334,6 +337,10 @@ public class Player : MonoBehaviour
         {
             // Normalize movement vector and times it by attack move distance
             difference = difference.normalized * basicAttackSlideVelocity;
+
+            // Enables collision of Player and Enemy
+            Physics2D.IgnoreLayerCollision(3, 6, true);
+
             // Slide in Attack Direction
             //rb.AddForce(difference, ForceMode2D.Impulse);
             rb.MovePosition(rb.position + difference * basicAttackSlideForce);
