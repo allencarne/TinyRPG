@@ -6,15 +6,17 @@ public class TrainingDummy : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (BasicAttack.enemyHit)
+        {
+            BasicAttack.enemyHit = false;
+            animator.Play("Hit", 0, 0f);
+        }
+    }
+
+    public void AE_AnimationEnd()
+    {
+        animator.Play("Idle");
     }
 }

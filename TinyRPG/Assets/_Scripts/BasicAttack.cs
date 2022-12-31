@@ -5,13 +5,14 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
+    public static bool enemyHit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
-            Debug.Log("HIT");
+            enemyHit = true;
         }
     }
 }
