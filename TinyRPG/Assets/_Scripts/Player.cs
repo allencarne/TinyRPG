@@ -243,6 +243,10 @@ public class Player : MonoBehaviour
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             movement = moveInput.normalized * moveSpeed;
 
+            // Disables collision of Player and Enemy
+            Physics2D.IgnoreLayerCollision(3, 6, true);
+
+            // Dash
             rb.MovePosition(rb.position + movement * dashVelocity);
             //rb.MovePosition(transform.position + moveDir * dashVelocity);
 
@@ -338,7 +342,7 @@ public class Player : MonoBehaviour
             // Normalize movement vector and times it by attack move distance
             difference = difference.normalized * basicAttackSlideVelocity;
 
-            // Enables collision of Player and Enemy
+            // Disables collision of Player and Enemy
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction

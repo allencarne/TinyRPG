@@ -5,18 +5,13 @@ using UnityEngine;
 public class TrainingDummy : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    BasicAttack basicAttack;
-
-    private void Awake()
-    {
-        basicAttack = GetComponent<BasicAttack>();
-    }
+    public bool enemyHit;
 
     void Update()
     {
-        if (basicAttack.enemyHit)
+        if (enemyHit)
         {
-            basicAttack.enemyHit = false;
+            enemyHit = false;
             animator.Play("Hit", 0, 0f);
         }
     }
