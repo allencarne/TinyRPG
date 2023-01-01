@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] float basicAttackForce;
     [SerializeField] float attackRange;
     [SerializeField] float basicAttackSlideForce;
+    public static float knockBackForce = 5;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
 

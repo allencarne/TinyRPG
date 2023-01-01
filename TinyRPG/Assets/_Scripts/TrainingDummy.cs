@@ -6,6 +6,13 @@ public class TrainingDummy : MonoBehaviour
 {
     [SerializeField] Animator animator;
     public bool enemyHit;
+    public Vector2 startPosition;
+    public float idleTime;
+
+    private void Awake()
+    {
+        startPosition = transform.position;
+    }
 
     void Update()
     {
@@ -13,6 +20,23 @@ public class TrainingDummy : MonoBehaviour
         {
             enemyHit = false;
             animator.Play("Hit", 0, 0f);
+
+            idleTime = 0;
+        }
+
+        if (!enemyHit)
+        {
+            idleTime++;
+        }
+
+        if (idleTime >= 1000)
+        {
+            transform.position = startPosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            transform.position = startPosition;
         }
     }
 

@@ -5,8 +5,6 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
-    [SerializeField] float knockBackForce;
-    //public static bool enemyHit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,9 +18,9 @@ public class BasicAttack : MonoBehaviour
 
             enemy.enemyHit = true;
 
-            Vector2 direction = (transform.position + enemy.transform.position).normalized;
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
 
-            enemyRB.velocity = direction * knockBackForce;
+            enemyRB.velocity = direction * Player.knockBackForce;
         }
     }
 }
