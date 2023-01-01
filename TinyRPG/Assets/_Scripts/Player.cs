@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     [Header("Basic Attack")]
     [SerializeField] GameObject basicAttackPrefab;
-    [SerializeField] float basicAttackSlideVelocity;
     [SerializeField] float basicAttackCoolDown;
     [SerializeField] float basicAttackForce;
     [SerializeField] float attackRange;
@@ -39,6 +38,7 @@ public class Player : MonoBehaviour
     [Header("Dash")]
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
+    [SerializeField] GameObject dashIndicator;
     bool canDash = true;
 
     [Header("Keys")]
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         movement = moveInput.normalized * moveSpeed;
 
         // Movement
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        Movement();
 
         // Transitions
         NoMoveKeyPressed();
@@ -240,16 +240,12 @@ public class Player : MonoBehaviour
             // Prevents Dashing more than once
             canDash = false;
 
-            // Input
-            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            movement = moveInput.normalized * moveSpeed;
+            Difference();
+            //difference = difference.normalized * dashVelocity;
 
-            // Disables collision of Player and Enemy
-            Physics2D.IgnoreLayerCollision(3, 6, true);
-
-            // Dash
-            rb.MovePosition(rb.position + movement * dashVelocity);
-            //rb.MovePosition(transform.position + moveDir * dashVelocity);
+            // Logic
+            rb.MovePosition(rb.position + difference * Time.deltaTime * dashVelocity);
+            //rb.velocity = difference * moveSpeed;
 
             // Transition
             StartCoroutine(DashDelay());
@@ -320,9 +316,18 @@ public class Player : MonoBehaviour
 
     public void DashKeyPressed()
     {
+        bool held = Input.GetKeyUp(dashKey);
+
         // Dash Key Pressed
         if (Input.GetKey(dashKey) && canDash)
         {
+            dashIndicator.SetActive(true);
+        }
+
+        // Dash Key Held
+        if (held)
+        {
+            dashIndicator.SetActive(false);
             state = PlayerState.dash;
         }
     }
@@ -330,7 +335,22 @@ public class Player : MonoBehaviour
     /////// Helper Methods \\\\\\\
     public void Difference()
     {
+        // Calculates the difference between the mouse position and player position
+        // Not Normalized
         difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+    }
+
+    public void Blink()
+    {
+        // Instantly Teleport in direction of movement keys
+        // Does not teleport if no movment keys are being pressed
+        rb.MovePosition(rb.position + movement * dashVelocity);
+    }
+
+    public void Movement()
+    {
+        // Move in direction of movement keys
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
     public void SlideForwad()
@@ -341,14 +361,13 @@ public class Player : MonoBehaviour
         if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > attackRange)
         {
             // Normalize movement vector and times it by attack move distance
-            difference = difference.normalized * basicAttackSlideVelocity;
+            difference = difference.normalized * basicAttackSlideForce;
 
             // Disables collision of Player and Enemy
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            //rb.AddForce(difference, ForceMode2D.Impulse);
-            rb.MovePosition(rb.position + difference * basicAttackSlideForce);
+            rb.MovePosition(rb.position + difference);
         }
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4836217849484957380}
   - component: {fileID: 2582082520824670876}
   - component: {fileID: 2509687275695181859}
+  - component: {fileID: 1988019945695181213}
   m_Layer: 0
   m_Name: SwordBasicAttack3Slash
   m_TagString: Untagged
@@ -129,7 +130,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4539020850030800105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -181,4 +182,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
-  knockBackForce: 5
+--- !u!70 &1988019945695181213
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539020850030800105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.059439905, y: 0.000000007085788}
+  m_Size: {x: 3.881126, y: 3.0946712}
+  m_Direction: 1
