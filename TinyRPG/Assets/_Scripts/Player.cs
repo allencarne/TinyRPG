@@ -241,10 +241,10 @@ public class Player : MonoBehaviour
             canDash = false;
 
             Difference();
-            //difference = difference.normalized * dashVelocity;
+            difference = difference.normalized * dashVelocity;
 
             // Logic
-            rb.MovePosition(rb.position + difference * Time.deltaTime * dashVelocity);
+            rb.MovePosition(rb.position + difference);
             //rb.velocity = difference * moveSpeed;
 
             // Transition
