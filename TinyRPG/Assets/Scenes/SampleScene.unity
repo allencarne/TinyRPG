@@ -2304,7 +2304,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0519a939cc069c74cac1d2699fc8cf7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5829,7 +5829,7 @@ Rigidbody2D:
   m_LinearDrag: 2
   m_AngularDrag: 2
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ae82cf9c28047ea4781def9a9426fcca, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -5878,7 +5878,7 @@ MonoBehaviour:
   basicAttack2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
   basicAttack3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
   dashCoolDown: 0.5
-  dashVelocity: 3
+  dashVelocity: 15
   dashIndicator: {fileID: 218761798}
   basicAttackKey: 323
   dashKey: 32

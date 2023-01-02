@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Variables")]
-    [SerializeField] int moveSpeed;
+    [SerializeField] float moveSpeed;
     [HideInInspector] Vector2 movement;
     [HideInInspector] Vector2 difference;
     [HideInInspector] Vector2 mousePos;
@@ -237,15 +237,19 @@ public class Player : MonoBehaviour
     {
         if (canDash)
         {
+            // Animation
+            animator.Play("Run");
+
+            // Calculate the difference between mouse position and player position
+            Difference();
+            AnimationDirection();
+
             // Prevents Dashing more than once
             canDash = false;
 
-            Difference();
-            difference = difference.normalized * dashVelocity;
-
             // Logic
-            rb.MovePosition(rb.position + difference);
-            //rb.velocity = difference * moveSpeed;
+            rb.velocity = difference.normalized * dashVelocity;
+            
 
             // Transition
             StartCoroutine(DashDelay());
@@ -255,8 +259,8 @@ public class Player : MonoBehaviour
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(.1f);
-
+        yield return new WaitForSeconds(.5f);
+        rb.velocity = new Vector2(0, 0);
         state = PlayerState.idle;
     }
 
