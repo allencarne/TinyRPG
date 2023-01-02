@@ -2304,7 +2304,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0519a939cc069c74cac1d2699fc8cf7b, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5735,9 +5735,9 @@ GameObject:
   - component: {fileID: 1486545528}
   - component: {fileID: 1486545527}
   - component: {fileID: 1486545531}
-  - component: {fileID: 1486545530}
   - component: {fileID: 1486545529}
   - component: {fileID: 1486545532}
+  - component: {fileID: 1486545530}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -5877,6 +5877,8 @@ MonoBehaviour:
   basicAttackSlideForce: 1
   basicAttack2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
   basicAttack3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
+  dashForceField: {fileID: 1353553065529755636, guid: 6c670ac63dbca6a409ce24b8ceebc61f, type: 3}
+  dashTelegraph: {fileID: 2968445849334936289, guid: 397dbf0f3c9f29746b42f31a39d21996, type: 3}
   dashCoolDown: 0.5
   dashVelocity: 15
   dashIndicator: {fileID: 218761798}

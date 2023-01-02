@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [Header("Variables")]
     [SerializeField] float moveSpeed;
     [HideInInspector] Vector2 movement;
-    [HideInInspector] Vector2 difference;
+    [HideInInspector] Vector2 angleToMouse;
     [HideInInspector] Vector2 mousePos;
     [HideInInspector] float offset;
 
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [SerializeField] GameObject dashIndicator;
+    public static bool dashCollide = false;
     bool canDash = true;
 
     [Header("Keys")]
@@ -72,7 +73,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
+        Debug.Log(dashCollide);
 
         switch (state)
         {
@@ -109,6 +111,7 @@ public class Player : MonoBehaviour
     {
         // Enables collision of Player and Enemy
         Physics2D.IgnoreLayerCollision(3, 6, false);
+        dashCollide = false;
 
         // Animation
         animator.Play("Idle");
@@ -151,7 +154,7 @@ public class Player : MonoBehaviour
         animator.Play("Attack");
 
         // Calculate the difference between mouse position and player position
-        Difference();
+        AngleToMouse();
         AnimationDirection();
 
         // Prevents Attacking more than once
@@ -183,7 +186,7 @@ public class Player : MonoBehaviour
         animator.Play("Attack2");
 
         // Calculate the difference between mouse position and player position
-        Difference();
+        AngleToMouse();
         AnimationDirection();
 
         // Prevents attacking more than once
@@ -215,7 +218,7 @@ public class Player : MonoBehaviour
         animator.Play("Attack");
 
         // Calculate the difference between mouse position and player position
-        Difference();
+        AngleToMouse();
         AnimationDirection();
 
         // Prevents attacking more than once
@@ -243,20 +246,33 @@ public class Player : MonoBehaviour
             animator.Play("Run");
 
             // Calculate the difference between mouse position and player position
-            Difference();
+            AngleToMouse();
             AnimationDirection();
 
             // Prevents Dashing more than once
             canDash = false;
 
             // Logic
-            rb.velocity = difference.normalized * dashVelocity;
+            rb.velocity = angleToMouse.normalized * dashVelocity;
 
             GameObject dashFF = Instantiate(dashForceField, firePoint.position, firePoint.rotation);
             Destroy(dashFF, .5f);
 
+            if (dashCollide)
+            {
+                // If collision happens end early
+                rb.velocity = new Vector2(0, 0);
+                GameObject dashTG = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
+                Destroy(dashTG, .3f);
+                state = PlayerState.idle;
+            } else
+            {
+                // If no collision early, normal delay
+                StartCoroutine(DashDelay());
+            }
+
             // Transition
-            StartCoroutine(DashDelay());
+            //StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
         }
     }
@@ -343,11 +359,11 @@ public class Player : MonoBehaviour
     }
 
     /////// Helper Methods \\\\\\\
-    public void Difference()
+    public void AngleToMouse()
     {
         // Calculates the difference between the mouse position and player position
         // Not Normalized
-        difference = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        angleToMouse = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
     }
 
     public void Blink()
@@ -366,29 +382,29 @@ public class Player : MonoBehaviour
     public void SlideForwad()
     {
         // Calculate the difference between mouse position and player position
-        Difference();
+        AngleToMouse();
 
         if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > attackRange)
         {
             // Normalize movement vector and times it by attack move distance
-            difference = difference.normalized * basicAttackSlideForce;
+            angleToMouse = angleToMouse.normalized * basicAttackSlideForce;
 
             // Disables collision of Player and Enemy
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            rb.MovePosition(rb.position + difference);
+            rb.MovePosition(rb.position + angleToMouse);
         }
     }
 
     public void AnimationDirection()
     {
         // Set Attack Animation Depending on Mouse Position
-        animator.SetFloat("Aim Horizontal", difference.x);
-        animator.SetFloat("Aim Vertical", difference.y);
+        animator.SetFloat("Aim Horizontal", angleToMouse.x);
+        animator.SetFloat("Aim Vertical", angleToMouse.y);
         // Set Idle to last attack position
-        animator.SetFloat("Horizontal", difference.x);
-        animator.SetFloat("Vertical", difference.y);
+        animator.SetFloat("Horizontal", angleToMouse.x);
+        animator.SetFloat("Vertical", angleToMouse.y);
     }
 
     // Animation Events
