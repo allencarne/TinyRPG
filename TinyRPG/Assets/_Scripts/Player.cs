@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     bool canBasicAttack3 = false;
 
     [Header("Dash")]
+    [SerializeField] GameObject dashForceField;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [SerializeField] GameObject dashIndicator;
@@ -249,7 +250,9 @@ public class Player : MonoBehaviour
 
             // Logic
             rb.velocity = difference.normalized * dashVelocity;
-            
+
+            GameObject dashFF = Instantiate(dashForceField, firePoint.position, firePoint.rotation);
+            Destroy(dashFF, .5f);
 
             // Transition
             StartCoroutine(DashDelay());
