@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
 
     [Header("Dash")]
     [SerializeField] GameObject dashForceField;
+    [SerializeField] GameObject dashTelegraph;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [SerializeField] GameObject dashIndicator;
@@ -264,6 +265,8 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         rb.velocity = new Vector2(0, 0);
+        GameObject dashTG = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
+        Destroy(dashTG, .3f);
         state = PlayerState.idle;
     }
 
