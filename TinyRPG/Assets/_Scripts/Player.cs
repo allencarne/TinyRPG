@@ -75,8 +75,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
-        Debug.Log(dashEndPosition.position);
+        Debug.Log(state);
 
         switch (state)
         {
@@ -250,18 +249,15 @@ public class Player : MonoBehaviour
             // Animation
             animator.Play("Run");
 
-            // Calculate the difference between mouse position and player position
-            AngleToMouse();
-            //AnimationDirection();
-            //angleToMouse = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            // Get the ablge of the indicator end position and player position
             var angle = dashEndPosition.position - transform.position;
+
             // Set Attack Animation Depending on Mouse Position
             animator.SetFloat("Aim Horizontal", angle.x);
             animator.SetFloat("Aim Vertical", angle.y);
             // Set Idle to last attack position
             animator.SetFloat("Horizontal", angle.x);
             animator.SetFloat("Vertical", angle.y);
-
 
             // Logic
             //rb.velocity = angleToMouse.normalized * dashVelocity;
@@ -294,7 +290,8 @@ public class Player : MonoBehaviour
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("trigger");
         rb.velocity = new Vector2(0, 0);
 
         if (!dashEndTrigger)
