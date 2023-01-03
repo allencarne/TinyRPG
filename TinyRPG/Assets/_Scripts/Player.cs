@@ -290,7 +290,7 @@ public class Player : MonoBehaviour
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
         Debug.Log("trigger");
         rb.velocity = new Vector2(0, 0);
 
