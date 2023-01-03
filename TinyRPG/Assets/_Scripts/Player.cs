@@ -75,7 +75,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
+        Debug.Log(canDash);
 
         switch (state)
         {
@@ -243,6 +244,7 @@ public class Player : MonoBehaviour
         // This if check makes the following code run only once
         if (canDash)
         {
+            //Debug.Log("Trigger");
             // Prevents Dashing more than once
             canDash = false;
 
@@ -270,6 +272,7 @@ public class Player : MonoBehaviour
             StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
         }
+        
         /*
         // This code will run once a frame
         if (dashCollide && state == PlayerState.dash)
@@ -290,16 +293,19 @@ public class Player : MonoBehaviour
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(.3f);
-        Debug.Log("trigger");
+        yield return new WaitForSeconds(.5f);
         rb.velocity = new Vector2(0, 0);
 
         if (!dashEndTrigger)
         {
+            // Prevents code from running more than once
             dashEndTrigger = true;
+
+            // Spawn DashEndTelegraph
             GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
             Destroy(_dashEndTelegraph, .3f);
         }
+        dashEndTrigger = false;
         state = PlayerState.idle;
     }
 
@@ -368,7 +374,7 @@ public class Player : MonoBehaviour
         }
 
         // Dash Key Held
-        if (held)
+        if (held && canDash)
         {
             dashIndicator.SetActive(false);
             state = PlayerState.dash;
