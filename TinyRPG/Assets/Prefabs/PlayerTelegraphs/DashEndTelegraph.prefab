@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8715397789293235604}
   - component: {fileID: -4400715856594005379}
   m_Layer: 0
-  m_Name: PlayerDashTelegraph
+  m_Name: DashEndTelegraph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

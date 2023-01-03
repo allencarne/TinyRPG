@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashForceField : MonoBehaviour
+public class DashTelegraph : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {

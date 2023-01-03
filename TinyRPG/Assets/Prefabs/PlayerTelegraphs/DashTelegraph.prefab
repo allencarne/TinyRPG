@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1353553065529755635}
   - component: {fileID: 1353553065529755633}
   - component: {fileID: 7140996383332917556}
-  - component: {fileID: -6685090071014364504}
-  - component: {fileID: 5848065376957638419}
+  - component: {fileID: 6044673957505603767}
+  - component: {fileID: 3700403967420398637}
   m_Layer: 0
-  m_Name: DashForceField
+  m_Name: DashTelegraph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,20 +208,8 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &-6685090071014364504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353553065529755636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4b1a14ba938534fa9924a10b7b6ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &5848065376957638419
-CircleCollider2D:
+--- !u!60 &6044673957505603767
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -234,5 +222,34 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.088267505, y: 0.49529308}
+      - {x: -0.00035700202, y: 0.5020046}
+      - {x: -0.0023616105, y: -0.5020046}
+      - {x: 0.10068995, y: -0.49529314}
+      - {x: 0.36952892, y: -0.34818184}
+      - {x: 0.4975295, y: -0.10007087}
+      - {x: 0.49771106, y: 0.08818587}
+      - {x: 0.37373137, y: 0.34649444}
+--- !u!114 &3700403967420398637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353553065529755636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24c6193a173bf948bb37a8562a6eed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

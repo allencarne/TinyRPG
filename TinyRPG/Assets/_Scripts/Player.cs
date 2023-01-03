@@ -36,8 +36,8 @@ public class Player : MonoBehaviour
     bool canBasicAttack3 = false;
 
     [Header("Dash")]
-    [SerializeField] GameObject dashForceField;
     [SerializeField] GameObject dashTelegraph;
+    [SerializeField] GameObject dashEndTelegraph;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [SerializeField] GameObject dashIndicator;
@@ -103,6 +103,16 @@ public class Player : MonoBehaviour
                 PlayerDeathState();
                 break;
         }
+
+        if (dashCollide)
+        {
+            // If collision happens end early
+            dashCollide = false;
+            rb.velocity = new Vector2(0, 0);
+            GameObject dashTG = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+            Destroy(dashTG, .3f);
+            state = PlayerState.idle;
+        }
     }
 
     /////// States \\\\\\\
@@ -111,7 +121,6 @@ public class Player : MonoBehaviour
     {
         // Enables collision of Player and Enemy
         Physics2D.IgnoreLayerCollision(3, 6, false);
-        dashCollide = false;
 
         // Animation
         animator.Play("Idle");
@@ -255,24 +264,11 @@ public class Player : MonoBehaviour
             // Logic
             rb.velocity = angleToMouse.normalized * dashVelocity;
 
-            GameObject dashFF = Instantiate(dashForceField, firePoint.position, firePoint.rotation);
-            Destroy(dashFF, .5f);
-
-            if (dashCollide)
-            {
-                // If collision happens end early
-                rb.velocity = new Vector2(0, 0);
-                GameObject dashTG = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
-                Destroy(dashTG, .3f);
-                state = PlayerState.idle;
-            } else
-            {
-                // If no collision early, normal delay
-                StartCoroutine(DashDelay());
-            }
+            GameObject _dashTelegraph = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
+            Destroy(_dashTelegraph, .5f);
 
             // Transition
-            //StartCoroutine(DashDelay());
+            StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
         }
     }
@@ -281,8 +277,8 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         rb.velocity = new Vector2(0, 0);
-        GameObject dashTG = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
-        Destroy(dashTG, .3f);
+        GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+        Destroy(_dashEndTelegraph, .3f);
         state = PlayerState.idle;
     }
 
