@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public static float knockBackForce = 5;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
+    bool dashEndTrigger = false;
 
     [Header("Basic Attack2")]
     [SerializeField] GameObject basicAttack2Prefab;
@@ -73,8 +74,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
-        Debug.Log(dashCollide);
+        Debug.Log(state);
 
         switch (state)
         {
@@ -102,16 +102,6 @@ public class Player : MonoBehaviour
             case PlayerState.death:
                 PlayerDeathState();
                 break;
-        }
-
-        if (dashCollide)
-        {
-            // If collision happens end early
-            dashCollide = false;
-            rb.velocity = new Vector2(0, 0);
-            GameObject dashTG = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
-            Destroy(dashTG, .3f);
-            state = PlayerState.idle;
         }
     }
 
@@ -249,17 +239,18 @@ public class Player : MonoBehaviour
 
     void PlayerDashState()
     {
+        // This if check makes the following code run only once
         if (canDash)
         {
+            // Prevents Dashing more than once
+            canDash = false;
+
             // Animation
             animator.Play("Run");
 
             // Calculate the difference between mouse position and player position
             AngleToMouse();
             AnimationDirection();
-
-            // Prevents Dashing more than once
-            canDash = false;
 
             // Logic
             rb.velocity = angleToMouse.normalized * dashVelocity;
@@ -268,17 +259,36 @@ public class Player : MonoBehaviour
             Destroy(_dashTelegraph, .5f);
 
             // Transition
-            StartCoroutine(DashDelay());
+            //StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
+        }
+
+        // This code will run once a frame
+        if (dashCollide)
+        {
+            // If collision happens end early
+            dashCollide = false;
+            rb.velocity = new Vector2(0, 0);
+            GameObject dashTG = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+            Destroy(dashTG, .3f);
+            state = PlayerState.idle;
+        } else
+        {
+            StartCoroutine(DashDelay());
         }
     }
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         rb.velocity = new Vector2(0, 0);
-        GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
-        Destroy(_dashEndTelegraph, .3f);
+
+        if (!dashEndTrigger)
+        {
+            dashEndTrigger = true;
+            GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+            Destroy(_dashEndTelegraph, .3f);
+        }
         state = PlayerState.idle;
     }
 
