@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     [Header("Dash")]
     [SerializeField] GameObject dashTelegraph;
     [SerializeField] GameObject dashEndTelegraph;
+    [SerializeField] Transform dashEndPosition;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     [SerializeField] GameObject dashIndicator;
@@ -74,7 +75,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
+        Debug.Log(dashEndPosition.position);
 
         switch (state)
         {
@@ -250,21 +252,31 @@ public class Player : MonoBehaviour
 
             // Calculate the difference between mouse position and player position
             AngleToMouse();
-            AnimationDirection();
+            //AnimationDirection();
+            //angleToMouse = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            var angle = dashEndPosition.position - transform.position;
+            // Set Attack Animation Depending on Mouse Position
+            animator.SetFloat("Aim Horizontal", angle.x);
+            animator.SetFloat("Aim Vertical", angle.y);
+            // Set Idle to last attack position
+            animator.SetFloat("Horizontal", angle.x);
+            animator.SetFloat("Vertical", angle.y);
+
 
             // Logic
-            rb.velocity = angleToMouse.normalized * dashVelocity;
+            //rb.velocity = angleToMouse.normalized * dashVelocity;
+            rb.velocity = angle.normalized * dashVelocity;
 
             GameObject _dashTelegraph = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
             Destroy(_dashTelegraph, .5f);
 
             // Transition
-            //StartCoroutine(DashDelay());
+            StartCoroutine(DashDelay());
             StartCoroutine(DashCoolDown());
         }
-
+        /*
         // This code will run once a frame
-        if (dashCollide)
+        if (dashCollide && state == PlayerState.dash)
         {
             // If collision happens end early
             dashCollide = false;
@@ -272,15 +284,17 @@ public class Player : MonoBehaviour
             GameObject dashTG = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
             Destroy(dashTG, .3f);
             state = PlayerState.idle;
-        } else
+        }
+        else if (!dashCollide && state == PlayerState.dash)
         {
             StartCoroutine(DashDelay());
         }
+        */
     }
 
     IEnumerator DashDelay()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.5f);
         rb.velocity = new Vector2(0, 0);
 
         if (!dashEndTrigger)
