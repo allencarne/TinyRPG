@@ -75,8 +75,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
-        Debug.Log(canDash);
+        Debug.Log(state);
+        //Debug.Log(canDash);
 
         switch (state)
         {
@@ -241,15 +241,14 @@ public class Player : MonoBehaviour
 
     void PlayerDashState()
     {
+        // Animation
+        animator.Play("Run");
+
         // This if check makes the following code run only once
         if (canDash)
         {
-            //Debug.Log("Trigger");
             // Prevents Dashing more than once
             canDash = false;
-
-            // Animation
-            animator.Play("Run");
 
             // Get the ablge of the indicator end position and player position
             var angle = dashEndPosition.position - transform.position;
@@ -273,40 +272,32 @@ public class Player : MonoBehaviour
             StartCoroutine(DashCoolDown());
         }
         
-        /*
-        // This code will run once a frame
-        if (dashCollide && state == PlayerState.dash)
+        if (dashCollide)
         {
-            // If collision happens end early
             dashCollide = false;
             rb.velocity = new Vector2(0, 0);
-            GameObject dashTG = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
-            Destroy(dashTG, .3f);
-            state = PlayerState.idle;
+            if (!dashEndTrigger)
+            {
+                // Prevents code from running more than once
+                dashEndTrigger = true;
+
+                // Spawn DashEndTelegraph
+                GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+                Destroy(_dashEndTelegraph, .3f);
+                state = PlayerState.idle;
+            }
+            dashEndTrigger = false;
         }
-        else if (!dashCollide && state == PlayerState.dash)
-        {
-            StartCoroutine(DashDelay());
-        }
-        */
     }
 
     IEnumerator DashDelay()
     {
         yield return new WaitForSeconds(.5f);
-        rb.velocity = new Vector2(0, 0);
-
-        if (!dashEndTrigger)
+        if (!dashCollide && state == PlayerState.dash)
         {
-            // Prevents code from running more than once
-            dashEndTrigger = true;
-
-            // Spawn DashEndTelegraph
-            GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
-            Destroy(_dashEndTelegraph, .3f);
+            rb.velocity = new Vector2(0, 0);
+            state = PlayerState.idle;
         }
-        dashEndTrigger = false;
-        state = PlayerState.idle;
     }
 
     IEnumerator DashCoolDown()
