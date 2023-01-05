@@ -10,7 +10,9 @@ public class TrainingDummy : MonoBehaviour
     public float idleTime;
     public bool enemyHit;
     public bool enemyStunned;
+    bool isStunned;
     public bool canReset;
+    public float stunDuration;
 
     enum DummyState
     {
@@ -30,7 +32,7 @@ public class TrainingDummy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        Debug.Log(stunDuration);
 
         switch (state)
         {
@@ -53,17 +55,36 @@ public class TrainingDummy : MonoBehaviour
 
         if (enemyStunned)
         {
+
             // Prevents being stunned twice
             enemyStunned = false;
 
+            isStunned = true;
+
             // Reset Idle Time
             idleTime = 0;
+
+            // Reset Stun Duration
+            stunDuration = 0;
 
             // Enable Stun
             stunIcon.SetActive(true);
 
             // Wait
-            StartCoroutine(StunDuration());
+            //StartCoroutine(StunDuration());
+        }
+
+        if (isStunned)
+        {
+            stunDuration++;
+        }
+
+        if (stunDuration >= 1000)
+        {
+            isStunned = false;
+            stunDuration = 0;
+            stunIcon.SetActive(false);
+            state = DummyState.idle;
         }
     }
 

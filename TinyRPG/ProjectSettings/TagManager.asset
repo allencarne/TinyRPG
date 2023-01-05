@@ -54,3 +54,6 @@ TagManager:
   - name: Player
     uniqueID: 158391721
     locked: 0
+  - name: CC Icon
+    uniqueID: 2393820081
+    locked: 0
