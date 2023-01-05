@@ -10,6 +10,17 @@ public class TrainingDummy : MonoBehaviour
     public float idleTime;
     public bool canReset;
 
+    enum DummyState
+    {
+        spawn,
+        idle,
+        hurt,
+        stun,
+        reset
+    }
+
+    DummyState state = DummyState.spawn;
+
     private void Awake()
     {
         startPosition = transform.position;
@@ -17,13 +28,27 @@ public class TrainingDummy : MonoBehaviour
 
     void Update()
     {
-        if (enemyHit)
-        {
-            idleTime = 0;
-            enemyHit = false;
-            animator.Play("Hit", 0, 0f);
-        }
+        Debug.Log(state);
 
+        switch (state)
+        {
+            case DummyState.spawn:
+                dummySpawnState();
+                break;
+            case DummyState.idle:
+                dummyIdleState();
+                break;
+            case DummyState.hurt:
+                dummyHurtState();
+                break;
+            case DummyState.stun:
+                dummyStunState();
+                break;
+            case DummyState.reset:
+                dummyResetState();
+                break;
+        }
+        
         if (transform.position != startPosition)
         {
             idleTime++;
@@ -31,18 +56,57 @@ public class TrainingDummy : MonoBehaviour
 
         if (idleTime >= 1000)
         {
-            ResetPosition();
+            state = DummyState.reset;
         }
+        
+    }
+
+    public void dummySpawnState()
+    {
+        animator.Play("Spawn");
+
+        transform.position = startPosition;
+    }
+
+    public void dummyIdleState()
+    {
+        animator.Play("Idle");
+
+        if (enemyHit)
+        {
+            enemyHit = false;
+
+            state = DummyState.hurt;
+        }
+    }
+
+    public void dummyHurtState()
+    {
+        //animator.Play("Hurt", 0, 0f);
+        animator.Play("Hurt");
+
+        idleTime = 0;
+    }
+
+    public void dummyStunState()
+    {
+        animator.Play("Stunned");
+    }
+
+    public void dummyResetState()
+    {
+        animator.Play("Reset");
+
+        idleTime = 0;
     }
 
     public void AE_AnimationEnd()
     {
-        animator.Play("Idle");
+        state = DummyState.idle;
     }
 
-    public void ResetPosition()
+    public void AE_AnimationEndReset()
     {
-        idleTime = 0;
-        transform.position = startPosition;
+        state = DummyState.spawn;
     }
 }

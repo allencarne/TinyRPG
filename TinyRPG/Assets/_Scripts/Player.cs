@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
         //Debug.Log(canDash);
 
         switch (state)
@@ -241,14 +241,14 @@ public class Player : MonoBehaviour
 
     void PlayerDashState()
     {
-        // Animation
-        animator.Play("Run");
-
         // This if check makes the following code run only once
         if (canDash)
         {
             // Prevents Dashing more than once
             canDash = false;
+
+            // Animation
+            animator.Play("Run");
 
             // Get the ablge of the indicator end position and player position
             var angle = dashEndPosition.position - transform.position;
