@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform dashEndPosition;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
+    public static float dashKnockBackForce = 2;
     [SerializeField] GameObject dashIndicator;
     public static bool dashCollide = false;
     bool canDash = true;

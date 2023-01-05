@@ -5,9 +5,11 @@ using UnityEngine;
 public class TrainingDummy : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public bool enemyHit;
+    [SerializeField] GameObject stunIcon;
     public Vector3 startPosition;
     public float idleTime;
+    public bool enemyHit;
+    public bool enemyStunned;
     public bool canReset;
 
     enum DummyState
@@ -48,17 +50,28 @@ public class TrainingDummy : MonoBehaviour
                 dummyResetState();
                 break;
         }
-        
-        if (transform.position != startPosition)
-        {
-            idleTime++;
-        }
 
-        if (idleTime >= 1000)
+        if (enemyStunned)
         {
-            state = DummyState.reset;
+            // Prevents being stunned twice
+            enemyStunned = false;
+
+            // Reset Idle Time
+            idleTime = 0;
+
+            // Enable Stun
+            stunIcon.SetActive(true);
+
+            // Wait
+            StartCoroutine(StunDuration());
         }
-        
+    }
+
+    IEnumerator StunDuration()
+    {
+        yield return new WaitForSeconds(1f);
+        stunIcon.SetActive(false);
+        state = DummyState.idle;
     }
 
     public void dummySpawnState()
@@ -78,6 +91,16 @@ public class TrainingDummy : MonoBehaviour
 
             state = DummyState.hurt;
         }
+
+        if (transform.position != startPosition)
+        {
+            idleTime++;
+        }
+
+        if (idleTime >= 1000)
+        {
+            state = DummyState.reset;
+        }
     }
 
     public void dummyHurtState()
@@ -90,7 +113,8 @@ public class TrainingDummy : MonoBehaviour
 
     public void dummyStunState()
     {
-        animator.Play("Stunned");
+        //animator.Play("Stunned");
+        //idleTime = 0;
     }
 
     public void dummyResetState()
