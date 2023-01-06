@@ -32,7 +32,7 @@ public class TrainingDummy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(stunDuration);
+        //Debug.Log(stunDuration);
 
         switch (state)
         {

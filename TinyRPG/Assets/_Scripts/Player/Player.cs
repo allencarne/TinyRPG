@@ -76,8 +76,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
-        //Debug.Log(canDash);
+        Debug.Log(state);
 
         switch (state)
         {
@@ -277,15 +276,17 @@ public class Player : MonoBehaviour
         {
             dashCollide = false;
             rb.velocity = new Vector2(0, 0);
+
             if (!dashEndTrigger)
             {
                 // Prevents code from running more than once
                 dashEndTrigger = true;
 
-                // Spawn DashEndTelegraph
+                // Animate
+                animator.Play("Quick Attack");
+
                 GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
                 Destroy(_dashEndTelegraph, .3f);
-                state = PlayerState.idle;
             }
             dashEndTrigger = false;
         }
