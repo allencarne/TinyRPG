@@ -107,8 +107,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    /////// States \\\\\\\
-
+    #region States
     void PlayerIdleState()
     {
         // Enables collision of Player and Enemy
@@ -319,7 +318,9 @@ public class Player : MonoBehaviour
 
     }
 
-    /////// Input \\\\\\\
+    #endregion
+
+    #region Input
     public void MoveKeyPressed()
     {
         //  Movement Key Pressed
@@ -374,7 +375,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    /////// Helper Methods \\\\\\\
+    #endregion
+
+    #region Helper Methods
     public void AngleToMouse()
     {
         // Calculates the difference between the mouse position and player position
@@ -411,6 +414,18 @@ public class Player : MonoBehaviour
             // Slide in Attack Direction
             rb.MovePosition(rb.position + angleToMouse);
         }
+
+        if (Input.GetKey(upKey) || Input.GetKey(leftKey) || Input.GetKey(downKey) || Input.GetKey(rightKey))
+        {
+            // Normalize movement vector and times it by attack move distance
+            angleToMouse = angleToMouse.normalized * basicAttackSlideForce;
+
+            // Disables collision of Player and Enemy
+            Physics2D.IgnoreLayerCollision(3, 6, true);
+
+            // Slide in Attack Direction
+            rb.MovePosition(rb.position + angleToMouse);
+        }
     }
 
     public void AnimationDirection()
@@ -423,8 +438,9 @@ public class Player : MonoBehaviour
         animator.SetFloat("Vertical", angleToMouse.y);
     }
 
-    // Animation Events
+    #endregion
 
+    #region Animation Events
     public void AE_BasicAttack()
     {
         isBasicAttacking = true;
@@ -446,4 +462,6 @@ public class Player : MonoBehaviour
         canBasicAttack3 = false;
         state = PlayerState.idle;
     }
+
+    #endregion
 }
