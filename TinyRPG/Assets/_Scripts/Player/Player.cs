@@ -37,23 +37,32 @@ public class Player : MonoBehaviour
     bool canBasicAttack3 = false;
 
     [Header("Dash")]
+    [SerializeField] GameObject dashIndicator;
     [SerializeField] GameObject dashTelegraph;
     [SerializeField] GameObject dashEndTelegraph;
     [SerializeField] Transform dashEndPosition;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
     public static float dashKnockBackForce = 2;
-    [SerializeField] GameObject dashIndicator;
     public static bool dashCollide = false;
     bool canDash = true;
 
+    [Header("Ability1")]
+    [SerializeField] GameObject ability1Indicator;
+    [SerializeField] Transform ability1EndPosition;
+    [SerializeField] GameObject ability1Prefab;
+    bool canAbility1 = true;
+    bool isAbility1Active;
+
+
     [Header("Keys")]
-    [SerializeField] KeyCode basicAttackKey;
-    [SerializeField] KeyCode dashKey;
     [SerializeField] KeyCode upKey;
     [SerializeField] KeyCode downKey;
     [SerializeField] KeyCode leftKey;
     [SerializeField] KeyCode rightKey;
+    [SerializeField] KeyCode basicAttackKey;
+    [SerializeField] KeyCode dashKey;
+    [SerializeField] KeyCode ability1Key;
 
     enum PlayerState
     {
@@ -63,6 +72,7 @@ public class Player : MonoBehaviour
         attack2,
         attack3,
         dash,
+        ability1,
         hurt,
         death
     }
@@ -98,6 +108,9 @@ public class Player : MonoBehaviour
             case PlayerState.dash:
                 PlayerDashState();
                 break;
+            case PlayerState.ability1:
+                PlayerAbility1State();
+                break;
             case PlayerState.hurt:
                 PlayerHurtState();
                 break;
@@ -120,6 +133,7 @@ public class Player : MonoBehaviour
         MoveKeyPressed();
         AttackKeyPressed();
         DashKeyPressed();
+        Ability1KeyPressed();
     }
 
     void PlayerMoveState()
@@ -146,6 +160,7 @@ public class Player : MonoBehaviour
         NoMoveKeyPressed();
         AttackKeyPressed();
         DashKeyPressed();
+        Ability1KeyPressed();
     }
 
     void PlayerAttackState()
@@ -291,6 +306,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    void PlayerAbility1State()
+    {
+        // Prevents attacking more than once
+        canAbility1 = false;
+
+        // Animation
+        animator.Play("Attack");
+
+        // Get the ablge of the indicator end position and player position
+        var angle = ability1EndPosition.position - transform.position;
+
+        // Set Attack Animation Depending on Mouse Position
+        animator.SetFloat("Aim Horizontal", angle.x);
+        animator.SetFloat("Aim Vertical", angle.y);
+        // Set Idle to last attack position
+        animator.SetFloat("Horizontal", angle.x);
+        animator.SetFloat("Vertical", angle.y);
+
+        if (isAbility1Active)
+        {
+            isAbility1Active = false;
+
+            // Instantiate Basic Attack and Add Force
+            GameObject ability1 = Instantiate(ability1Prefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D ability1RB = ability1.GetComponent<Rigidbody2D>();
+            ability1RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+        }
+    }
+
     IEnumerator DashDelay()
     {
         yield return new WaitForSeconds(.5f);
@@ -306,6 +350,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashCoolDown);
 
         canDash = true;
+    }
+
+    IEnumerator BasicAttackCoolDown()
+    {
+        yield return new WaitForSeconds(basicAttackCoolDown);
+
+        canBasicAttack = true;
     }
 
     void PlayerHurtState()
@@ -350,13 +401,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator BasicAttackCoolDown()
-    {
-        yield return new WaitForSeconds(basicAttackCoolDown);
-
-        canBasicAttack = true;
-    }
-
     public void DashKeyPressed()
     {
         bool held = Input.GetKeyUp(dashKey);
@@ -372,6 +416,22 @@ public class Player : MonoBehaviour
         {
             dashIndicator.SetActive(false);
             state = PlayerState.dash;
+        }
+    }
+
+    public void Ability1KeyPressed()
+    {
+        bool held = Input.GetKeyUp(ability1Key);
+
+        if (Input.GetKey(ability1Key) && canAbility1)
+        {
+            ability1Indicator.SetActive(true);
+        }
+
+        if (held && canAbility1)
+        {
+            ability1Indicator.SetActive(false);
+            state = PlayerState.ability1;
         }
     }
 
@@ -403,6 +463,7 @@ public class Player : MonoBehaviour
         // Calculate the difference between mouse position and player position
         AngleToMouse();
 
+        // If Mouse 
         if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > attackRange)
         {
             // Normalize movement vector and times it by attack move distance
@@ -461,6 +522,11 @@ public class Player : MonoBehaviour
         canBasicAttack2 = false;
         canBasicAttack3 = false;
         state = PlayerState.idle;
+    }
+
+    public void AE_Ability1()
+    {
+        isAbility1Active = true;
     }
 
     #endregion
