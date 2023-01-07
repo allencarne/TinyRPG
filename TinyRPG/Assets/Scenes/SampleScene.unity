@@ -8153,7 +8153,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 100
   m_LinearDrag: 2
   m_AngularDrag: 2
   m_GravityScale: 0
@@ -8213,7 +8213,7 @@ MonoBehaviour:
   dashVelocity: 15
   ability1Indicator: {fileID: 1932559554}
   ability1EndPosition: {fileID: 1519613961}
-  ability1Prefab: {fileID: 1669859207407995846, guid: a3768b29479e1ad498266585e8d4c0b9, type: 3}
+  ability1Prefab: {fileID: 8577746483152824669, guid: 022946272a42901408e6f9cb9131c73d, type: 3}
   ability1Force: 10
   ability1CoolDown: 2
   upKey: 119

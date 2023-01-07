@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        Debug.Log(isAbility1Active);
 
         switch (state)
         {
@@ -542,7 +542,11 @@ public class Player : MonoBehaviour
 
     public void AE_Ability1()
     {
-        isAbility1Active = true;
+        // Prevents shooting 2 projectiles - This is because it's a shared animation with basic attack
+        if (state == PlayerState.ability1)
+        {
+            isAbility1Active = true;
+        }
     }
 
     #endregion
