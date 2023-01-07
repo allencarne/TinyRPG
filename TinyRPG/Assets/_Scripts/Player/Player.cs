@@ -51,6 +51,10 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject ability1Indicator;
     [SerializeField] Transform ability1EndPosition;
     [SerializeField] GameObject ability1Prefab;
+    public static float pullForce = -15f;
+
+    public float ability1Force;
+    public float ability1CoolDown;
     bool canAbility1 = true;
     bool isAbility1Active;
 
@@ -128,6 +132,8 @@ public class Player : MonoBehaviour
 
         // Animation
         animator.Play("Idle");
+
+        rb.velocity = new Vector2(0, 0);
 
         // Tranitions
         MoveKeyPressed();
@@ -265,7 +271,7 @@ public class Player : MonoBehaviour
             animator.Play("Run");
 
             // Get the ablge of the indicator end position and player position
-            var angle = dashEndPosition.position - transform.position;
+            Vector3 angle = dashEndPosition.position - transform.position;
 
             // Set Attack Animation Depending on Mouse Position
             animator.SetFloat("Aim Horizontal", angle.x);
@@ -315,7 +321,9 @@ public class Player : MonoBehaviour
         animator.Play("Attack");
 
         // Get the ablge of the indicator end position and player position
-        var angle = ability1EndPosition.position - transform.position;
+        Vector3 angle = ability1EndPosition.position - transform.position;
+
+        //Quaternion rotation = Quaternion.FromToRotation(firePoint.position, angle);
 
         // Set Attack Animation Depending on Mouse Position
         animator.SetFloat("Aim Horizontal", angle.x);
@@ -329,9 +337,11 @@ public class Player : MonoBehaviour
             isAbility1Active = false;
 
             // Instantiate Basic Attack and Add Force
-            GameObject ability1 = Instantiate(ability1Prefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D ability1RB = ability1.GetComponent<Rigidbody2D>();
-            ability1RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            GameObject tornado = Instantiate(ability1Prefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D ability1RB = tornado.GetComponent<Rigidbody2D>();
+            ability1RB.AddForce(firePoint.right * ability1Force, ForceMode2D.Impulse);
+
+            StartCoroutine(Ability1CoolDown());
         }
     }
 
@@ -357,6 +367,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(basicAttackCoolDown);
 
         canBasicAttack = true;
+    }
+
+    IEnumerator Ability1CoolDown()
+    {
+        yield return new WaitForSeconds(ability1CoolDown);
+        canAbility1 = true;
     }
 
     void PlayerHurtState()

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1639002436454989823}
   - component: {fileID: 2044837534312524880}
   - component: {fileID: 2957233222516799723}
+  - component: {fileID: 6875344709825405168}
+  - component: {fileID: 4040136019382993461}
   m_Layer: 0
   m_Name: Tornado
   m_TagString: Untagged
@@ -138,9 +140,34 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.12929711
+--- !u!114 &6875344709825405168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669859207407995846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b918f9409fb2541bb61d36e175221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4040136019382993461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669859207407995846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa51affafc50594d81173619ab60905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
