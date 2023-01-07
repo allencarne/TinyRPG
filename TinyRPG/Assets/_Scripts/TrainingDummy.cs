@@ -6,12 +6,16 @@ public class TrainingDummy : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] GameObject stunIcon;
+    [SerializeField] GameObject slowIcon;
     public Vector3 startPosition;
     public float idleTime;
     public bool enemyHit;
     public bool enemyStunned;
+    public bool enemySlowed;
     bool isStunned;
+    bool isSlowed;
     public bool canReset;
+    public float slowDuration;
     public float stunDuration;
 
     enum DummyState
@@ -19,7 +23,6 @@ public class TrainingDummy : MonoBehaviour
         spawn,
         idle,
         hurt,
-        stun,
         reset
     }
 
@@ -44,9 +47,6 @@ public class TrainingDummy : MonoBehaviour
                 break;
             case DummyState.hurt:
                 dummyHurtState();
-                break;
-            case DummyState.stun:
-                dummyStunState();
                 break;
             case DummyState.reset:
                 dummyResetState();
@@ -130,12 +130,6 @@ public class TrainingDummy : MonoBehaviour
         animator.Play("Hurt");
 
         idleTime = 0;
-    }
-
-    public void dummyStunState()
-    {
-        //animator.Play("Stunned");
-        //idleTime = 0;
     }
 
     public void dummyResetState()
