@@ -53,47 +53,11 @@ public class TrainingDummy : MonoBehaviour
                 break;
         }
 
-        if (enemyStunned)
-        {
-
-            // Prevents being stunned twice
-            enemyStunned = false;
-
-            isStunned = true;
-
-            // Reset Idle Time
-            idleTime = 0;
-
-            // Reset Stun Duration
-            stunDuration = 0;
-
-            // Enable Stun
-            stunIcon.SetActive(true);
-
-            // Wait
-            //StartCoroutine(StunDuration());
-        }
-
-        if (isStunned)
-        {
-            stunDuration++;
-        }
-
-        if (stunDuration >= 1000)
-        {
-            isStunned = false;
-            stunDuration = 0;
-            stunIcon.SetActive(false);
-            state = DummyState.idle;
-        }
+        EnemyStun();
+        EnemySlow();
     }
 
-    IEnumerator StunDuration()
-    {
-        yield return new WaitForSeconds(1f);
-        stunIcon.SetActive(false);
-        state = DummyState.idle;
-    }
+    #region Dummy States
 
     public void dummySpawnState()
     {
@@ -139,6 +103,77 @@ public class TrainingDummy : MonoBehaviour
         idleTime = 0;
     }
 
+    #endregion
+
+    #region Helper Methods
+
+    public void EnemyStun()
+    {
+        if (enemyStunned)
+        {
+
+            // Prevents being stunned twice
+            enemyStunned = false;
+
+            isStunned = true;
+
+            // Reset Idle Time
+            idleTime = 0;
+
+            // Reset Stun Duration
+            stunDuration = 0;
+
+            // Enable Stun
+            stunIcon.SetActive(true);
+        }
+
+        if (isStunned)
+        {
+            stunDuration++;
+        }
+
+        if (stunDuration >= 1000)
+        {
+            isStunned = false;
+            stunDuration = 0;
+            stunIcon.SetActive(false);
+            state = DummyState.idle;
+        }
+    }
+
+    public void EnemySlow()
+    {
+        if (enemySlowed)
+        {
+            enemySlowed = false;
+
+            isSlowed = true;
+
+            idleTime = 0;
+
+            slowDuration = 0;
+
+            slowIcon.SetActive(true);
+        }
+
+        if (isSlowed)
+        {
+            slowDuration++;
+        }
+
+        if (slowDuration >= 1000)
+        {
+            isSlowed = false;
+            slowDuration = 0;
+            slowIcon.SetActive(false);
+            state = DummyState.idle;
+        }
+    }
+
+    #endregion
+
+
+    #region Animation Events
     public void AE_AnimationEnd()
     {
         state = DummyState.idle;
@@ -148,4 +183,5 @@ public class TrainingDummy : MonoBehaviour
     {
         state = DummyState.spawn;
     }
+    #endregion
 }

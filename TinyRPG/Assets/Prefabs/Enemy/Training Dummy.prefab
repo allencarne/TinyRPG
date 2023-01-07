@@ -140,11 +140,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 120724568229383082}
   stunIcon: {fileID: 8957174740501218937}
+  slowIcon: {fileID: 512036219766662593}
   startPosition: {x: 0, y: 0, z: 0}
   idleTime: 0
   enemyHit: 0
   enemyStunned: 0
+  enemySlowed: 0
   canReset: 0
+  slowDuration: 0
   stunDuration: 0
 --- !u!95 &120724568229383082
 Animator:
@@ -339,6 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d8929a04ffb81140b7a3315b26d65e2, type: 3}
+--- !u!1 &512036219766662593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7462045960799718640, guid: 7d8929a04ffb81140b7a3315b26d65e2, type: 3}
+  m_PrefabInstance: {fileID: 6959641966217292081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &754269427052288706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7701763885181432819, guid: 7d8929a04ffb81140b7a3315b26d65e2, type: 3}

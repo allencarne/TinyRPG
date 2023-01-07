@@ -18,9 +18,7 @@ public class EnergyBall : MonoBehaviour
 
             enemy.enemyHit = true;
 
-            Vector2 direction = (enemy.transform.position + transform.position).normalized;
-
-            //enemyRB.velocity = direction * Player.knockBackForce;
+            enemy.enemySlowed = true;
         }
     }
 }
