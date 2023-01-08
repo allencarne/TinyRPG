@@ -52,12 +52,18 @@ public class Player : MonoBehaviour
     [SerializeField] Transform ability1EndPosition;
     [SerializeField] GameObject ability1Prefab;
     public static float pullForce = -15f;
-
     public float ability1Force;
     public float ability1CoolDown;
     bool canAbility1 = true;
     bool isAbility1Active;
 
+
+    [Header("Ability2")]
+    [SerializeField] GameObject ability2prefab;
+    bool canAbility2 = true;
+    bool isABility2Active = false;
+    public float ability2CoolDown;
+    bool counterAttack = false;
 
     [Header("Keys")]
     [SerializeField] KeyCode upKey;
@@ -67,6 +73,7 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode basicAttackKey;
     [SerializeField] KeyCode dashKey;
     [SerializeField] KeyCode ability1Key;
+    [SerializeField] KeyCode ability2Key;
 
     enum PlayerState
     {
@@ -77,6 +84,7 @@ public class Player : MonoBehaviour
         attack3,
         dash,
         ability1,
+        ability2,
         hurt,
         death
     }
@@ -90,7 +98,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isAbility1Active);
+        Debug.Log(canAbility2);
 
         switch (state)
         {
@@ -115,12 +123,20 @@ public class Player : MonoBehaviour
             case PlayerState.ability1:
                 PlayerAbility1State();
                 break;
+            case PlayerState.ability2:
+                PlayerAbility2State();
+                break;
             case PlayerState.hurt:
                 PlayerHurtState();
                 break;
             case PlayerState.death:
                 PlayerDeathState();
                 break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            counterAttack = true;
         }
     }
 
@@ -140,6 +156,7 @@ public class Player : MonoBehaviour
         AttackKeyPressed();
         DashKeyPressed();
         Ability1KeyPressed();
+        Ability2KeyPressed();
     }
 
     void PlayerMoveState()
@@ -167,6 +184,7 @@ public class Player : MonoBehaviour
         AttackKeyPressed();
         DashKeyPressed();
         Ability1KeyPressed();
+        Ability2KeyPressed();
     }
 
     void PlayerAttackState()
@@ -280,10 +298,10 @@ public class Player : MonoBehaviour
             animator.SetFloat("Horizontal", angle.x);
             animator.SetFloat("Vertical", angle.y);
 
-            // Logic
-            //rb.velocity = angleToMouse.normalized * dashVelocity;
+            // Add Velocity Based on Angle
             rb.velocity = angle.normalized * dashVelocity;
 
+            // Instantiate Dash Telegraph and Destroy It
             GameObject _dashTelegraph = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
             Destroy(_dashTelegraph, .5f);
 
@@ -345,34 +363,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator DashDelay()
+    void PlayerAbility2State()
     {
-        yield return new WaitForSeconds(.5f);
-        if (!dashCollide && state == PlayerState.dash)
+        if (canAbility2)
         {
-            rb.velocity = new Vector2(0, 0);
-            state = PlayerState.idle;
+            canAbility2 = false;
+            animator.Play("Counter");
         }
-    }
 
-    IEnumerator DashCoolDown()
-    {
-        yield return new WaitForSeconds(dashCoolDown);
+        // If player is attacked while this state is active - Play "Attack" animation
+        if (counterAttack)
+        {
+            counterAttack = false;
+            animator.Play("Attack");
+        }
 
-        canDash = true;
-    }
+        if (isABility2Active)
+        {
+            isABility2Active = false;
 
-    IEnumerator BasicAttackCoolDown()
-    {
-        yield return new WaitForSeconds(basicAttackCoolDown);
-
-        canBasicAttack = true;
-    }
-
-    IEnumerator Ability1CoolDown()
-    {
-        yield return new WaitForSeconds(ability1CoolDown);
-        canAbility1 = true;
+            // Spawn prefab that will spin in a circle around the player and stun and damage all enemies hit
+            GameObject _whirlWind = Instantiate(ability2prefab, firePoint.position, firePoint.rotation);
+            Destroy(_whirlWind, .3f);
+        }
     }
 
     void PlayerHurtState()
@@ -449,6 +462,54 @@ public class Player : MonoBehaviour
             ability1Indicator.SetActive(false);
             state = PlayerState.ability1;
         }
+    }
+
+    public void Ability2KeyPressed()
+    {
+        if (Input.GetKey(ability2Key) && canAbility2)
+        {
+            state = PlayerState.ability2;
+            StartCoroutine(Ability2CoolDown());
+        }
+    }
+
+    #endregion
+
+    #region Coroutines
+    IEnumerator DashDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (!dashCollide && state == PlayerState.dash)
+        {
+            rb.velocity = new Vector2(0, 0);
+            state = PlayerState.idle;
+        }
+    }
+
+    IEnumerator DashCoolDown()
+    {
+        yield return new WaitForSeconds(dashCoolDown);
+
+        canDash = true;
+    }
+
+    IEnumerator BasicAttackCoolDown()
+    {
+        yield return new WaitForSeconds(basicAttackCoolDown);
+
+        canBasicAttack = true;
+    }
+
+    IEnumerator Ability1CoolDown()
+    {
+        yield return new WaitForSeconds(ability1CoolDown);
+        canAbility1 = true;
+    }
+
+    IEnumerator Ability2CoolDown()
+    {
+        yield return new WaitForSeconds(ability2CoolDown);
+        canAbility2 = true;
     }
 
     #endregion
@@ -547,6 +608,19 @@ public class Player : MonoBehaviour
         {
             isAbility1Active = true;
         }
+    }
+
+    public void AE_Ability2()
+    {
+        if (state == PlayerState.ability2)
+        {
+            isABility2Active = true;
+        }
+    }
+
+    public void AE_EndOfAnimation()
+    {
+        state = PlayerState.idle;
     }
 
     #endregion

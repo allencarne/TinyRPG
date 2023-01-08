@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Training Dummy (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -199,10 +195,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -8216,6 +8208,8 @@ MonoBehaviour:
   ability1Prefab: {fileID: 8577746483152824669, guid: 022946272a42901408e6f9cb9131c73d, type: 3}
   ability1Force: 10
   ability1CoolDown: 2
+  ability2prefab: {fileID: 666635300205636536, guid: dbe92af68c0ceee4c841760d7d6cd5a3, type: 3}
+  ability2CoolDown: 3
   upKey: 119
   downKey: 115
   leftKey: 97
@@ -8223,6 +8217,7 @@ MonoBehaviour:
   basicAttackKey: 323
   dashKey: 32
   ability1Key: 324
+  ability2Key: 113
 --- !u!70 &1486545532
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8325,14 +8320,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4903068342734250979, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903068342734250979, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1901147215
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
 --- !u!1001 &1588129586
@@ -8345,10 +8332,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -10491,10 +10474,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Training Dummy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -10744,10 +10723,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
