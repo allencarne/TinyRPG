@@ -20,17 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1312729987, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
+      value: {fileID: 1312604966, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
     - time: 0.083333336
-      value: {fileID: 1469263921, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
+      value: {fileID: -1032507930, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
     - time: 0.16666667
-      value: {fileID: 1352426801, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
+      value: {fileID: 2030788127, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
     - time: 0.25
-      value: {fileID: 1517960032, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - time: 0.33333334
-      value: {fileID: -663404545, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - time: 0.41666666
-      value: {fileID: -1313243207, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
+      value: {fileID: -2010378597, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,18 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1312729987, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - {fileID: 1469263921, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - {fileID: 1352426801, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - {fileID: 1517960032, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - {fileID: -663404545, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
-    - {fileID: -1313243207, guid: d286cb94e40e9b84db95398fe10acf26, type: 3}
+    - {fileID: 1312604966, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
+    - {fileID: -1032507930, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
+    - {fileID: 2030788127, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
+    - {fileID: -2010378597, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -81,7 +75,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.33333334
     functionName: AE_DestroyAfterAnimation
     data: 
     objectReferenceParameter: {fileID: 0}

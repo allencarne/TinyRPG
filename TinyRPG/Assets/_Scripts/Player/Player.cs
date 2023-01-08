@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(canAbility2);
+        Debug.Log(canAbility3);
 
         switch (state)
         {
@@ -403,17 +403,23 @@ public class Player : MonoBehaviour
 
     void PlayerAbility3State()
     {
-        animator.Play("Slow Attack");
+        if (canAbility3)
+        {
+            canAbility3 = false;
 
-        AngleToMouse();
-        AnimationDirection();
+            animator.Play("Slow Attack");
+
+            AngleToMouse();
+            AnimationDirection();
+
+            StartCoroutine(Ability3CoolDown());
+        }
 
         if (isAbility3Active)
         {
             isAbility3Active = false;
 
             Instantiate(ability3Prefab, firePoint.position, firePoint.rotation);
-
         }
     }
 
@@ -504,10 +510,9 @@ public class Player : MonoBehaviour
 
     public void Ability3KeyPressed()
     {
-        if (Input.GetKey(ability3Key) && canAbility3)
+        if (Input.GetKeyDown(ability3Key) && canAbility3)
         {
             state = PlayerState.ability3;
-            StartCoroutine(Ability3CoolDown());
         }
     }
 
