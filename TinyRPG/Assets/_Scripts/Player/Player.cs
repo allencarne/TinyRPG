@@ -59,11 +59,17 @@ public class Player : MonoBehaviour
 
 
     [Header("Ability2")]
-    [SerializeField] GameObject ability2prefab;
+    [SerializeField] GameObject ability2Prefab;
     bool canAbility2 = true;
-    bool isABility2Active = false;
+    bool isAbility2Active = false;
     public float ability2CoolDown;
     bool counterAttack = false;
+
+    [Header("Ability3")]
+    [SerializeField] GameObject ability3Prefab;
+    bool canAbility3 = true;
+    bool isAbility3Active = false;
+    public float ability3CoolDown;
 
     [Header("Keys")]
     [SerializeField] KeyCode upKey;
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode dashKey;
     [SerializeField] KeyCode ability1Key;
     [SerializeField] KeyCode ability2Key;
+    [SerializeField] KeyCode ability3Key;
 
     enum PlayerState
     {
@@ -85,6 +92,7 @@ public class Player : MonoBehaviour
         dash,
         ability1,
         ability2,
+        ability3,
         hurt,
         death
     }
@@ -126,6 +134,9 @@ public class Player : MonoBehaviour
             case PlayerState.ability2:
                 PlayerAbility2State();
                 break;
+            case PlayerState.ability3:
+                PlayerAbility3State();
+                break;
             case PlayerState.hurt:
                 PlayerHurtState();
                 break;
@@ -157,6 +168,7 @@ public class Player : MonoBehaviour
         DashKeyPressed();
         Ability1KeyPressed();
         Ability2KeyPressed();
+        Ability3KeyPressed();
     }
 
     void PlayerMoveState()
@@ -185,6 +197,7 @@ public class Player : MonoBehaviour
         DashKeyPressed();
         Ability1KeyPressed();
         Ability2KeyPressed();
+        Ability3KeyPressed();
     }
 
     void PlayerAttackState()
@@ -378,13 +391,29 @@ public class Player : MonoBehaviour
             animator.Play("Attack");
         }
 
-        if (isABility2Active)
+        if (isAbility2Active)
         {
-            isABility2Active = false;
+            isAbility2Active = false;
 
             // Spawn prefab that will spin in a circle around the player and stun and damage all enemies hit
-            GameObject _whirlWind = Instantiate(ability2prefab, firePoint.position, firePoint.rotation);
+            GameObject _whirlWind = Instantiate(ability2Prefab, firePoint.position, firePoint.rotation);
             Destroy(_whirlWind, .3f);
+        }
+    }
+
+    void PlayerAbility3State()
+    {
+        animator.Play("Slow Attack");
+
+        AngleToMouse();
+        AnimationDirection();
+
+        if (isAbility3Active)
+        {
+            isAbility3Active = false;
+
+            Instantiate(ability3Prefab, firePoint.position, firePoint.rotation);
+
         }
     }
 
@@ -473,6 +502,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Ability3KeyPressed()
+    {
+        if (Input.GetKey(ability3Key) && canAbility3)
+        {
+            state = PlayerState.ability3;
+            StartCoroutine(Ability3CoolDown());
+        }
+    }
+
     #endregion
 
     #region Coroutines
@@ -512,6 +550,12 @@ public class Player : MonoBehaviour
         canAbility2 = true;
     }
 
+    IEnumerator Ability3CoolDown()
+    {
+        yield return new WaitForSeconds(ability3CoolDown);
+        canAbility3 = true;
+    }
+
     #endregion
 
     #region Helper Methods
@@ -520,6 +564,16 @@ public class Player : MonoBehaviour
         // Calculates the difference between the mouse position and player position
         // Not Normalized
         angleToMouse = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+    }
+
+    public void AnimationDirection()
+    {
+        // Set Attack Animation Depending on Mouse Position
+        animator.SetFloat("Aim Horizontal", angleToMouse.x);
+        animator.SetFloat("Aim Vertical", angleToMouse.y);
+        // Set Idle to last attack position
+        animator.SetFloat("Horizontal", angleToMouse.x);
+        animator.SetFloat("Vertical", angleToMouse.y);
     }
 
     public void Blink()
@@ -566,16 +620,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AnimationDirection()
-    {
-        // Set Attack Animation Depending on Mouse Position
-        animator.SetFloat("Aim Horizontal", angleToMouse.x);
-        animator.SetFloat("Aim Vertical", angleToMouse.y);
-        // Set Idle to last attack position
-        animator.SetFloat("Horizontal", angleToMouse.x);
-        animator.SetFloat("Vertical", angleToMouse.y);
-    }
-
     #endregion
 
     #region Animation Events
@@ -614,8 +658,13 @@ public class Player : MonoBehaviour
     {
         if (state == PlayerState.ability2)
         {
-            isABility2Active = true;
+            isAbility2Active = true;
         }
+    }
+
+    public void AE_Ability3()
+    {
+        isAbility3Active = true;
     }
 
     public void AE_EndOfAnimation()

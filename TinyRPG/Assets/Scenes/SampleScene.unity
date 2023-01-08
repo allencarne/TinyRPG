@@ -8208,8 +8208,10 @@ MonoBehaviour:
   ability1Prefab: {fileID: 8577746483152824669, guid: 022946272a42901408e6f9cb9131c73d, type: 3}
   ability1Force: 10
   ability1CoolDown: 2
-  ability2prefab: {fileID: 666635300205636536, guid: dbe92af68c0ceee4c841760d7d6cd5a3, type: 3}
+  ability2Prefab: {fileID: 666635300205636536, guid: dbe92af68c0ceee4c841760d7d6cd5a3, type: 3}
   ability2CoolDown: 3
+  ability3Prefab: {fileID: 1452715059606266387, guid: 3c7dc2b58b2d4df42a669446385d45b3, type: 3}
+  ability3CoolDown: 0
   upKey: 119
   downKey: 115
   leftKey: 97
@@ -8218,6 +8220,7 @@ MonoBehaviour:
   dashKey: 32
   ability1Key: 324
   ability2Key: 113
+  ability3Key: 101
 --- !u!70 &1486545532
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
