@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
     [Header("Ability3")]
     [SerializeField] GameObject ability3Prefab;
+    [SerializeField] GameObject slamIndicator;
     bool canAbility3 = true;
     bool isAbility3Active = false;
     public float ability3CoolDown;
@@ -510,8 +511,16 @@ public class Player : MonoBehaviour
 
     public void Ability3KeyPressed()
     {
-        if (Input.GetKeyDown(ability3Key) && canAbility3)
+        bool held = Input.GetKeyUp(ability3Key);
+
+        if (Input.GetKey(ability3Key) && canAbility3)
         {
+            slamIndicator.SetActive(true);
+        }
+
+        if (held && canAbility3)
+        {
+            slamIndicator.SetActive(false);
             state = PlayerState.ability3;
         }
     }
