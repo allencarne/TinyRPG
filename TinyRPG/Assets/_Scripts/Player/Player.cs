@@ -72,6 +72,12 @@ public class Player : MonoBehaviour
     bool isAbility3Active = false;
     public float ability3CoolDown;
 
+    [Header("Ultimate")]
+    [SerializeField] GameObject ultimatePrefab;
+    bool canUltimate = true;
+    bool isUltimateActive = false;
+    public float ultimateCoolDown;
+
     [Header("Keys")]
     [SerializeField] KeyCode upKey;
     [SerializeField] KeyCode downKey;
@@ -82,6 +88,7 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode ability1Key;
     [SerializeField] KeyCode ability2Key;
     [SerializeField] KeyCode ability3Key;
+    [SerializeField] KeyCode ultimateKey;
 
     enum PlayerState
     {
@@ -94,6 +101,7 @@ public class Player : MonoBehaviour
         ability1,
         ability2,
         ability3,
+        ultimate,
         hurt,
         death
     }
@@ -107,7 +115,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(canAbility3);
+        Debug.Log(state);
 
         switch (state)
         {
@@ -137,6 +145,9 @@ public class Player : MonoBehaviour
                 break;
             case PlayerState.ability3:
                 PlayerAbility3State();
+                break;
+            case PlayerState.ultimate:
+                PlayerUltimateState();
                 break;
             case PlayerState.hurt:
                 PlayerHurtState();
@@ -170,6 +181,7 @@ public class Player : MonoBehaviour
         Ability1KeyPressed();
         Ability2KeyPressed();
         Ability3KeyPressed();
+        UltimateKeyPressed();
     }
 
     void PlayerMoveState()
@@ -199,6 +211,7 @@ public class Player : MonoBehaviour
         Ability1KeyPressed();
         Ability2KeyPressed();
         Ability3KeyPressed();
+        UltimateKeyPressed();
     }
 
     void PlayerAttackState()
@@ -424,6 +437,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    void PlayerUltimateState()
+    {
+        animator.Play("PowerUp");
+
+        if (isUltimateActive)
+        {
+            isUltimateActive = false;
+            Instantiate(ultimatePrefab, firePoint.position, firePoint.rotation);
+        }
+    }
+
     void PlayerHurtState()
     {
 
@@ -525,6 +549,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UltimateKeyPressed()
+    {
+        if (Input.GetKey(ultimateKey) && canUltimate)
+        {
+            canUltimate = false;
+            state = PlayerState.ultimate;
+            StartCoroutine(UltimateCoolDown());
+        }
+    }
+
     #endregion
 
     #region Coroutines
@@ -568,6 +602,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(ability3CoolDown);
         canAbility3 = true;
+    }
+
+    IEnumerator UltimateCoolDown()
+    {
+        yield return new WaitForSeconds(ultimateCoolDown);
+        canUltimate = true;
     }
 
     #endregion
@@ -679,6 +719,11 @@ public class Player : MonoBehaviour
     public void AE_Ability3()
     {
         isAbility3Active = true;
+    }
+
+    public void AE_Ultimate()
+    {
+        isUltimateActive = true;
     }
 
     public void AE_EndOfAnimation()
