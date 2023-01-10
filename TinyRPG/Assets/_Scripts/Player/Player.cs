@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Variables")]
+    public float health;
+    public float maxHealth;
     [SerializeField] float moveSpeed;
     [HideInInspector] Vector2 movement;
     [HideInInspector] Vector2 angleToMouse;
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
     [HideInInspector] float offset;
 
     [Header("Components")]
+    [SerializeField] HealthBar healthbar;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
     [HideInInspector] Camera cam;
@@ -113,9 +116,14 @@ public class Player : MonoBehaviour
         cam = Camera.main;
     }
 
+    void Start()
+    {
+        health = maxHealth;
+    }
+
     void Update()
     {
-        Debug.Log(state);
+        Debug.Log(health);
 
         switch (state)
         {
@@ -160,6 +168,16 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             counterAttack = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            TakeDamage(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RestoreHealth(1);
         }
     }
 
@@ -732,4 +750,16 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    void TakeDamage(float damage)
+    {
+        health -= damage;
+        healthbar.lerpTimer = 0f;
+    }
+
+    void RestoreHealth(float healAmount)
+    {
+        health += healAmount;
+        healthbar.lerpTimer = 0f;
+    }
 }

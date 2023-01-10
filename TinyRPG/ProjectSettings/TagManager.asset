@@ -57,3 +57,6 @@ TagManager:
   - name: CC Icon
     uniqueID: 2393820081
     locked: 0
+  - name: UI
+    uniqueID: 726195863
+    locked: 0
