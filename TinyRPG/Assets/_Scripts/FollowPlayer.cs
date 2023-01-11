@@ -8,7 +8,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.Find("Aim");
+        target = GameObject.Find("Player");
     }
 
     // Start is called before the first frame update
