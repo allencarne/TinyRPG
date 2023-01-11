@@ -516,6 +516,9 @@ public class Player : MonoBehaviour
         if (Input.GetKey(dashKey) && canDash)
         {
             dashIndicator.SetActive(true);
+        } else
+        {
+            dashIndicator.SetActive(false);
         }
 
         // Dash Key Held
@@ -533,6 +536,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(ability1Key) && canAbility1)
         {
             ability1Indicator.SetActive(true);
+        }
+        else
+        {
+            ability1Indicator.SetActive(false);
         }
 
         if (held && canAbility1)
@@ -558,6 +565,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(ability3Key) && canAbility3)
         {
             slamIndicator.SetActive(true);
+        }
+        else
+        {
+            slamIndicator.SetActive(false);
         }
 
         if (held && canAbility3)

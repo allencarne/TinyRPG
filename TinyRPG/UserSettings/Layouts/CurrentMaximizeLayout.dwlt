@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 15417
+  controlID: 30359
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 15380
+  controlID: 30360
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 15308
+  controlID: 30361
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,7 +227,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a066ffffa266ffffd66bffffd86bffff5c73ffff0efbffff2c610000a0610000b4610000dc610000
+      m_ExpandedIDs: a066ffffa266fffff467fffff667ffffd66bffffd86bffff446effffc06effffde71ffff9c72ffff5c73ffffe874ffffca77ffff9a90ffff0efbffff2c610000a0610000b4610000dc610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -558,9 +558,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.31028518, y: -4.438703, z: 492.18054}
+    m_Target: {x: -2.7308538, y: -2.1986802, z: 810.24457}
     speed: 2
-    m_Value: {x: 0.31028518, y: -4.438703, z: 492.18054}
+    m_Value: {x: -2.7308538, y: -2.1986802, z: 810.24457}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -611,9 +611,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.621544
+    m_Target: 8.969956
     speed: 2
-    m_Value: 2.621544
+    m_Value: 8.969956
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 15381
+  controlID: 30312
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1163,22 +1163,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/UI/Icons/Ability Icons
+    - Assets/Art/FX/PlayerFX
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Art/UI/Icons/Ability Icons
+  - Assets/Art/FX/PlayerFX
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\allen\Desktop\Unity Projects\TinyRPG\TinyRPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 494}
-    m_SelectedIDs: c0b60000
-    m_LastClickedID: 46784
-    m_ExpandedIDs: 00000000886700008a6700008c6700008e6700009067000092670000946700009667000098670000e8670000bcb6000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 175}
+    m_SelectedIDs: ba670000
+    m_LastClickedID: 26554
+    m_ExpandedIDs: 00000000886700008a6700008c6700008e670000906700009267000094670000966700009867000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1231,9 +1231,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a266ffff
-    m_LastClickedInstanceID: -39262
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 5e630000
+    m_LastClickedInstanceID: 25438
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000563b000032450000000000006a7d0000d8810000528b0000826b000006720000a8640000b0980000ea610000bc8500004c620000c86500001ade00000c92000022cc00000ea8000050880000968c0000be9c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1258,7 +1258,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 60}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 210
@@ -1523,7 +1523,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -28524
+  m_LastSelectedObjectID: -36384
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1543,8 +1543,8 @@ MonoBehaviour:
     y: 0
     width: 671
     height: 978
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -1584,7 +1584,7 @@ MonoBehaviour:
     m_CachedPref: 284
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -39262
+  m_LastInspectedObjectInstanceID: 25438
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
