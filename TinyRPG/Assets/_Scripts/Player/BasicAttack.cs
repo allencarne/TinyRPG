@@ -5,12 +5,20 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
+    [SerializeField] GameObject hitSpark1;
+    GameObject firePoint;
+
+    private void Awake()
+    {
+        firePoint = GameObject.Find("Aim");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+            Instantiate(hitSpark1, collision.transform.position, firePoint.transform.rotation);
 
             var enemy = collision.gameObject.GetComponent<TrainingDummy>();
 
