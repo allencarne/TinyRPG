@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Shadow
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - UI
   - Enemy
   - FX
-  - 
-  - 
-  - 
+  - Shadow
+  - LightingSystem
+  - 2DWater
   - 
   - 
   - 
@@ -59,4 +60,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 726195863
+    locked: 0
+  - name: Shadow
+    uniqueID: 1935874247
     locked: 0
