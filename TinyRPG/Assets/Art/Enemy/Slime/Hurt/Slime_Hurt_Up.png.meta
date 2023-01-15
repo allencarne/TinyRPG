@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ebc7206bdba4b64b935d8ed1bd86eda
+guid: 15b5fc546f6b9d744912103333a2794a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Move_Down_0
+      name: Slime_Hurt_Up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3d588212672059449cc8b99d2b8861e
-      internalID: 277899044
+      spriteID: c17618a5ef713804e87a7d38f27ca8ce
+      internalID: 50659003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_1
+      name: Slime_Hurt_Up_1
       rect:
         serializedVersion: 2
         x: 32
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cc37e280bccb814c9f57eacfcfd4d5f
-      internalID: -1985033977
+      spriteID: ba23850e07d7d0b499ffac92ee99d302
+      internalID: -659222868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_2
+      name: Slime_Hurt_Up_2
       rect:
         serializedVersion: 2
         x: 64
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38765ae544c9e23439145f9abd1a9985
-      internalID: -1309384481
+      spriteID: 5297eb8c51936274d899173500545a81
+      internalID: 810313941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_3
+      name: Slime_Hurt_Up_3
       rect:
         serializedVersion: 2
         x: 96
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0847e09a02c9724bb2f7bbeb28b5047
-      internalID: -1071230624
+      spriteID: 4cad096ce9aa9f043a1d13cc0dcee2e8
+      internalID: -1735726691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_4
+      name: Slime_Hurt_Up_4
       rect:
         serializedVersion: 2
         x: 128
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6bd440fa074f6419ccef405d943c93
-      internalID: -2000469600
+      spriteID: 651f93530238cb747ab0f26306f3aa85
+      internalID: 838415661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_5
+      name: Slime_Hurt_Up_5
       rect:
         serializedVersion: 2
         x: 160
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdcb6dde2c0267849971b023869b24ab
-      internalID: 505606812
+      spriteID: f5087e0ebdfaa794583c4f6d20e8aa76
+      internalID: -709448693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_6
+      name: Slime_Hurt_Up_6
       rect:
         serializedVersion: 2
         x: 192
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a70522eba6d98149970df6485f262fb
-      internalID: 9965107
+      spriteID: 0ae80dc5b72df424685caeea152b9316
+      internalID: 1176005396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Move_Down_7
+      name: Slime_Hurt_Up_7
       rect:
         serializedVersion: 2
         x: 224
@@ -280,8 +280,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd9d059a8c7ea8643bc7f3d3c37f2e5e
-      internalID: 2137226820
+      spriteID: 4a78936f52585fe4092b2709436c604b
+      internalID: 601499517
       vertices: []
       indices: 
       edges: []
@@ -297,14 +297,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_Move_Down_7: 2137226820
-      Slime_Move_Down_6: 9965107
-      Slime_Move_Down_3: -1071230624
-      Slime_Move_Down_0: 277899044
-      Slime_Move_Down_4: -2000469600
-      Slime_Move_Down_5: 505606812
-      Slime_Move_Down_1: -1985033977
-      Slime_Move_Down_2: -1309384481
+      Slime_Hurt_Up_0: 50659003
+      Slime_Hurt_Up_4: 838415661
+      Slime_Hurt_Up_1: -659222868
+      Slime_Hurt_Up_3: -1735726691
+      Slime_Hurt_Up_6: 1176005396
+      Slime_Hurt_Up_5: -709448693
+      Slime_Hurt_Up_7: 601499517
+      Slime_Hurt_Up_2: 810313941
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
