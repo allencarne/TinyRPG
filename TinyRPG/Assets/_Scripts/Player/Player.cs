@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(health);
+        //Debug.Log(health);
 
         switch (state)
         {

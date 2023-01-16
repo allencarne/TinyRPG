@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -242,11 +242,13 @@ GameObject:
   m_Component:
   - component: {fileID: 133388243}
   - component: {fileID: 133388242}
+  - component: {fileID: 133388247}
   - component: {fileID: 133388245}
   - component: {fileID: 133388244}
+  - component: {fileID: 133388246}
   m_Layer: 0
-  m_Name: Slime
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133388241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.89, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,6 +382,44 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000010673846, y: -0.089538716}
   m_Size: {x: 0.5474702, y: 0.12322365}
   m_Direction: 1
+--- !u!95 &133388246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133388241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d602980b3a39a14e8b085f127a7fd4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &133388247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133388241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e5bfed353bcc440ac81a7876444026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 133388246}
+  enemyRB: {fileID: 133388244}
+  enemyMaxHealth: 3
+  enemySpeed: 5
+  aggroRange: 5
+  meleeAttackRange: 1
 --- !u!1001 &145523142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -11325,7 +11365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -13693,7 +13733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -14142,7 +14182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
