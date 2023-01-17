@@ -27,7 +27,7 @@ public class WhirlWind : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
-            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
 
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
@@ -38,6 +38,19 @@ public class WhirlWind : MonoBehaviour
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
 
             enemyRB.velocity = direction * Player.knockBackForce;
+        }
+
+        if (collision.tag == "Dummy")
+        {
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+
+            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+
+            var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            enemy.dummyHit = true;
+
+            enemy.dummySlowed = true;
         }
     }
 }

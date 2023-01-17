@@ -8,15 +8,15 @@ public class TrainingDummy : MonoBehaviour
     [SerializeField] GameObject stunIcon;
     [SerializeField] GameObject slowIcon;
     public Vector3 startPosition;
-    public float idleTime;
-    public bool enemyHit;
-    public bool enemyStunned;
-    public bool enemySlowed;
-    bool isStunned;
-    bool isSlowed;
-    public bool canReset;
-    public float slowDuration;
-    public float stunDuration;
+    public float dummyIdleTime;
+    public bool dummyHit;
+    public bool dummyStunned;
+    public bool dummySlowed;
+    bool isDummyStunned;
+    bool isDummySlowed;
+    public bool canDummyReset;
+    public float dummySlowDuration;
+    public float dummyStunDuration;
 
     enum DummyState
     {
@@ -70,19 +70,19 @@ public class TrainingDummy : MonoBehaviour
     {
         animator.Play("Idle");
 
-        if (enemyHit)
+        if (dummyHit)
         {
-            enemyHit = false;
+            dummyHit = false;
 
             state = DummyState.hurt;
         }
 
         if (transform.position != startPosition)
         {
-            idleTime++;
+            dummyIdleTime++;
         }
 
-        if (idleTime >= 1000)
+        if (dummyIdleTime >= 1000)
         {
             state = DummyState.reset;
         }
@@ -93,14 +93,14 @@ public class TrainingDummy : MonoBehaviour
         //animator.Play("Hurt", 0, 0f);
         animator.Play("Hurt");
 
-        idleTime = 0;
+        dummyIdleTime = 0;
     }
 
     public void dummyResetState()
     {
         animator.Play("Reset");
 
-        idleTime = 0;
+        dummyIdleTime = 0;
     }
 
     #endregion
@@ -109,33 +109,33 @@ public class TrainingDummy : MonoBehaviour
 
     public void EnemyStun()
     {
-        if (enemyStunned)
+        if (dummyStunned)
         {
 
             // Prevents being stunned twice
-            enemyStunned = false;
+            dummyStunned = false;
 
-            isStunned = true;
+            isDummyStunned = true;
 
             // Reset Idle Time
-            idleTime = 0;
+            dummyIdleTime = 0;
 
             // Reset Stun Duration
-            stunDuration = 0;
+            dummyStunDuration = 0;
 
             // Enable Stun
             stunIcon.SetActive(true);
         }
 
-        if (isStunned)
+        if (isDummyStunned)
         {
-            stunDuration++;
+            dummyStunDuration++;
         }
 
-        if (stunDuration >= 1000)
+        if (dummyStunDuration >= 1000)
         {
-            isStunned = false;
-            stunDuration = 0;
+            isDummyStunned = false;
+            dummyStunDuration = 0;
             stunIcon.SetActive(false);
             state = DummyState.idle;
         }
@@ -143,28 +143,28 @@ public class TrainingDummy : MonoBehaviour
 
     public void EnemySlow()
     {
-        if (enemySlowed)
+        if (dummySlowed)
         {
-            enemySlowed = false;
+            dummySlowed = false;
 
-            isSlowed = true;
+            isDummySlowed = true;
 
-            idleTime = 0;
+            dummyIdleTime = 0;
 
-            slowDuration = 0;
+            dummySlowDuration = 0;
 
             slowIcon.SetActive(true);
         }
 
-        if (isSlowed)
+        if (isDummySlowed)
         {
-            slowDuration++;
+            dummySlowDuration++;
         }
 
-        if (slowDuration >= 1000)
+        if (dummySlowDuration >= 1000)
         {
-            isSlowed = false;
-            slowDuration = 0;
+            isDummySlowed = false;
+            dummySlowDuration = 0;
             slowIcon.SetActive(false);
             state = DummyState.idle;
         }

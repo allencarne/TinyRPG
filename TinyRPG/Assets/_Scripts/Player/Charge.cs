@@ -13,7 +13,7 @@ public class Charge : MonoBehaviour
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
             // Get Enemy Components
-            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
             // Triggers Enemy Hit State
@@ -21,6 +21,25 @@ public class Charge : MonoBehaviour
 
             // Stun Enemy
             enemy.enemyStunned = true;
+
+            // Knockback
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            enemyRB.velocity = direction * Player.dashKnockBackForce;
+        }
+
+        if (collision.tag == "Dummy")
+        {
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+
+            // Get Enemy Components
+            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+            var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            // Triggers Enemy Hit State
+            //enemy.enemyHit = true;
+
+            // Stun Enemy
+            enemy.dummyStunned = true;
 
             // Knockback
             Vector2 direction = (enemy.transform.position - transform.position).normalized;

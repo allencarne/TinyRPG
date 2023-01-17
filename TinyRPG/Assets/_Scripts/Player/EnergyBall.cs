@@ -12,13 +12,26 @@ public class EnergyBall : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
-            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
 
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
             enemy.enemyHit = true;
 
             enemy.enemySlowed = true;
+        }
+
+        if (collision.tag == "Dummy")
+        {
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+
+            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+
+            var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            enemy.dummyHit = true;
+
+            enemy.dummySlowed = true;
         }
     }
 }

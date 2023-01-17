@@ -18,15 +18,26 @@ public class Tornado : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
-            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
 
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
             enemy.enemyHit = true;
 
-            Vector2 direction = (enemy.transform.position - playerTransform.position).normalized;
+            enemy.enemySlowed = true;
+        }
 
-            enemyRB.velocity = direction * -12;
+        if (collision.tag == "Dummy")
+        {
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+
+            var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+
+            var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            enemy.dummyHit = true;
+
+            enemy.dummySlowed = true;
         }
     }
 }

@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] Animator enemyAnimator;
     [SerializeField] Rigidbody2D enemyRB;
+    [SerializeField] Transform enemyFirePoint;
     Transform target;
 
-    float enemyHealth;
+    [Header("Variables")]
+    public float enemyHealth;
     public float enemyMaxHealth;
     public float enemySpeed;
+    float damage;
 
-
-
-    float idleTime;
+    [Header("Combat")]
     [SerializeField] float aggroRange;
-    [SerializeField] float meleeAttackRange;
-
-    bool canMeleeAttack;
+    float idleTime;
     bool canWander = true;
-
     Vector2 enemyStartingPosition;
     Vector2 newMoveDirection;
+    public bool enemyHit = false;
+    public bool enemyStunned = false;
+    public bool enemySlowed = false;
+
+    [Header("MeleeAttack")]
+    [SerializeField] GameObject meleeAttackTelegraph;
+    [SerializeField] float meleeAttackCoolDown;
+    [SerializeField] float meleeAttackRange;
+    bool canMeleeAttack = true;
+    bool isMeleeAttacking = false;
+
 
     enum EnemyState
     {
@@ -40,7 +50,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("Aim").transform;
     }
 
     // Start is called before the first frame update
@@ -73,7 +83,7 @@ public class Enemy : MonoBehaviour
                 EnemyMeleeAttackState();
                 break;
             case EnemyState.hurt:
-                EnemyHurtState();
+                EnemyHurtState(damage);
                 break;
             case EnemyState.reset:
                 EnemyResetState();
@@ -81,6 +91,13 @@ public class Enemy : MonoBehaviour
             case EnemyState.death:
                 EnemyDeathState();
                 break;
+        }
+
+        if (enemyHit && state != EnemyState.death)
+        {
+            enemyHit = false;
+
+            state = EnemyState.hurt;
         }
     }
 
@@ -152,6 +169,20 @@ public class Enemy : MonoBehaviour
         Vector2 newWanderPos = Vector2.MoveTowards(enemyRB.position, newMoveDirection, enemySpeed * Time.deltaTime);
         enemyRB.MovePosition(newWanderPos);
         //enemyRB.velocity = newMoveDirection * enemySpeed * Time.deltaTime;
+
+        // Transition
+        if (Vector2.Distance(target.position, enemyRB.position) <= aggroRange)
+        {
+            state = EnemyState.chase;
+        }
+
+        if (Vector2.Distance(target.position, enemyRB.position) <= meleeAttackRange)
+        {
+            if (canMeleeAttack)
+            {
+                state = EnemyState.meleeAttack;
+            }
+        }
     }
 
     void EnemyChaseState()
@@ -166,16 +197,59 @@ public class Enemy : MonoBehaviour
 
         enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
         enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
+
+        // Transition
+        if (Vector2.Distance(target.position, enemyRB.position) <= meleeAttackRange)
+        {
+            if (canMeleeAttack)
+            {
+                state = EnemyState.meleeAttack;
+            }
+        }
+
+        if (Vector2.Distance(target.position, enemyRB.position) >= aggroRange)
+        {
+            state = EnemyState.idle;
+        }
     }
 
     void EnemyMeleeAttackState()
     {
+        // Set Animation based on player location
+        enemyAnimator.Play("MeleeAttack");
+        enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
+        enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
 
+        if (canMeleeAttack)
+        {
+            canMeleeAttack = false;
+
+            StartCoroutine(MeleeAttackCoolDown());
+        }
+
+        if (isMeleeAttacking)
+        {
+            isMeleeAttacking = false;
+
+            Instantiate(meleeAttackTelegraph, enemyFirePoint.position, enemyFirePoint.rotation);
+        }
     }
 
-    void EnemyHurtState()
+    public void EnemyHurtState(float damage)
     {
+        // Animate
+        enemyAnimator.Play("Hurt");
+        enemyAnimator.SetFloat("Horizontal", enemyRB.position.x - target.position.x);
+        enemyAnimator.SetFloat("Vertical", enemyRB.position.y - target.position.y);
 
+        // Behaviour
+        enemyHealth -= damage;
+
+        // Transition
+        if (enemyHealth <= 0)
+        {
+            state = EnemyState.death;
+        }
     }
 
     void EnemyResetState()
@@ -185,7 +259,7 @@ public class Enemy : MonoBehaviour
 
     void EnemyDeathState()
     {
-
+        Destroy(gameObject);
     }
 
     #endregion
@@ -195,11 +269,22 @@ public class Enemy : MonoBehaviour
         state = EnemyState.idle;
     }
 
+    public void AE_MeleeAttack()
+    {
+        isMeleeAttacking = true;
+    }
+
     IEnumerator Wandering()
     {
         yield return new WaitForSeconds(1f);
         canWander = true;
         state = EnemyState.idle;
+    }
+
+    IEnumerator MeleeAttackCoolDown()
+    {
+        yield return new WaitForSeconds(meleeAttackCoolDown);
+        canMeleeAttack = true;
     }
 
     private void OnDrawGizmos()
