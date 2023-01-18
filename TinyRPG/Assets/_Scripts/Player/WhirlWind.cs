@@ -33,7 +33,7 @@ public class WhirlWind : MonoBehaviour
 
             enemy.enemyHit = true;
 
-            enemy.enemyStunned = true;
+            enemy.enemyStunnedTrigger = true;
 
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
 

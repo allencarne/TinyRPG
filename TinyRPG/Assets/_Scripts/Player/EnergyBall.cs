@@ -18,7 +18,7 @@ public class EnergyBall : MonoBehaviour
 
             enemy.enemyHit = true;
 
-            enemy.enemySlowed = true;
+            enemy.enemySlowedTrigger = true;
         }
 
         if (collision.tag == "Dummy")

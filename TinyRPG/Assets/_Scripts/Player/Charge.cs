@@ -20,7 +20,7 @@ public class Charge : MonoBehaviour
             //enemy.enemyHit = true;
 
             // Stun Enemy
-            enemy.enemyStunned = true;
+            enemy.enemyStunnedTrigger = true;
 
             // Knockback
             Vector2 direction = (enemy.transform.position - transform.position).normalized;

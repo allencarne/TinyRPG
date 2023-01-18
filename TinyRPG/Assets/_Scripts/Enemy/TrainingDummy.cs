@@ -53,8 +53,8 @@ public class TrainingDummy : MonoBehaviour
                 break;
         }
 
-        EnemyStun();
-        EnemySlow();
+        DummyStun();
+        DummySlow();
     }
 
     #region Dummy States
@@ -107,7 +107,7 @@ public class TrainingDummy : MonoBehaviour
 
     #region Helper Methods
 
-    public void EnemyStun()
+    public void DummyStun()
     {
         if (dummyStunned)
         {
@@ -141,7 +141,7 @@ public class TrainingDummy : MonoBehaviour
         }
     }
 
-    public void EnemySlow()
+    public void DummySlow()
     {
         if (dummySlowed)
         {

@@ -22,9 +22,19 @@ public class Enemy : MonoBehaviour
     bool canWander = true;
     Vector2 enemyStartingPosition;
     Vector2 newMoveDirection;
+
+    [Header("Crowd Control")]
     public bool enemyHit = false;
-    public bool enemyStunned = false;
-    public bool enemySlowed = false;
+
+    [SerializeField] GameObject enemySlowIcon;
+    public bool enemySlowedTrigger = false;
+    public bool isEnemySlowed = false;
+    float enemySlowDuration;
+
+    [SerializeField] GameObject enemyStunIcon;
+    public bool enemyStunnedTrigger = false;
+    public bool isEnemyStunned = false;
+    float enemyStunDuration;
 
     [Header("MeleeAttack")]
     [SerializeField] GameObject meleeAttackTelegraph;
@@ -93,12 +103,15 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
-        if (enemyHit && state != EnemyState.death)
+        if (enemyHit)
         {
             enemyHit = false;
 
             state = EnemyState.hurt;
         }
+
+        EnemySlowed();
+        EnemyStunned();
     }
 
     #region Enemy States
@@ -260,6 +273,63 @@ public class Enemy : MonoBehaviour
     void EnemyDeathState()
     {
         Destroy(gameObject);
+    }
+
+    #endregion
+
+    #region Helper Methods
+    void EnemySlowed()
+    {
+        if (enemySlowedTrigger)
+        {
+            enemySlowedTrigger = false;
+
+            isEnemySlowed = true;
+
+            enemySlowDuration = 0;
+
+            enemySlowIcon.SetActive(true);
+        }
+
+        if (isEnemySlowed)
+        {
+            enemySlowDuration++;
+        }
+
+
+        if (enemySlowDuration >= 1000)
+        {
+            isEnemySlowed = false;
+            enemySlowDuration = 0;
+            enemySlowIcon.SetActive(false);
+        }
+    }
+
+    void EnemyStunned()
+    {
+        if (enemyStunnedTrigger)
+        {
+            enemyStunnedTrigger = false;
+
+            isEnemyStunned = true;
+
+            enemyStunDuration = 0;
+
+            enemyStunIcon.SetActive(true);
+        }
+
+        if (isEnemyStunned)
+        {
+            enemyStunDuration++;
+        }
+
+
+        if (enemyStunDuration >= 1000)
+        {
+            isEnemyStunned = false;
+            enemyStunDuration = 0;
+            enemyStunIcon.SetActive(false);
+        }
     }
 
     #endregion
