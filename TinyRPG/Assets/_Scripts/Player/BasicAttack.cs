@@ -36,15 +36,20 @@ public class BasicAttack : MonoBehaviour
 
         if (collision.tag == "Dummy")
         {
-            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
-
+            // Components
             var enemy = collision.gameObject.GetComponent<TrainingDummy>();
-
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
+            // Hit Spark
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
+            Instantiate(hitSpark1, collision.transform.position, firePoint.transform.rotation);
+
+            // Damage
             enemy.dummyHit = true;
 
-            enemy.dummySlowed = true;
+            // Knockback
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            enemyRB.velocity = direction * Player.knockBackForce;
         }
     }
 }

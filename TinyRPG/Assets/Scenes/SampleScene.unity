@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &133388242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -423,11 +423,13 @@ MonoBehaviour:
   enemyMaxHealth: 3
   enemySpeed: 5
   aggroRange: 7
-  slowIcon: {fileID: 931749055}
-  stunIcon: {fileID: 1770706127}
   enemyHit: 0
-  enemySlowed: 0
-  enemyStunned: 0
+  enemySlowIcon: {fileID: 931749055}
+  enemySlowedTrigger: 0
+  isEnemySlowed: 0
+  enemyStunIcon: {fileID: 1770706127}
+  enemyStunnedTrigger: 0
+  isEnemyStunned: 0
   meleeAttackTelegraph: {fileID: 1678005024966795067, guid: 6769b04942c89234a98f6d9a84ef056e, type: 3}
   meleeAttackCoolDown: 2
   meleeAttackRange: 0.6
@@ -445,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -10525,7 +10527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1443362741
 Transform:
   m_ObjectHideFlags: 0
@@ -11404,7 +11406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -13819,7 +13821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -14350,7 +14352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder

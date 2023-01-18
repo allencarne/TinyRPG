@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 120724568229383082}
   m_Layer: 6
   m_Name: Training Dummy
-  m_TagString: Enemy
+  m_TagString: Dummy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,13 +167,13 @@ MonoBehaviour:
   stunIcon: {fileID: 8957174740501218937}
   slowIcon: {fileID: 512036219766662593}
   startPosition: {x: 0, y: 0, z: 0}
-  idleTime: 0
-  enemyHit: 0
-  enemyStunned: 0
-  enemySlowed: 0
-  canReset: 0
-  slowDuration: 0
-  stunDuration: 0
+  dummyIdleTime: 0
+  dummyHit: 0
+  dummyStunned: 0
+  dummySlowed: 0
+  canDummyReset: 0
+  dummySlowDuration: 0
+  dummyStunDuration: 0
 --- !u!95 &120724568229383082
 Animator:
   serializedVersion: 5

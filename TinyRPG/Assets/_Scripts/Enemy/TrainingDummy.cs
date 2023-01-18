@@ -53,6 +53,13 @@ public class TrainingDummy : MonoBehaviour
                 break;
         }
 
+        if (dummyHit)
+        {
+            dummyHit = false;
+
+            state = DummyState.hurt;
+        }
+
         DummyStun();
         DummySlow();
     }
