@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Components")]
+    [SerializeField] EnemyHealthBar enemyHealthbar;
     [SerializeField] Animator enemyAnimator;
     [SerializeField] Rigidbody2D enemyRB;
     [SerializeField] Transform enemyFirePoint;
@@ -61,6 +62,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         target = GameObject.Find("Aim").transform;
+        enemyHealthbar = GetComponent<EnemyHealthBar>();
     }
 
     // Start is called before the first frame update
@@ -256,7 +258,7 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetFloat("Vertical", enemyRB.position.y - target.position.y);
 
         // Behaviour
-        enemyHealth -= damage;
+        TakeDamage(damage);
 
         // Transition
         if (enemyHealth <= 0)
@@ -342,6 +344,18 @@ public class Enemy : MonoBehaviour
     public void AE_MeleeAttack()
     {
         isMeleeAttacking = true;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        enemyHealth -= damage;
+        enemyHealthbar.lerpTimer = 0f;
+    }
+
+    void RestoreHealth(float healAmount)
+    {
+        enemyHealth += healAmount;
+        enemyHealthbar.lerpTimer = 0f;
     }
 
     IEnumerator Wandering()
