@@ -31,19 +31,13 @@ public class Charge : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
-            // Get Enemy Components
             var enemy = collision.gameObject.GetComponent<TrainingDummy>();
+
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            // Triggers Enemy Hit State
-            //enemy.enemyHit = true;
+            enemy.dummyHit = true;
 
-            // Stun Enemy
             enemy.dummyStunned = true;
-
-            // Knockback
-            Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.dashKnockBackForce;
         }
     }
 }

@@ -10,5 +10,10 @@ public class DashTelegraph : MonoBehaviour
         {
             Player.dashCollide = true;
         }
+
+        if (collision.tag == "Dummy")
+        {
+            Player.dashCollide = true;
+        }
     }
 }
