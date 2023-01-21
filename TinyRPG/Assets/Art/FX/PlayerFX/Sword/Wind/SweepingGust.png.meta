@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 16fbd687d3319174a9feff0e4000dcc7
+guid: 02fdd9cb269f69542809b6b600966918
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -117,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Sword_Ult_Telegraph_0
+      name: SweepingGust_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f13dffc5d6d94b498c945f989bdb452
-      internalID: -693691652
+      spriteID: 5bd4e9f597345584893058e968b7d83a
+      internalID: -501482378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Ult_Telegraph_1
+      name: SweepingGust_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 0
-        width: 256
-        height: 256
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dc2458bc46a35840a2f928fcc3f04f3
-      internalID: 760236767
+      spriteID: 03d7e6e45348bf7448ed65f7a7b7bdd1
+      internalID: -1429119685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Ult_Telegraph_2
+      name: SweepingGust_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 64
         y: 0
-        width: 256
-        height: 256
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df062f20507690343a5faa8317f6db88
-      internalID: 1794671666
+      spriteID: 5eea4a0074783cd4bba97beb4fb4dc9c
+      internalID: 1195665125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Ult_Telegraph_3
+      name: SweepingGust_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 96
         y: 0
-        width: 256
-        height: 256
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 981d68548fa60854b890f25150741cc8
-      internalID: 535815103
+      spriteID: fd07772edf31bbc4c82d5e6ebabfac8b
+      internalID: -993043783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Sword_Ult_Telegraph_4
+      name: SweepingGust_4
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 128
         y: 0
-        width: 256
-        height: 256
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +217,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c82b092849668e449a9f061ad5d687e8
-      internalID: 276966288
+      spriteID: 984f164085a69344195a185acf6bd14c
+      internalID: -1406174076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SweepingGust_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712ac7ab815f476489c4f4acd8d34136
+      internalID: -202438194
       vertices: []
       indices: 
       edges: []
@@ -232,14 +255,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Sword_Ult_Telegraph_2: 1794671666
-      Player_Sword_Ult_Telegraph_3: 535815103
-      Player_Sword_Ult_Telegraph_0: -693691652
-      Player_Sword_Ult_Telegraph_4: 276966288
-      Player_Sword_Ult_Telegraph_1: 760236767
-  spritePackingTag: 
+      SweepingGust_0: -501482378
+      SweepingGust_3: -993043783
+      SweepingGust_1: -1429119685
+      SweepingGust_4: -1406174076
+      SweepingGust_5: -202438194
+      SweepingGust_2: 1195665125
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

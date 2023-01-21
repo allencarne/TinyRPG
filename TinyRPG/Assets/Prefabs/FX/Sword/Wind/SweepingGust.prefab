@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8577746483152824665}
   - component: {fileID: 8577746483152824670}
   - component: {fileID: 8577746483152824671}
-  - component: {fileID: 8577746483152824668}
   - component: {fileID: 7326846397093255449}
   - component: {fileID: 3761214051538104477}
+  - component: {fileID: 7812586946588872114}
   m_Layer: 0
-  m_Name: EnergyBall
+  m_Name: SweepingGust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &8577746483152824665
@@ -172,19 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8577746483152824668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577746483152824669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b825adc87619da4a92fdc83f562edaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
 --- !u!114 &7326846397093255449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +297,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7812586946588872114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577746483152824669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325ad211c922be24280df6f7cb872215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}

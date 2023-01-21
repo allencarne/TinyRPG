@@ -37,16 +37,15 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject basicAttack3Prefab;
     bool canBasicAttack3 = false;
 
-    [Header("Ability1")]
-    [SerializeField] GameObject ability1Indicator;
-    [SerializeField] Transform ability1EndPosition;
-    [SerializeField] GameObject ability1Prefab;
-    public static float pullForce = -15f;
-    public float ability1Force;
-    public float ability1CoolDown;
-    bool canAbility1 = true;
-    bool isAbility1Active;
-    public static float gustSlowAmount = 2;
+    [Header("Sweeping Gust")]
+    [SerializeField] GameObject sweepingGustIndicator;
+    [SerializeField] Transform sweepingGustEndPosition;
+    [SerializeField] GameObject sweepingGustPrefab;
+    public float sweepingGustForce;
+    public float sweepingGustCoolDown;
+    bool canSweepingGust = true;
+    bool isSweepingGustActive;
+    public static float sweepingGustSlowAmount = 2;
 
     [Header("Dash")]
     [SerializeField] GameObject dashIndicator;
@@ -378,13 +377,13 @@ public class Player : MonoBehaviour
     void PlayerAbility1State()
     {
         // Prevents attacking more than once
-        canAbility1 = false;
+        canSweepingGust = false;
 
         // Animation
         animator.Play("Attack");
 
         // Get the ablge of the indicator end position and player position
-        Vector3 angle = ability1EndPosition.position - transform.position;
+        Vector3 angle = sweepingGustEndPosition.position - transform.position;
 
         //Quaternion rotation = Quaternion.FromToRotation(firePoint.position, angle);
 
@@ -395,14 +394,14 @@ public class Player : MonoBehaviour
         animator.SetFloat("Horizontal", angle.x);
         animator.SetFloat("Vertical", angle.y);
 
-        if (isAbility1Active)
+        if (isSweepingGustActive)
         {
-            isAbility1Active = false;
+            isSweepingGustActive = false;
 
             // Instantiate Basic Attack and Add Force
-            GameObject tornado = Instantiate(ability1Prefab, firePoint.position, firePoint.rotation);
+            GameObject tornado = Instantiate(sweepingGustPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D ability1RB = tornado.GetComponent<Rigidbody2D>();
-            ability1RB.AddForce(firePoint.right * ability1Force, ForceMode2D.Impulse);
+            ability1RB.AddForce(firePoint.right * sweepingGustForce, ForceMode2D.Impulse);
 
             StartCoroutine(Ability1CoolDown());
         }
@@ -533,18 +532,18 @@ public class Player : MonoBehaviour
     {
         bool held = Input.GetKeyUp(ability1Key);
 
-        if (Input.GetKey(ability1Key) && canAbility1)
+        if (Input.GetKey(ability1Key) && canSweepingGust)
         {
-            ability1Indicator.SetActive(true);
+            sweepingGustIndicator.SetActive(true);
         }
         else
         {
-            ability1Indicator.SetActive(false);
+            sweepingGustIndicator.SetActive(false);
         }
 
-        if (held && canAbility1)
+        if (held && canSweepingGust)
         {
-            ability1Indicator.SetActive(false);
+            sweepingGustIndicator.SetActive(false);
             state = PlayerState.ability1;
         }
     }
@@ -617,8 +616,8 @@ public class Player : MonoBehaviour
 
     IEnumerator Ability1CoolDown()
     {
-        yield return new WaitForSeconds(ability1CoolDown);
-        canAbility1 = true;
+        yield return new WaitForSeconds(sweepingGustCoolDown);
+        canSweepingGust = true;
     }
 
     IEnumerator Ability2CoolDown()
@@ -733,7 +732,7 @@ public class Player : MonoBehaviour
         // Prevents shooting 2 projectiles - This is because it's a shared animation with basic attack
         if (state == PlayerState.ability1)
         {
-            isAbility1Active = true;
+            isSweepingGustActive = true;
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23fc5452c3ffd1346b9967661e8f183b
+guid: 16fbd687d3319174a9feff0e4000dcc7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnergyBall_0
+      name: Player_Sword_Ult_Telegraph_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb7a653f5567c4f47b3c296bc1fdab69
-      internalID: 1767224214
+      spriteID: 4f13dffc5d6d94b498c945f989bdb452
+      internalID: -693691652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnergyBall_1
+      name: Player_Sword_Ult_Telegraph_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18c6630783ed54444b77172e418754e2
-      internalID: 1373240661
+      spriteID: 3dc2458bc46a35840a2f928fcc3f04f3
+      internalID: 760236767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnergyBall_2
+      name: Player_Sword_Ult_Telegraph_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 512
         y: 0
-        width: 32
-        height: 32
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07d2e758ac033744382738d8fa0e52af
-      internalID: 602249170
+      spriteID: df062f20507690343a5faa8317f6db88
+      internalID: 1794671666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnergyBall_3
+      name: Player_Sword_Ult_Telegraph_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 768
         y: 0
-        width: 32
-        height: 32
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da1b04c8f841a45499956970385e9276
-      internalID: -898220376
+      spriteID: 981d68548fa60854b890f25150741cc8
+      internalID: 535815103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnergyBall_4
+      name: Player_Sword_Ult_Telegraph_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 1024
         y: 0
-        width: 32
-        height: 32
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,29 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62dc06141b60712469565c195b5e1e6b
-      internalID: -1179587788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnergyBall_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae75f3ff2e428394d8ea009f47beae06
-      internalID: -1901577507
+      spriteID: c82b092849668e449a9f061ad5d687e8
+      internalID: 276966288
       vertices: []
       indices: 
       edges: []
@@ -255,12 +234,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnergyBall_2: 602249170
-      EnergyBall_4: -1179587788
-      EnergyBall_0: 1767224214
-      EnergyBall_3: -898220376
-      EnergyBall_1: 1373240661
-      EnergyBall_5: -1901577507
+      Player_Sword_Ult_Telegraph_2: 1794671666
+      Player_Sword_Ult_Telegraph_3: 535815103
+      Player_Sword_Ult_Telegraph_0: -693691652
+      Player_Sword_Ult_Telegraph_4: 276966288
+      Player_Sword_Ult_Telegraph_1: 760236767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

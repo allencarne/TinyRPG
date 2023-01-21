@@ -294,7 +294,7 @@ public class Enemy : MonoBehaviour
             enemySlowIcon.SetActive(true);
 
             // Slow
-            enemyCurrentSpeed = Player.gustSlowAmount;
+            enemyCurrentSpeed = Player.sweepingGustSlowAmount;
         }
 
         if (isEnemySlowed)
