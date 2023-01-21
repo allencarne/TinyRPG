@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed;
     [HideInInspector] Vector2 movement;
     [HideInInspector] Vector2 angleToMouse;
-    [HideInInspector] Vector2 mousePos;
-    [HideInInspector] float offset;
     public float health;
     public float maxHealth;
 
