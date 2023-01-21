@@ -22,10 +22,10 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject basicAttackPrefab;
     [SerializeField] float basicAttackCoolDown;
     [SerializeField] float basicAttackForce;
-    [SerializeField] float attackRange;
+    [SerializeField] float basicAttackRange;
     [SerializeField] float basicAttackSlideForce;
     public static float basicAttackDamage = 1;
-    public static float knockBackForce = 5;
+    public static float basicAttackKnockBackForce = 5;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
     bool dashEndTrigger = false;
@@ -677,7 +677,7 @@ public class Player : MonoBehaviour
         AngleToMouse();
 
         // If Mouse 
-        if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > attackRange)
+        if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > basicAttackRange)
         {
             // Normalize movement vector and times it by attack move distance
             angleToMouse = angleToMouse.normalized * basicAttackSlideForce;

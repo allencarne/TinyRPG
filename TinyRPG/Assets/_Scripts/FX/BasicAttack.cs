@@ -31,7 +31,7 @@ public class BasicAttack : MonoBehaviour
             // Knockback
             enemy.enemyKnockBackTrigger = true;
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.knockBackForce;
+            enemyRB.velocity = direction * Player.basicAttackKnockBackForce;
         }
 
         if (collision.tag == "Dummy")
@@ -49,7 +49,7 @@ public class BasicAttack : MonoBehaviour
 
             // Knockback
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.knockBackForce;
+            enemyRB.velocity = direction * Player.basicAttackKnockBackForce;
         }
     }
 }

@@ -24,7 +24,7 @@ public class Charge : MonoBehaviour
 
             // Knockback
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.knockBackForce;
+            enemyRB.velocity = direction * Player.basicAttackKnockBackForce;
         }
 
         if (collision.tag == "Dummy")
