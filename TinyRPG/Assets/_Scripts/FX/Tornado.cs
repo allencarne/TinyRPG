@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charge : MonoBehaviour
+public class Tornado : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
+    Transform playerTransform;
+
+    private void Awake()
+    {
+        playerTransform = GameObject.Find("Player").transform;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,19 +18,14 @@ public class Charge : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
-            // Get Enemy Components
             var enemy = collision.gameObject.GetComponent<Enemy>();
+
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            // Triggers Enemy Hit State
-            //enemy.enemyHit = true;
+            // Deal Damage
+            enemy.EnemyHurtState(Player.basicAttackDamage);
 
-            // Stun Enemy
-            enemy.enemyStunnedTrigger = true;
-
-            // Knockback
-            Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.dashKnockBackForce;
+            enemy.enemySlowedTrigger = true;
         }
 
         if (collision.tag == "Dummy")
@@ -37,7 +38,7 @@ public class Charge : MonoBehaviour
 
             enemy.dummyHit = true;
 
-            enemy.dummyStunned = true;
+            enemy.dummySlowed = true;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +25,7 @@ public class Enemy : MonoBehaviour
     Vector2 enemyStartingPosition;
     Vector2 newMoveDirection;
 
-    [Header("Crowd Control")]
-    public bool enemyHit = false;
-
+    [Header("DeBuffs")]
     [SerializeField] GameObject enemySlowIcon;
     public bool enemySlowedTrigger = false;
     public bool isEnemySlowed = false;
@@ -36,6 +35,12 @@ public class Enemy : MonoBehaviour
     public bool enemyStunnedTrigger = false;
     public bool isEnemyStunned = false;
     float enemyStunDuration;
+
+    [SerializeField] GameObject enemyKnockBackIcon;
+    public bool enemyKnockBackTrigger = false;
+    bool isEnemyKnockedBack = false;
+    float enemyKnockBackDuration;
+
 
     [Header("MeleeAttack")]
     [SerializeField] GameObject meleeAttackTelegraph;
@@ -65,14 +70,12 @@ public class Enemy : MonoBehaviour
         enemyHealthbar = GetComponent<EnemyHealthBar>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyHealth = enemyMaxHealth;
         enemyStartingPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log(state);
@@ -105,15 +108,9 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
-        if (enemyHit)
-        {
-            enemyHit = false;
-
-            state = EnemyState.hurt;
-        }
-
         EnemySlowed();
         EnemyStunned();
+        EnemyKnockBack();
     }
 
     #region Enemy States
@@ -252,6 +249,8 @@ public class Enemy : MonoBehaviour
 
     public void EnemyHurtState(float damage)
     {
+        state = EnemyState.hurt;
+
         // Animate
         enemyAnimator.Play("Hurt");
         enemyAnimator.SetFloat("Horizontal", enemyRB.position.x - target.position.x);
@@ -331,6 +330,32 @@ public class Enemy : MonoBehaviour
             isEnemyStunned = false;
             enemyStunDuration = 0;
             enemyStunIcon.SetActive(false);
+        }
+    }
+
+    public void EnemyKnockBack()
+    {
+        if (enemyKnockBackTrigger)
+        {
+            enemyKnockBackTrigger = false;
+
+            isEnemyKnockedBack = true;
+
+            enemyKnockBackDuration = 0;
+
+            enemyKnockBackIcon.SetActive(true);
+        }
+
+        if (isEnemyKnockedBack)
+        {
+            enemyKnockBackDuration++;
+        }
+
+        if (enemyKnockBackDuration >= 100)
+        {
+            isEnemyKnockedBack = false;
+            enemyKnockBackDuration = 0;
+            enemyKnockBackIcon.SetActive(false);
         }
     }
 

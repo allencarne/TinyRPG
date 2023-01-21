@@ -2,15 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tornado : MonoBehaviour
+public class EnergyBall : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
-    Transform playerTransform;
-
-    private void Awake()
-    {
-        playerTransform = GameObject.Find("Player").transform;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +16,8 @@ public class Tornado : MonoBehaviour
 
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            enemy.enemyHit = true;
+            // Deal Damage
+            enemy.EnemyHurtState(Player.basicAttackDamage);
 
             enemy.enemySlowedTrigger = true;
         }

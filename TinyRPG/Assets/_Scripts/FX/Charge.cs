@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergyBall : MonoBehaviour
+public class Charge : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
 
@@ -12,13 +12,19 @@ public class EnergyBall : MonoBehaviour
         {
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
+            // Get Enemy Components
             var enemy = collision.gameObject.GetComponent<Enemy>();
-
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            enemy.enemyHit = true;
+            // Deal Damage
+            enemy.EnemyHurtState(Player.basicAttackDamage);
 
-            enemy.enemySlowedTrigger = true;
+            // Stun Enemy
+            enemy.enemyStunnedTrigger = true;
+
+            // Knockback
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            enemyRB.velocity = direction * Player.knockBackForce;
         }
 
         if (collision.tag == "Dummy")
@@ -31,7 +37,7 @@ public class EnergyBall : MonoBehaviour
 
             enemy.dummyHit = true;
 
-            enemy.dummySlowed = true;
+            enemy.dummyStunned = true;
         }
     }
 }

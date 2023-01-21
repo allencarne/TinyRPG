@@ -26,10 +26,10 @@ public class BasicAttack : MonoBehaviour
             Instantiate(hitSpark1, collision.transform.position, firePoint.transform.rotation);
 
             // Deal Damage
-            enemy.EnemyHurtState(1);
-            enemy.enemyHit = true;
+            enemy.EnemyHurtState(Player.basicAttackDamage);
 
             // Knockback
+            enemy.enemyKnockBackTrigger = true;
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
             enemyRB.velocity = direction * Player.knockBackForce;
         }

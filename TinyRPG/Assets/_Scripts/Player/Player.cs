@@ -5,20 +5,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Variables")]
-    public float health;
-    public float maxHealth;
     [SerializeField] float moveSpeed;
     [HideInInspector] Vector2 movement;
     [HideInInspector] Vector2 angleToMouse;
     [HideInInspector] Vector2 mousePos;
     [HideInInspector] float offset;
+    public float health;
+    public float maxHealth;
 
     [Header("Components")]
     [SerializeField] HealthBar healthbar;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
-    [HideInInspector] Camera cam;
     [SerializeField] Animator animator;
+    [HideInInspector] Camera cam;
 
     [Header("Basic Attack")]
     [SerializeField] GameObject basicAttackPrefab;
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] float basicAttackForce;
     [SerializeField] float attackRange;
     [SerializeField] float basicAttackSlideForce;
+    public static float basicAttackDamage = 1;
     public static float knockBackForce = 5;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
@@ -46,7 +47,6 @@ public class Player : MonoBehaviour
     [SerializeField] Transform dashEndPosition;
     [SerializeField] float dashCoolDown;
     [SerializeField] float dashVelocity;
-    public static float dashKnockBackForce = 2;
     public static bool dashCollide = false;
     bool canDash = true;
 
@@ -63,23 +63,23 @@ public class Player : MonoBehaviour
 
     [Header("Ability2")]
     [SerializeField] GameObject ability2Prefab;
+    public float ability2CoolDown;
     bool canAbility2 = true;
     bool isAbility2Active = false;
-    public float ability2CoolDown;
     bool counterAttack = false;
 
     [Header("Ability3")]
     [SerializeField] GameObject ability3Prefab;
     [SerializeField] GameObject slamIndicator;
+    public float ability3CoolDown;
     bool canAbility3 = true;
     bool isAbility3Active = false;
-    public float ability3CoolDown;
 
     [Header("Ultimate")]
     [SerializeField] GameObject ultimatePrefab;
+    public float ultimateCoolDown;
     bool canUltimate = true;
     bool isUltimateActive = false;
-    public float ultimateCoolDown;
 
     [Header("Keys")]
     [SerializeField] KeyCode upKey;

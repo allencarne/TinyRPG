@@ -31,7 +31,8 @@ public class WhirlWind : MonoBehaviour
 
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            enemy.enemyHit = true;
+            // Deal Damage
+            enemy.EnemyHurtState(Player.basicAttackDamage);
 
             enemy.enemyStunnedTrigger = true;
 

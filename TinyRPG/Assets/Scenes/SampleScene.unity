@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Training Dummy (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -433,16 +429,17 @@ MonoBehaviour:
   enemyRB: {fileID: 133388244}
   enemyFirePoint: {fileID: 756715456}
   enemyHealth: 0
-  enemyMaxHealth: 3
+  enemyMaxHealth: 999
   enemySpeed: 5
   aggroRange: 7
-  enemyHit: 0
   enemySlowIcon: {fileID: 7281005}
   enemySlowedTrigger: 0
   isEnemySlowed: 0
   enemyStunIcon: {fileID: 1749061249}
   enemyStunnedTrigger: 0
   isEnemyStunned: 0
+  enemyKnockBackIcon: {fileID: 1445668483}
+  enemyKnockBackTrigger: 0
   meleeAttackTelegraph: {fileID: 1678005024966795067, guid: 6769b04942c89234a98f6d9a84ef056e, type: 3}
   meleeAttackCoolDown: 2
   meleeAttackRange: 0.6
@@ -513,10 +510,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -11005,6 +10998,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1445668483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712270069473146834, guid: 6ddba5f8637b54b469d0ec5bd6bb3394, type: 3}
+  m_PrefabInstance: {fileID: 1623604499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1445668484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4198089941437971998, guid: 6ddba5f8637b54b469d0ec5bd6bb3394, type: 3}
@@ -11430,9 +11428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ef56708aebfee4b960b4304019601f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
   health: 0
   maxHealth: 10
-  moveSpeed: 5
   healthbar: {fileID: 1486545533}
   rb: {fileID: 1486545529}
   firePoint: {fileID: 991706384}
@@ -11940,10 +11938,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -14127,7 +14121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712270069473146834, guid: 6ddba5f8637b54b469d0ec5bd6bb3394, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14420,10 +14414,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
@@ -14878,10 +14868,6 @@ PrefabInstance:
     - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_Name
       value: Training Dummy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 120724568229383092, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
       propertyPath: m_RootOrder
