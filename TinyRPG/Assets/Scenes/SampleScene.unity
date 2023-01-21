@@ -429,7 +429,7 @@ MonoBehaviour:
   enemyRB: {fileID: 133388244}
   enemyFirePoint: {fileID: 756715456}
   enemyHealth: 0
-  enemyMaxHealth: 999
+  enemyMaxHealth: 50
   enemySpeed: 5
   aggroRange: 7
   enemySlowIcon: {fileID: 7281005}

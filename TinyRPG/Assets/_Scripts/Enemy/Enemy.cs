@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public float enemyHealth;
     public float enemyMaxHealth;
     public float enemySpeed;
+    public float enemyCurrentSpeed;
     float damage;
 
     [Header("Combat")]
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         enemyHealth = enemyMaxHealth;
+        enemyCurrentSpeed = enemySpeed;
         enemyStartingPosition = transform.position;
     }
 
@@ -178,7 +180,7 @@ public class Enemy : MonoBehaviour
 
             StartCoroutine(Wandering());
         }
-        Vector2 newWanderPos = Vector2.MoveTowards(enemyRB.position, newMoveDirection, enemySpeed * Time.deltaTime);
+        Vector2 newWanderPos = Vector2.MoveTowards(enemyRB.position, newMoveDirection, enemyCurrentSpeed * Time.deltaTime);
         enemyRB.MovePosition(newWanderPos);
         //enemyRB.velocity = newMoveDirection * enemySpeed * Time.deltaTime;
 
@@ -204,7 +206,7 @@ public class Enemy : MonoBehaviour
 
         // Behaviour
         Vector2 newTarget = new Vector2(target.position.x, target.position.y);
-        Vector2 newPos = Vector2.MoveTowards(enemyRB.position, newTarget, enemySpeed * Time.deltaTime);
+        Vector2 newPos = Vector2.MoveTowards(enemyRB.position, newTarget, enemyCurrentSpeed * Time.deltaTime);
         enemyRB.MovePosition(newPos);
 
         enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
@@ -290,6 +292,9 @@ public class Enemy : MonoBehaviour
             enemySlowDuration = 0;
 
             enemySlowIcon.SetActive(true);
+
+            // Slow
+            enemyCurrentSpeed = Player.gustSlowAmount;
         }
 
         if (isEnemySlowed)
@@ -300,6 +305,9 @@ public class Enemy : MonoBehaviour
 
         if (enemySlowDuration >= 1000)
         {
+            // Return to normal speed
+            enemyCurrentSpeed = enemySpeed;
+
             isEnemySlowed = false;
             enemySlowDuration = 0;
             enemySlowIcon.SetActive(false);

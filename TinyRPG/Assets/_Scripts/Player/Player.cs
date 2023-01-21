@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     public float ability1CoolDown;
     bool canAbility1 = true;
     bool isAbility1Active;
+    public static float gustSlowAmount = 2;
 
 
     [Header("Ability2")]

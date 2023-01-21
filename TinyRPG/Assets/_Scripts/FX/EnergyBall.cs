@@ -10,15 +10,17 @@ public class EnergyBall : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
-
+            // Components
             var enemy = collision.gameObject.GetComponent<Enemy>();
-
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            // HitSpark
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
             // Deal Damage
             enemy.EnemyHurtState(Player.basicAttackDamage);
 
+            // Slow
             enemy.enemySlowedTrigger = true;
         }
 
