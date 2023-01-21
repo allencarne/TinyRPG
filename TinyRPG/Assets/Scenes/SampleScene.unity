@@ -431,6 +431,7 @@ MonoBehaviour:
   enemyHealth: 0
   enemyMaxHealth: 50
   enemySpeed: 5
+  enemyCurrentSpeed: 0
   aggroRange: 7
   enemySlowIcon: {fileID: 7281005}
   enemySlowedTrigger: 0
@@ -11438,21 +11439,21 @@ MonoBehaviour:
   basicAttackPrefab: {fileID: 8576533728396684186, guid: 1580a1e5c11872b4aa97d0eff7ec47a0, type: 3}
   basicAttackCoolDown: 0.8
   basicAttackForce: 1
-  attackRange: 10.2
+  basicAttackRange: 10.2
   basicAttackSlideForce: 1
   basicAttack2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
   basicAttack3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
+  ability1Indicator: {fileID: 1932559554}
+  ability1EndPosition: {fileID: 1519613961}
+  ability1Prefab: {fileID: 8577746483152824669, guid: 022946272a42901408e6f9cb9131c73d, type: 3}
+  ability1Force: 10
+  ability1CoolDown: 2
   dashIndicator: {fileID: 218761798}
   dashTelegraph: {fileID: 1353553065529755636, guid: 6c670ac63dbca6a409ce24b8ceebc61f, type: 3}
   dashEndTelegraph: {fileID: 2968445849334936289, guid: 397dbf0f3c9f29746b42f31a39d21996, type: 3}
   dashEndPosition: {fileID: 849751881}
   dashCoolDown: 3
   dashVelocity: 15
-  ability1Indicator: {fileID: 1932559554}
-  ability1EndPosition: {fileID: 1519613961}
-  ability1Prefab: {fileID: 8577746483152824669, guid: 022946272a42901408e6f9cb9131c73d, type: 3}
-  ability1Force: 10
-  ability1CoolDown: 2
   ability2Prefab: {fileID: 666635300205636536, guid: dbe92af68c0ceee4c841760d7d6cd5a3, type: 3}
   ability2CoolDown: 3
   ability3Prefab: {fileID: 1452715059606266387, guid: 3c7dc2b58b2d4df42a669446385d45b3, type: 3}

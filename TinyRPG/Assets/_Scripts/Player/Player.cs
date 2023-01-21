@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     public static float basicAttackKnockBackForce = 5;
     bool canBasicAttack = true;
     bool isBasicAttacking = false;
-    bool dashEndTrigger = false;
 
     [Header("Basic Attack2")]
     [SerializeField] GameObject basicAttack2Prefab;
@@ -37,16 +36,6 @@ public class Player : MonoBehaviour
     [Header("Basic Attack3")]
     [SerializeField] GameObject basicAttack3Prefab;
     bool canBasicAttack3 = false;
-
-    [Header("Dash")]
-    [SerializeField] GameObject dashIndicator;
-    [SerializeField] GameObject dashTelegraph;
-    [SerializeField] GameObject dashEndTelegraph;
-    [SerializeField] Transform dashEndPosition;
-    [SerializeField] float dashCoolDown;
-    [SerializeField] float dashVelocity;
-    public static bool dashCollide = false;
-    bool canDash = true;
 
     [Header("Ability1")]
     [SerializeField] GameObject ability1Indicator;
@@ -58,6 +47,18 @@ public class Player : MonoBehaviour
     bool canAbility1 = true;
     bool isAbility1Active;
     public static float gustSlowAmount = 2;
+
+    [Header("Dash")]
+    [SerializeField] GameObject dashIndicator;
+    [SerializeField] GameObject dashTelegraph;
+    [SerializeField] GameObject dashEndTelegraph;
+    [SerializeField] Transform dashEndPosition;
+    [SerializeField] float dashCoolDown;
+    [SerializeField] float dashVelocity;
+    public static bool dashCollide = false;
+    bool dashEndTrigger = false;
+    bool canDash = true;
+
 
 
     [Header("Ability2")]
