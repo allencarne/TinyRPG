@@ -18,24 +18,24 @@ public class Player : MonoBehaviour
     [SerializeField] Animator animator;
     [HideInInspector] Camera cam;
 
-    [Header("Basic Attack")]
-    [SerializeField] GameObject basicAttackPrefab;
-    [SerializeField] float basicAttackCoolDown;
-    [SerializeField] float basicAttackForce;
-    [SerializeField] float basicAttackRange;
-    [SerializeField] float basicAttackSlideForce;
-    public static float basicAttackDamage = 1;
-    public static float basicAttackKnockBackForce = 5;
-    bool canBasicAttack = true;
-    bool isBasicAttacking = false;
+    [Header("Wind Slash")]
+    [SerializeField] GameObject windSlashPrefab;
+    [SerializeField] float windSlashCoolDown;
+    [SerializeField] float windSlashForce;
+    [SerializeField] float windSlashAttackRange;
+    [SerializeField] float windSlashSlideForce;
+    public static float windSlashDamage = 1;
+    public static float windSlashKnockBackForce = 5;
+    bool canWindSlash = true;
+    bool isWindSlashing = false;
 
-    [Header("Basic Attack2")]
-    [SerializeField] GameObject basicAttack2Prefab;
-    bool canBasicAttack2 = false;
+    [Header("Wind Slash 2")]
+    [SerializeField] GameObject windSlash2Prefab;
+    bool canWindSlash2 = false;
 
-    [Header("Basic Attack3")]
-    [SerializeField] GameObject basicAttack3Prefab;
-    bool canBasicAttack3 = false;
+    [Header("Wind Slash 3")]
+    [SerializeField] GameObject windSlash3Prefab;
+    bool canWindSlash3 = false;
 
     [Header("Sweeping Gust")]
     [SerializeField] GameObject sweepingGustIndicator;
@@ -241,23 +241,23 @@ public class Player : MonoBehaviour
         AnimationDirection();
 
         // Prevents Attacking more than once
-        canBasicAttack = false;
+        canWindSlash = false;
 
-        if (isBasicAttacking)
+        if (isWindSlashing)
         {
             // Prevents attacking more than once
-            isBasicAttacking = false;
+            isWindSlashing = false;
 
             // Instantiate Basic Attack and Add Force
-            GameObject basicAttack = Instantiate(basicAttackPrefab, firePoint.position, firePoint.rotation);
+            GameObject basicAttack = Instantiate(windSlashPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
-            basicAttackRB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            basicAttackRB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
             SlideForwad();
         }
 
         // Transition
-        if (canBasicAttack2 && Input.GetKey(basicAttackKey))
+        if (canWindSlash2 && Input.GetKey(basicAttackKey))
         {
             state = PlayerState.attack2;
         }
@@ -273,23 +273,23 @@ public class Player : MonoBehaviour
         AnimationDirection();
 
         // Prevents attacking more than once
-        canBasicAttack2 = false;
+        canWindSlash2 = false;
 
-        if (isBasicAttacking)
+        if (isWindSlashing)
         {
             // Prevents attacking more than once
-            isBasicAttacking = false;
+            isWindSlashing = false;
 
             // Instantiate Basic Attack and Add Force
-            GameObject basicAttack2 = Instantiate(basicAttack2Prefab, firePoint.position, firePoint.rotation);
+            GameObject basicAttack2 = Instantiate(windSlash2Prefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttack2RB = basicAttack2.GetComponent<Rigidbody2D>();
-            basicAttack2RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            basicAttack2RB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
             SlideForwad();
         }
 
         // Transition
-        if (canBasicAttack3 && Input.GetKey(basicAttackKey))
+        if (canWindSlash3 && Input.GetKey(basicAttackKey))
         {
             state = PlayerState.attack3;
         }
@@ -305,17 +305,17 @@ public class Player : MonoBehaviour
         AnimationDirection();
 
         // Prevents attacking more than once
-        canBasicAttack3 = false;
+        canWindSlash3 = false;
 
-        if (isBasicAttacking)
+        if (isWindSlashing)
         {
             // Prevents attacking more than once
-            isBasicAttacking = false;
+            isWindSlashing = false;
 
             // Instantiate Basic Attack and Add Force
-            GameObject basicAttack3 = Instantiate(basicAttack3Prefab, firePoint.position, firePoint.rotation);
+            GameObject basicAttack3 = Instantiate(windSlash3Prefab, firePoint.position, firePoint.rotation);
             Rigidbody2D basicAttack3RB = basicAttack3.GetComponent<Rigidbody2D>();
-            basicAttack3RB.AddForce(firePoint.right * basicAttackForce, ForceMode2D.Impulse);
+            basicAttack3RB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
             SlideForwad();
         }
@@ -499,9 +499,9 @@ public class Player : MonoBehaviour
     public void AttackKeyPressed()
     {
         // Basic Attack Key Pressed
-        if (Input.GetKey(basicAttackKey) && canBasicAttack)
+        if (Input.GetKey(basicAttackKey) && canWindSlash)
         {
-            canBasicAttack = false;
+            canWindSlash = false;
             state = PlayerState.attack;
             StartCoroutine(BasicAttackCoolDown());
         }
@@ -609,9 +609,9 @@ public class Player : MonoBehaviour
 
     IEnumerator BasicAttackCoolDown()
     {
-        yield return new WaitForSeconds(basicAttackCoolDown);
+        yield return new WaitForSeconds(windSlashCoolDown);
 
-        canBasicAttack = true;
+        canWindSlash = true;
     }
 
     IEnumerator Ability1CoolDown()
@@ -677,10 +677,10 @@ public class Player : MonoBehaviour
         AngleToMouse();
 
         // If Mouse 
-        if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > basicAttackRange)
+        if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > windSlashAttackRange)
         {
             // Normalize movement vector and times it by attack move distance
-            angleToMouse = angleToMouse.normalized * basicAttackSlideForce;
+            angleToMouse = angleToMouse.normalized * windSlashSlideForce;
 
             // Disables collision of Player and Enemy
             Physics2D.IgnoreLayerCollision(3, 6, true);
@@ -692,7 +692,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(upKey) || Input.GetKey(leftKey) || Input.GetKey(downKey) || Input.GetKey(rightKey))
         {
             // Normalize movement vector and times it by attack move distance
-            angleToMouse = angleToMouse.normalized * basicAttackSlideForce;
+            angleToMouse = angleToMouse.normalized * windSlashSlideForce;
 
             // Disables collision of Player and Enemy
             Physics2D.IgnoreLayerCollision(3, 6, true);
@@ -707,23 +707,23 @@ public class Player : MonoBehaviour
     #region Animation Events
     public void AE_BasicAttack()
     {
-        isBasicAttacking = true;
+        isWindSlashing = true;
     }
 
     public void AE_BasicAttack2()
     {
-        canBasicAttack2 = true;
+        canWindSlash2 = true;
     }
 
     public void AE_BasicAttack3()
     {
-        canBasicAttack3 = true;
+        canWindSlash3 = true;
     }
 
     public void AE_BasicAttackEnd()
     {
-        canBasicAttack2 = false;
-        canBasicAttack3 = false;
+        canWindSlash2 = false;
+        canWindSlash3 = false;
         state = PlayerState.idle;
     }
 

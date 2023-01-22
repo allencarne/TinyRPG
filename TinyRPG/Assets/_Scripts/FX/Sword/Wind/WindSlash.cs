@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicAttack : MonoBehaviour
+public class WindSlash : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
     [SerializeField] GameObject hitSpark1;

@@ -18,7 +18,7 @@ public class EnergyBall : MonoBehaviour
             Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
             // Deal Damage
-            enemy.EnemyHurtState(Player.basicAttackDamage);
+            enemy.EnemyHurtState(Player.windSlashDamage);
 
             // Slow
             enemy.enemySlowedTrigger = true;

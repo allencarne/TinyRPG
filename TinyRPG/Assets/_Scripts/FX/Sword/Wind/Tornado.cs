@@ -23,7 +23,7 @@ public class Tornado : MonoBehaviour
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
             // Deal Damage
-            enemy.EnemyHurtState(Player.basicAttackDamage);
+            enemy.EnemyHurtState(Player.windSlashDamage);
 
             enemy.enemySlowedTrigger = true;
         }

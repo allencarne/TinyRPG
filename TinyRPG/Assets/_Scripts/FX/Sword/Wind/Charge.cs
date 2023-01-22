@@ -17,14 +17,14 @@ public class Charge : MonoBehaviour
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
             // Deal Damage
-            enemy.EnemyHurtState(Player.basicAttackDamage);
+            enemy.EnemyHurtState(Player.windSlashDamage);
 
             // Stun Enemy
             enemy.enemyStunnedTrigger = true;
 
             // Knockback
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            enemyRB.velocity = direction * Player.basicAttackKnockBackForce;
+            enemyRB.velocity = direction * Player.windSlashKnockBackForce;
         }
 
         if (collision.tag == "Dummy")
