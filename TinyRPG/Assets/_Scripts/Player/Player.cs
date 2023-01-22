@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     bool isSweepingGustActive;
     public static float sweepingGustSlowAmount = 2;
 
-    [Header("TempestCharge")]
+    [Header("Tempest Charge")]
     [SerializeField] GameObject tempestChargeIndicator;
     [SerializeField] GameObject tempestChargePrefab;
     [SerializeField] GameObject tempestCharge2Prefab;
@@ -58,21 +58,21 @@ public class Player : MonoBehaviour
     bool canTempestCharge = true;
     bool canTempestCharge2 = false;
 
-    [Header("Ability2")]
+    [Header("Parry Strike")]
     [SerializeField] GameObject ability2Prefab;
     public float ability2CoolDown;
     bool canAbility2 = true;
     bool isAbility2Active = false;
     bool counterAttack = false;
 
-    [Header("Ability3")]
+    [Header("Heavy Blow")]
     [SerializeField] GameObject ability3Prefab;
     [SerializeField] GameObject slamIndicator;
     public float ability3CoolDown;
     bool canAbility3 = true;
     bool isAbility3Active = false;
 
-    [Header("Ultimate")]
+    [Header("Eruption")]
     [SerializeField] GameObject ultimatePrefab;
     public float ultimateCoolDown;
     bool canUltimate = true;
