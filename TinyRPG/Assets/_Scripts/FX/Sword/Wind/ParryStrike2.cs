@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhirlWind : MonoBehaviour
+public class ParryStrike2 : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] GameObject hitSpark;

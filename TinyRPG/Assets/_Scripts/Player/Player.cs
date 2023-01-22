@@ -59,11 +59,11 @@ public class Player : MonoBehaviour
     bool canTempestCharge2 = false;
 
     [Header("Parry Strike")]
-    [SerializeField] GameObject ability2Prefab;
-    public float ability2CoolDown;
-    bool canAbility2 = true;
-    bool isAbility2Active = false;
-    bool counterAttack = false;
+    [SerializeField] GameObject parryStrikePrefab;
+    public float parryStrikeCoolDown;
+    public bool parryStrikeTrigger = false;
+    bool canParryStrike = true;
+    bool isParryStrikeActive = false;
 
     [Header("Heavy Blow")]
     [SerializeField] GameObject ability3Prefab;
@@ -84,10 +84,10 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode leftKey;
     [SerializeField] KeyCode rightKey;
     [SerializeField] KeyCode basicAttackKey;
-    [SerializeField] KeyCode dashKey;
-    [SerializeField] KeyCode ability1Key;
+    [SerializeField] KeyCode mobilityKey;
+    [SerializeField] KeyCode abilityKey;
+    [SerializeField] KeyCode defensiveKey;
     [SerializeField] KeyCode ability2Key;
-    [SerializeField] KeyCode ability3Key;
     [SerializeField] KeyCode ultimateKey;
 
     enum PlayerState
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            counterAttack = true;
+            parryStrikeTrigger = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -407,25 +407,25 @@ public class Player : MonoBehaviour
 
     void PlayerAbility2State()
     {
-        if (canAbility2)
+        if (canParryStrike)
         {
-            canAbility2 = false;
+            canParryStrike = false;
             animator.Play("Counter");
         }
 
         // If player is attacked while this state is active - Play "Attack" animation
-        if (counterAttack)
+        if (parryStrikeTrigger)
         {
-            counterAttack = false;
+            parryStrikeTrigger = false;
             animator.Play("Attack");
         }
 
-        if (isAbility2Active)
+        if (isParryStrikeActive)
         {
-            isAbility2Active = false;
+            isParryStrikeActive = false;
 
             // Spawn prefab that will spin in a circle around the player and stun and damage all enemies hit
-            GameObject _whirlWind = Instantiate(ability2Prefab, firePoint.position, firePoint.rotation);
+            GameObject _whirlWind = Instantiate(parryStrikePrefab, firePoint.position, firePoint.rotation);
             Destroy(_whirlWind, .3f);
         }
     }
@@ -507,10 +507,10 @@ public class Player : MonoBehaviour
 
     public void DashKeyPressed()
     {
-        bool held = Input.GetKeyUp(dashKey);
+        bool held = Input.GetKeyUp(mobilityKey);
 
         // Dash Key Pressed
-        if (Input.GetKey(dashKey) && canTempestCharge)
+        if (Input.GetKey(mobilityKey) && canTempestCharge)
         {
             tempestChargeIndicator.SetActive(true);
         } else
@@ -528,9 +528,9 @@ public class Player : MonoBehaviour
 
     public void Ability1KeyPressed()
     {
-        bool held = Input.GetKeyUp(ability1Key);
+        bool held = Input.GetKeyUp(abilityKey);
 
-        if (Input.GetKey(ability1Key) && canSweepingGust)
+        if (Input.GetKey(abilityKey) && canSweepingGust)
         {
             sweepingGustIndicator.SetActive(true);
         }
@@ -548,7 +548,7 @@ public class Player : MonoBehaviour
 
     public void Ability2KeyPressed()
     {
-        if (Input.GetKey(ability2Key) && canAbility2)
+        if (Input.GetKey(defensiveKey) && canParryStrike)
         {
             state = PlayerState.ability2;
             StartCoroutine(Ability2CoolDown());
@@ -557,9 +557,9 @@ public class Player : MonoBehaviour
 
     public void Ability3KeyPressed()
     {
-        bool held = Input.GetKeyUp(ability3Key);
+        bool held = Input.GetKeyUp(ability2Key);
 
-        if (Input.GetKey(ability3Key) && canAbility3)
+        if (Input.GetKey(ability2Key) && canAbility3)
         {
             slamIndicator.SetActive(true);
         }
@@ -620,8 +620,8 @@ public class Player : MonoBehaviour
 
     IEnumerator Ability2CoolDown()
     {
-        yield return new WaitForSeconds(ability2CoolDown);
-        canAbility2 = true;
+        yield return new WaitForSeconds(parryStrikeCoolDown);
+        canParryStrike = true;
     }
 
     IEnumerator Ability3CoolDown()
@@ -738,7 +738,7 @@ public class Player : MonoBehaviour
     {
         if (state == PlayerState.ability2)
         {
-            isAbility2Active = true;
+            isParryStrikeActive = true;
         }
     }
 
