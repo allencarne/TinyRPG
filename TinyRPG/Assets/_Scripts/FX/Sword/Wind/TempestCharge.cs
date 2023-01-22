@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashTelegraph : MonoBehaviour
+public class TempestCharge : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            Player.dashCollide = true;
+            Player.tempestChargeCollisionTrigger = true;
         }
 
         if (collision.tag == "Dummy")
         {
-            Player.dashCollide = true;
+            Player.tempestChargeCollisionTrigger = true;
         }
     }
 }

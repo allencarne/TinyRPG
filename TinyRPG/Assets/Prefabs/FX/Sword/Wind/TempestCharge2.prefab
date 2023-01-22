@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6434082125635457576}
   - component: {fileID: -8715397789293235604}
   - component: {fileID: -7974766654494686861}
+  - component: {fileID: 700897612402582943}
   m_Layer: 0
-  m_Name: DashEndTelegraph
+  m_Name: TempestCharge2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +132,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e1fd579d563b84c91614ae8acaa912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
+--- !u!114 &700897612402582943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968445849334936289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e60a7148cbb9534d8c997f0d578ab34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}

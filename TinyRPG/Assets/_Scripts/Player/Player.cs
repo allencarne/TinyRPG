@@ -47,18 +47,16 @@ public class Player : MonoBehaviour
     bool isSweepingGustActive;
     public static float sweepingGustSlowAmount = 2;
 
-    [Header("Dash")]
-    [SerializeField] GameObject dashIndicator;
-    [SerializeField] GameObject dashTelegraph;
-    [SerializeField] GameObject dashEndTelegraph;
-    [SerializeField] Transform dashEndPosition;
-    [SerializeField] float dashCoolDown;
-    [SerializeField] float dashVelocity;
-    public static bool dashCollide = false;
-    bool dashEndTrigger = false;
-    bool canDash = true;
-
-
+    [Header("TempestCharge")]
+    [SerializeField] GameObject tempestChargeIndicator;
+    [SerializeField] GameObject tempestChargePrefab;
+    [SerializeField] GameObject tempestCharge2Prefab;
+    [SerializeField] Transform tempestChargeEndPosition;
+    [SerializeField] float tempestChargeCoolDown;
+    [SerializeField] float tempestChargeVelocity;
+    public static bool tempestChargeCollisionTrigger = false;
+    bool canTempestCharge = true;
+    bool canTempestCharge2 = false;
 
     [Header("Ability2")]
     [SerializeField] GameObject ability2Prefab;
@@ -324,16 +322,16 @@ public class Player : MonoBehaviour
     void PlayerDashState()
     {
         // This if check makes the following code run only once
-        if (canDash)
+        if (canTempestCharge)
         {
             // Prevents Dashing more than once
-            canDash = false;
+            canTempestCharge = false;
 
             // Animation
             animator.Play("Run");
 
             // Get the ablge of the indicator end position and player position
-            Vector3 angle = dashEndPosition.position - transform.position;
+            Vector3 angle = tempestChargeEndPosition.position - transform.position;
 
             // Set Attack Animation Depending on Mouse Position
             animator.SetFloat("Aim Horizontal", angle.x);
@@ -343,10 +341,10 @@ public class Player : MonoBehaviour
             animator.SetFloat("Vertical", angle.y);
 
             // Add Velocity Based on Angle
-            rb.velocity = angle.normalized * dashVelocity;
+            rb.velocity = angle.normalized * tempestChargeVelocity;
 
             // Instantiate Dash Telegraph and Destroy It
-            GameObject _dashTelegraph = Instantiate(dashTelegraph, firePoint.position, firePoint.rotation);
+            GameObject _dashTelegraph = Instantiate(tempestChargePrefab, firePoint.position, firePoint.rotation);
             Destroy(_dashTelegraph, .5f);
 
             // Transition
@@ -354,23 +352,23 @@ public class Player : MonoBehaviour
             StartCoroutine(DashCoolDown());
         }
         
-        if (dashCollide)
+        if (tempestChargeCollisionTrigger)
         {
-            dashCollide = false;
+            tempestChargeCollisionTrigger = false;
             rb.velocity = new Vector2(0, 0);
 
-            if (!dashEndTrigger)
+            if (!canTempestCharge2)
             {
                 // Prevents code from running more than once
-                dashEndTrigger = true;
+                canTempestCharge2 = true;
 
                 // Animate
                 animator.Play("Quick Attack");
 
-                GameObject _dashEndTelegraph = Instantiate(dashEndTelegraph, firePoint.position, firePoint.rotation);
+                GameObject _dashEndTelegraph = Instantiate(tempestCharge2Prefab, firePoint.position, firePoint.rotation);
                 Destroy(_dashEndTelegraph, .3f);
             }
-            dashEndTrigger = false;
+            canTempestCharge2 = false;
         }
     }
 
@@ -512,18 +510,18 @@ public class Player : MonoBehaviour
         bool held = Input.GetKeyUp(dashKey);
 
         // Dash Key Pressed
-        if (Input.GetKey(dashKey) && canDash)
+        if (Input.GetKey(dashKey) && canTempestCharge)
         {
-            dashIndicator.SetActive(true);
+            tempestChargeIndicator.SetActive(true);
         } else
         {
-            dashIndicator.SetActive(false);
+            tempestChargeIndicator.SetActive(false);
         }
 
         // Dash Key Held
-        if (held && canDash)
+        if (held && canTempestCharge)
         {
-            dashIndicator.SetActive(false);
+            tempestChargeIndicator.SetActive(false);
             state = PlayerState.dash;
         }
     }
@@ -593,7 +591,7 @@ public class Player : MonoBehaviour
     IEnumerator DashDelay()
     {
         yield return new WaitForSeconds(.5f);
-        if (!dashCollide && state == PlayerState.dash)
+        if (!tempestChargeCollisionTrigger && state == PlayerState.dash)
         {
             rb.velocity = new Vector2(0, 0);
             state = PlayerState.idle;
@@ -602,9 +600,9 @@ public class Player : MonoBehaviour
 
     IEnumerator DashCoolDown()
     {
-        yield return new WaitForSeconds(dashCoolDown);
+        yield return new WaitForSeconds(tempestChargeCoolDown);
 
-        canDash = true;
+        canTempestCharge = true;
     }
 
     IEnumerator BasicAttackCoolDown()
@@ -662,7 +660,7 @@ public class Player : MonoBehaviour
     {
         // Instantly Teleport in direction of movement keys
         // Does not teleport if no movment keys are being pressed
-        rb.MovePosition(rb.position + movement * dashVelocity);
+        rb.MovePosition(rb.position + movement * tempestChargeVelocity);
     }
 
     public void Movement()

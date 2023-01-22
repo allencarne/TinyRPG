@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7355198144570418093}
   - component: {fileID: 557544255154626066}
   - component: {fileID: 5822082935673669872}
-  - component: {fileID: 148392346951129587}
   - component: {fileID: 6417413277059012754}
+  - component: {fileID: 7483395102831884684}
   m_Layer: 7
   m_Name: WindSlash
   m_TagString: Untagged
@@ -148,20 +148,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &148392346951129587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8576533728396684186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbebcdbc397d01146b72f5e4864e79aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
-  hitSpark1: {fileID: 5740372369254044979, guid: a6b61256f3f05a34aada2f34eb9fa591, type: 3}
 --- !u!70 &6417413277059012754
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -197,3 +183,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.63302535, y: -0.000000075462495}
   m_Size: {x: 2.4938827, y: 2.4938827}
   m_Direction: 1
+--- !u!114 &7483395102831884684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576533728396684186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be816c5fa4933d841a5fc86d4097cd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
+  hitSpark1: {fileID: 5740372369254044979, guid: a6b61256f3f05a34aada2f34eb9fa591, type: 3}

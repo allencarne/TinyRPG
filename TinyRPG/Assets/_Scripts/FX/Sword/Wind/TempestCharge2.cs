@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charge : MonoBehaviour
+public class TempestCharge2 : MonoBehaviour
 {
     [SerializeField] GameObject hitSpark;
 
