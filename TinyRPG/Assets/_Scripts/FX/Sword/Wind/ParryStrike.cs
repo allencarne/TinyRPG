@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class ParryStrike : MonoBehaviour
 {
-    Player player;
-
-    private void Awake()
-    {
-        player = GetComponent<Player>();
-    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            player.parryStrikeTrigger = true;
+            Player.parryStrikeTrigger = true;
+            Destroy(gameObject);
         }
 
         if (collision.tag == "Dummy")
         {
-            player.parryStrikeTrigger = true;
+            Player.parryStrikeTrigger = true;
+            Destroy(gameObject);
         }
+    }
+
+    public void AE_ParryStrike()
+    {
+        Player.parryStrikeEnd = true;
     }
 }

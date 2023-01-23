@@ -60,8 +60,10 @@ public class Player : MonoBehaviour
 
     [Header("Parry Strike")]
     [SerializeField] GameObject parryStrikePrefab;
+    [SerializeField] GameObject whilrWindPrefab;
     public float parryStrikeCoolDown;
-    public bool parryStrikeTrigger = false;
+    public static bool parryStrikeTrigger = false;
+    public static bool parryStrikeEnd = false;
     bool canParryStrike = true;
     bool isParryStrikeActive = false;
 
@@ -120,7 +122,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(health);
+        Debug.Log(state);
 
         switch (state)
         {
@@ -411,6 +413,8 @@ public class Player : MonoBehaviour
         {
             canParryStrike = false;
             animator.Play("Counter");
+
+            Instantiate(parryStrikePrefab, transform.position, Quaternion.identity);
         }
 
         // If player is attacked while this state is active - Play "Attack" animation
@@ -425,8 +429,15 @@ public class Player : MonoBehaviour
             isParryStrikeActive = false;
 
             // Spawn prefab that will spin in a circle around the player and stun and damage all enemies hit
-            GameObject _whirlWind = Instantiate(parryStrikePrefab, firePoint.position, firePoint.rotation);
+            GameObject _whirlWind = Instantiate(whilrWindPrefab, firePoint.position, firePoint.rotation);
             Destroy(_whirlWind, .3f);
+        }
+
+        if (parryStrikeEnd)
+        {
+            parryStrikeEnd = false;
+
+            state = PlayerState.idle;
         }
     }
 
@@ -463,9 +474,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void PlayerHurtState()
+    public void PlayerHurtState()
     {
+        Debug.Log("Hurt");
 
+        state = PlayerState.hurt;
+
+        // Animate
+        animator.Play("Hurt");
     }
 
     void PlayerDeathState()
@@ -769,5 +785,40 @@ public class Player : MonoBehaviour
     {
         health += healAmount;
         healthbar.lerpTimer = 0f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            // Components
+            var enemy = collision.gameObject.GetComponent<Enemy>();
+
+            // HitSpark
+            Instantiate(enemy.hitSparkPrefab, collision.transform.position, collision.transform.rotation);
+
+            // Deal Damage
+            PlayerHurtState();
+
+            // KnockBack
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            rb.velocity = direction * 5;
+        }
+
+        if (collision.tag == "EnemyAttack")
+        {
+            // Components
+            var enemy = collision.gameObject.GetComponent<Enemy>();
+
+            // HitSpark
+            Instantiate(enemy.hitSparkPrefab, collision.transform.position, collision.transform.rotation);
+
+            // Deal Damage
+            PlayerHurtState();
+
+            // KnockBack
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            rb.velocity = direction * 5 ;
+        }
     }
 }

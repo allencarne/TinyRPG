@@ -20,7 +20,9 @@ public class Enemy : MonoBehaviour
     float damage;
 
     [Header("Combat")]
+    public GameObject hitSparkPrefab;
     [SerializeField] float aggroRange;
+    public static float basicAttackDamage;
     float idleTime;
     bool canWander = true;
     Vector2 enemyStartingPosition;
@@ -80,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
 
         switch (state)
         {
