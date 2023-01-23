@@ -8,6 +8,7 @@ public class SlimeBasicAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.tag == "Player")
         {
             // Components
@@ -24,5 +25,6 @@ public class SlimeBasicAttack : MonoBehaviour
             Vector2 direction = (player.transform.position - transform.position).normalized;
             playerRB.velocity = direction * Enemy.basicAttackDamage;
         }
+        */
     }
 }

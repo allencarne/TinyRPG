@@ -25,20 +25,16 @@ public class ParryStrike2 : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
-
             var enemy = collision.gameObject.GetComponent<Enemy>();
-
             var enemyRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            Instantiate(hitSpark, collision.transform.position, collision.transform.rotation);
 
             // Deal Damage
             enemy.EnemyHurtState(Player.windSlashDamage);
 
+            // Stun
             enemy.enemyStunnedTrigger = true;
-
-            Vector2 direction = (enemy.transform.position - transform.position).normalized;
-
-            enemyRB.velocity = direction * Player.windSlashKnockBackForce;
         }
 
         if (collision.tag == "Dummy")

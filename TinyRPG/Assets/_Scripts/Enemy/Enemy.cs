@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     [Header("Combat")]
     public GameObject hitSparkPrefab;
     [SerializeField] float aggroRange;
-    public static float basicAttackDamage;
     float idleTime;
     bool canWander = true;
     Vector2 enemyStartingPosition;
@@ -46,6 +45,7 @@ public class Enemy : MonoBehaviour
 
 
     [Header("MeleeAttack")]
+    public static float basicAttackDamage;
     [SerializeField] GameObject meleeAttackTelegraph;
     [SerializeField] float meleeAttackCoolDown;
     [SerializeField] float meleeAttackRange;
@@ -410,5 +410,25 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, aggroRange);
         Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            // Component
+            var player = collision.GetComponent<Player>();
+            var playerRB = collision.GetComponent<Rigidbody2D>();
+
+            // HitSpark
+            Instantiate(hitSparkPrefab, collision.transform.position, collision.transform.rotation);
+
+            // Deal Damage
+            player.PlayerHurtState();
+
+            // KnockBack
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            playerRB.velocity = direction * 5;
+        }
     }
 }

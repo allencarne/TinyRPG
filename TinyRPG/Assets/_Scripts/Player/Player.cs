@@ -16,16 +16,18 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
     [SerializeField] Animator animator;
+    //[SerializeField] GameObject hitSpark;
     [HideInInspector] Camera cam;
 
     [Header("Wind Slash")]
+    //[SerializeField] GameObject windSlashHitSpark;
     [SerializeField] GameObject windSlashPrefab;
     [SerializeField] float windSlashCoolDown;
     [SerializeField] float windSlashForce;
     [SerializeField] float windSlashAttackRange;
     [SerializeField] float windSlashSlideForce;
     public static float windSlashDamage = 1;
-    public static float windSlashKnockBackForce = 5;
+    public static float windSlashKnockBackForce = 6;
     bool canWindSlash = true;
     bool isWindSlashing = false;
 
@@ -785,40 +787,5 @@ public class Player : MonoBehaviour
     {
         health += healAmount;
         healthbar.lerpTimer = 0f;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            // Components
-            var enemy = collision.gameObject.GetComponent<Enemy>();
-
-            // HitSpark
-            Instantiate(enemy.hitSparkPrefab, collision.transform.position, collision.transform.rotation);
-
-            // Deal Damage
-            PlayerHurtState();
-
-            // KnockBack
-            Vector2 direction = (transform.position - collision.transform.position).normalized;
-            rb.velocity = direction * 5;
-        }
-
-        if (collision.tag == "EnemyAttack")
-        {
-            // Components
-            var enemy = collision.gameObject.GetComponent<Enemy>();
-
-            // HitSpark
-            Instantiate(enemy.hitSparkPrefab, collision.transform.position, collision.transform.rotation);
-
-            // Deal Damage
-            PlayerHurtState();
-
-            // KnockBack
-            Vector2 direction = (transform.position - collision.transform.position).normalized;
-            rb.velocity = direction * 5 ;
-        }
     }
 }
