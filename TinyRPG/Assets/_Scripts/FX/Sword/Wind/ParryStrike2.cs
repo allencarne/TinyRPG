@@ -47,7 +47,7 @@ public class ParryStrike2 : MonoBehaviour
 
             enemy.dummyHit = true;
 
-            enemy.dummySlowed = true;
+            enemy.dummyStunned = true;
         }
     }
 }

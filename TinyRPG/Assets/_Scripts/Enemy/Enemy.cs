@@ -424,7 +424,7 @@ public class Enemy : MonoBehaviour
             Instantiate(hitSparkPrefab, collision.transform.position, collision.transform.rotation);
 
             // Deal Damage
-            player.PlayerHurtState();
+            player.PlayerHurtState(1);
 
             // KnockBack
             Vector2 direction = (player.transform.position - transform.position).normalized;

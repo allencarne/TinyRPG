@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [HideInInspector] Vector2 angleToMouse;
     public float health;
     public float maxHealth;
+    public bool isPlayerHurt;
+    float damage;
 
     [Header("Components")]
     [SerializeField] HealthBar healthbar;
@@ -159,7 +161,7 @@ public class Player : MonoBehaviour
                 PlayerUltimateState();
                 break;
             case PlayerState.hurt:
-                PlayerHurtState();
+                PlayerHurtState(damage);
                 break;
             case PlayerState.death:
                 PlayerDeathState();
@@ -476,19 +478,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PlayerHurtState()
+    public void PlayerHurtState(float damage)
     {
-        Debug.Log("Hurt");
-
+        // State
         state = PlayerState.hurt;
 
         // Animate
         animator.Play("Hurt");
+        animator.SetFloat("Horizontal", rb.position.x);
+        animator.SetFloat("Vertical", rb.position.y);
+
+        // Behaviour
+        TakeDamage(damage);
+
+        // Transition
+        if (health <= 0)
+        {
+            state = PlayerState.death;
+        }
     }
 
     void PlayerDeathState()
     {
-
+        Destroy(gameObject);
     }
 
     #endregion

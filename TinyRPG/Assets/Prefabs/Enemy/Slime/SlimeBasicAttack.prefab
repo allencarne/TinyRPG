@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8208672409241195962}
   - component: {fileID: 7785595247178768836}
   - component: {fileID: 5416540385783462693}
+  - component: {fileID: 7614306780136767403}
   m_Layer: 0
   m_Name: SlimeBasicAttack
   m_TagString: EnemyAttack
@@ -182,3 +183,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7614306780136767403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678005024966795067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccc00b17871ecc4f80a1a4315fadb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
