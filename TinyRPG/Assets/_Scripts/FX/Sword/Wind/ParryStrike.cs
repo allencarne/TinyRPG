@@ -6,7 +6,6 @@ public class ParryStrike : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.tag == "Enemy")
         {
             Player.parryStrikeTrigger = true;
@@ -24,11 +23,5 @@ public class ParryStrike : MonoBehaviour
             Player.parryStrikeTrigger = true;
             Destroy(gameObject);
         }
-        
-    }
-
-    public void AE_ParryStrike()
-    {
-        Player.parryStrikeEnd = true;
     }
 }

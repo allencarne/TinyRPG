@@ -80,9 +80,10 @@ public class Player : MonoBehaviour
 
     [Header("Eruption")]
     [SerializeField] GameObject ultimatePrefab;
-    public float ultimateCoolDown;
-    bool canUltimate = true;
-    bool isUltimateActive = false;
+    public static float eruptionKnockBackForce = 10f;
+    public float eruptionCoolDown;
+    bool canEruption = true;
+    bool isEruptionActive = false;
 
     [Header("Keys")]
     [SerializeField] KeyCode upKey;
@@ -415,28 +416,36 @@ public class Player : MonoBehaviour
     {
         if (canParryStrike)
         {
+            // Prevents Attacking more than once
             canParryStrike = false;
+
+            // Animate - No animation event
             animator.Play("Counter");
 
+            // Instantiate Prefab - Defensive
             Instantiate(parryStrikePrefab, transform.position, Quaternion.identity);
         }
 
-        // If player is attacked while this state is active - Play "Attack" animation
+        // Transition - If Parry Strike is Triggered, Attack
         if (parryStrikeTrigger)
         {
+            // Prevents Attacking More than Once
             parryStrikeTrigger = false;
+
+            // Animate
             animator.Play("Attack");
         }
 
+        // If Animation Event is Triggered, Instantiate Prefab - Offensive
         if (isParryStrikeActive)
         {
             isParryStrikeActive = false;
 
-            // Spawn prefab that will spin in a circle around the player and stun and damage all enemies hit
             GameObject _whirlWind = Instantiate(whilrWindPrefab, firePoint.position, firePoint.rotation);
             Destroy(_whirlWind, .3f);
         }
 
+        // Transition - If Nothing is hit, Idle
         if (parryStrikeEnd)
         {
             parryStrikeEnd = false;
@@ -471,9 +480,9 @@ public class Player : MonoBehaviour
     {
         animator.Play("PowerUp");
 
-        if (isUltimateActive)
+        if (isEruptionActive)
         {
-            isUltimateActive = false;
+            isEruptionActive = false;
             Instantiate(ultimatePrefab, firePoint.position, firePoint.rotation);
         }
     }
@@ -607,9 +616,9 @@ public class Player : MonoBehaviour
 
     public void UltimateKeyPressed()
     {
-        if (Input.GetKey(ultimateKey) && canUltimate)
+        if (Input.GetKey(ultimateKey) && canEruption)
         {
-            canUltimate = false;
+            canEruption = false;
             state = PlayerState.ultimate;
             StartCoroutine(UltimateCoolDown());
         }
@@ -662,8 +671,8 @@ public class Player : MonoBehaviour
 
     IEnumerator UltimateCoolDown()
     {
-        yield return new WaitForSeconds(ultimateCoolDown);
-        canUltimate = true;
+        yield return new WaitForSeconds(eruptionCoolDown);
+        canEruption = true;
     }
 
     #endregion
@@ -769,6 +778,9 @@ public class Player : MonoBehaviour
         if (state == PlayerState.defensive)
         {
             isParryStrikeActive = true;
+        } else
+        {
+            isParryStrikeActive = false;
         }
     }
 
@@ -779,7 +791,7 @@ public class Player : MonoBehaviour
 
     public void AE_Eruption()
     {
-        isUltimateActive = true;
+        isEruptionActive = true;
     }
 
     public void AE_EndOfAnimation()

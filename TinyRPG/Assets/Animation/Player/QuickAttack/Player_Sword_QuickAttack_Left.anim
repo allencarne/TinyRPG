@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Sword_QuickAttack_Left
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,7 +18,8 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
     - time: 0
       value: {fileID: -986765262, guid: 9a5a0e0648ae03041aaa10b09122445c, type: 3}
     - time: 0.083333336
@@ -31,6 +32,7 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+    flags: 2
   m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
@@ -45,6 +47,8 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -986765262, guid: 9a5a0e0648ae03041aaa10b09122445c, type: 3}
     - {fileID: -534490256, guid: 9a5a0e0648ae03041aaa10b09122445c, type: 3}
@@ -76,7 +80,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: AE_BasicAttackEnd
+    functionName: AE_WindSlashEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
