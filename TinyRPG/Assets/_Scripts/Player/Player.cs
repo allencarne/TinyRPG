@@ -437,6 +437,9 @@ public class Player : MonoBehaviour
             // Prevents Attacking More than Once
             parryStrikeTrigger = false;
 
+            // Turn Collider On
+            circleCollider.enabled = true;
+
             // Animate
             animator.Play("Attack");
         }
