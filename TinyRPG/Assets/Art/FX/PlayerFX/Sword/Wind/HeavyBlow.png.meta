@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 545b4ef1be6a54b4bb7fa00467151e3c
+guid: 3931634e205603743a3378679125279c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigSlam_0
+      name: HeavyBlow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 176
-        height: 112
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2514d619173d347bec74ed3a09eba0
-      internalID: 1312604966
+      spriteID: a4df8869e62908f4d9ac03f91253db46
+      internalID: 645759244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigSlam_1
+      name: HeavyBlow_1
       rect:
         serializedVersion: 2
-        x: 176
+        x: 192
         y: 0
-        width: 176
-        height: 112
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10f3bfcc77c697a4b8105f07387a820a
-      internalID: -1032507930
+      spriteID: c7170e27f79f8e847961bae3e214faf9
+      internalID: -630810962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigSlam_2
+      name: HeavyBlow_2
       rect:
         serializedVersion: 2
-        x: 352
+        x: 384
         y: 0
-        width: 176
-        height: 112
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e79d1f435860046b44d9fb15d0a9de
-      internalID: 2030788127
+      spriteID: 1499469d8c02c2c4da07f67a4205b6c2
+      internalID: 322311000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigSlam_3
+      name: HeavyBlow_3
       rect:
         serializedVersion: 2
-        x: 528
+        x: 576
         y: 0
-        width: 176
-        height: 112
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 425696b027f0b0540ae8d507de7b435b
-      internalID: -2010378597
+      spriteID: 42565eccaf8a6ea4fb7eca7dfd549db3
+      internalID: -1843168118
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BigSlam_0: 1312604966
-      BigSlam_2: 2030788127
-      BigSlam_1: -1032507930
-      BigSlam_3: -2010378597
+      HeavyBlow_3: -1843168118
+      HeavyBlow_0: 645759244
+      HeavyBlow_1: -630810962
+      HeavyBlow_2: 322311000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

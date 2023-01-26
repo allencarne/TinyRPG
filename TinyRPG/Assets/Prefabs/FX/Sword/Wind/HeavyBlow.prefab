@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2146099994005304564}
   - component: {fileID: 2966219335074511016}
   - component: {fileID: 8216138470832749063}
+  - component: {fileID: 916919272009457614}
   m_Layer: 0
-  m_Name: Slam
+  m_Name: HeavyBlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 561467601
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1312604966, guid: 545b4ef1be6a54b4bb7fa00467151e3c, type: 3}
+  m_Sprite: {fileID: 645759244, guid: 3931634e205603743a3378679125279c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 3}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,6 +180,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0381219, y: -0.21588326}
+  m_Offset: {x: 1.43, y: 0.06}
   serializedVersion: 2
   m_Radius: 1.2358329
+--- !u!114 &916919272009457614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452715059606266387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e075e5fc239a94b968a7863cda0b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
+  hitSpark1: {fileID: 5740372369254044979, guid: a6b61256f3f05a34aada2f34eb9fa591, type: 3}

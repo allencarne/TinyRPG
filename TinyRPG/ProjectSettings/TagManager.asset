@@ -8,6 +8,8 @@ TagManager:
   - Shadow
   - Dummy
   - EnemyAttack
+  - PlayerParry
+  - EnemyTrigger
   layers:
   - Default
   - TransparentFX

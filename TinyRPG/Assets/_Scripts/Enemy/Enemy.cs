@@ -264,6 +264,9 @@ public class Enemy : MonoBehaviour
         TakeDamage(damage);
 
         // Transition
+        // if hurt animation is done playing and player cc'd - wait until cc is done, then idle
+
+        // Transition
         if (enemyHealth <= 0)
         {
             state = EnemyState.death;
@@ -410,25 +413,5 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, aggroRange);
         Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            // Component
-            var player = collision.GetComponent<Player>();
-            var playerRB = collision.GetComponent<Rigidbody2D>();
-
-            // HitSpark
-            Instantiate(hitSparkPrefab, collision.transform.position, collision.transform.rotation);
-
-            // Deal Damage
-            player.PlayerHurtState(1);
-
-            // KnockBack
-            Vector2 direction = (player.transform.position - transform.position).normalized;
-            playerRB.velocity = direction * 5;
-        }
     }
 }

@@ -24,6 +24,7 @@ public class ParryStrike : MonoBehaviour
             Player.parryStrikeTrigger = true;
             Destroy(gameObject);
         }
+        
     }
 
     public void AE_ParryStrike()

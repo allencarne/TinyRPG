@@ -72,11 +72,11 @@ public class Player : MonoBehaviour
     bool isParryStrikeActive = false;
 
     [Header("Heavy Blow")]
-    [SerializeField] GameObject ability3Prefab;
-    [SerializeField] GameObject slamIndicator;
-    public float ability3CoolDown;
-    bool canAbility3 = true;
-    bool isAbility3Active = false;
+    [SerializeField] GameObject heavyBlowPrefab;
+    [SerializeField] GameObject heavyBlowIndicator;
+    public float heavyBlowCoolDown;
+    bool canHeavyBlow = true;
+    bool isHeavyBlowActive = false;
 
     [Header("Eruption")]
     [SerializeField] GameObject ultimatePrefab;
@@ -103,10 +103,10 @@ public class Player : MonoBehaviour
         attack,
         attack2,
         attack3,
-        dash,
-        ability1,
+        ability,
+        mobility,
+        defensive,
         ability2,
-        ability3,
         ultimate,
         hurt,
         death
@@ -145,17 +145,17 @@ public class Player : MonoBehaviour
             case PlayerState.attack3:
                 PlayerAttack3State();
                 break;
-            case PlayerState.dash:
-                PlayerDashState();
+            case PlayerState.ability:
+                PlayerAbilityState();
                 break;
-            case PlayerState.ability1:
-                PlayerAbility1State();
+            case PlayerState.mobility:
+                PlayerMobilityState();
+                break;
+            case PlayerState.defensive:
+                PlayerDefensiveState();
                 break;
             case PlayerState.ability2:
                 PlayerAbility2State();
-                break;
-            case PlayerState.ability3:
-                PlayerAbility3State();
                 break;
             case PlayerState.ultimate:
                 PlayerUltimateState();
@@ -199,9 +199,9 @@ public class Player : MonoBehaviour
         MoveKeyPressed();
         AttackKeyPressed();
         DashKeyPressed();
-        Ability1KeyPressed();
+        AbilityKeyPressed();
+        DefensiveKeyPressed();
         Ability2KeyPressed();
-        Ability3KeyPressed();
         UltimateKeyPressed();
     }
 
@@ -229,9 +229,9 @@ public class Player : MonoBehaviour
         NoMoveKeyPressed();
         AttackKeyPressed();
         DashKeyPressed();
-        Ability1KeyPressed();
+        AbilityKeyPressed();
+        DefensiveKeyPressed();
         Ability2KeyPressed();
-        Ability3KeyPressed();
         UltimateKeyPressed();
     }
 
@@ -325,60 +325,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void PlayerDashState()
-    {
-        // This if check makes the following code run only once
-        if (canTempestCharge)
-        {
-            // Prevents Dashing more than once
-            canTempestCharge = false;
-
-            // Animation
-            animator.Play("Run");
-
-            // Get the ablge of the indicator end position and player position
-            Vector3 angle = tempestChargeEndPosition.position - transform.position;
-
-            // Set Attack Animation Depending on Mouse Position
-            animator.SetFloat("Aim Horizontal", angle.x);
-            animator.SetFloat("Aim Vertical", angle.y);
-            // Set Idle to last attack position
-            animator.SetFloat("Horizontal", angle.x);
-            animator.SetFloat("Vertical", angle.y);
-
-            // Add Velocity Based on Angle
-            rb.velocity = angle.normalized * tempestChargeVelocity;
-
-            // Instantiate Dash Telegraph and Destroy It
-            GameObject _dashTelegraph = Instantiate(tempestChargePrefab, firePoint.position, firePoint.rotation);
-            Destroy(_dashTelegraph, .5f);
-
-            // Transition
-            StartCoroutine(DashDelay());
-            StartCoroutine(DashCoolDown());
-        }
-        
-        if (tempestChargeCollisionTrigger)
-        {
-            tempestChargeCollisionTrigger = false;
-            rb.velocity = new Vector2(0, 0);
-
-            if (!canTempestCharge2)
-            {
-                // Prevents code from running more than once
-                canTempestCharge2 = true;
-
-                // Animate
-                animator.Play("Quick Attack");
-
-                GameObject _dashEndTelegraph = Instantiate(tempestCharge2Prefab, firePoint.position, firePoint.rotation);
-                Destroy(_dashEndTelegraph, .3f);
-            }
-            canTempestCharge2 = false;
-        }
-    }
-
-    void PlayerAbility1State()
+    void PlayerAbilityState()
     {
         // Prevents attacking more than once
         canSweepingGust = false;
@@ -407,11 +354,64 @@ public class Player : MonoBehaviour
             Rigidbody2D ability1RB = tornado.GetComponent<Rigidbody2D>();
             ability1RB.AddForce(firePoint.right * sweepingGustForce, ForceMode2D.Impulse);
 
-            StartCoroutine(Ability1CoolDown());
+            StartCoroutine(SweepingGustCoolDown());
         }
     }
 
-    void PlayerAbility2State()
+    void PlayerMobilityState()
+    {
+        // This if check makes the following code run only once
+        if (canTempestCharge)
+        {
+            // Prevents Dashing more than once
+            canTempestCharge = false;
+
+            // Animation
+            animator.Play("Run");
+
+            // Get the ablge of the indicator end position and player position
+            Vector3 angle = tempestChargeEndPosition.position - transform.position;
+
+            // Set Attack Animation Depending on Mouse Position
+            animator.SetFloat("Aim Horizontal", angle.x);
+            animator.SetFloat("Aim Vertical", angle.y);
+            // Set Idle to last attack position
+            animator.SetFloat("Horizontal", angle.x);
+            animator.SetFloat("Vertical", angle.y);
+
+            // Add Velocity Based on Angle
+            rb.velocity = angle.normalized * tempestChargeVelocity;
+
+            // Instantiate Dash Telegraph and Destroy It
+            GameObject _dashTelegraph = Instantiate(tempestChargePrefab, firePoint.position, firePoint.rotation);
+            Destroy(_dashTelegraph, .5f);
+
+            // Transition
+            StartCoroutine(TempestChargeDelay());
+            StartCoroutine(TempestChargeCoolDown());
+        }
+        
+        if (tempestChargeCollisionTrigger)
+        {
+            tempestChargeCollisionTrigger = false;
+            rb.velocity = new Vector2(0, 0);
+
+            if (!canTempestCharge2)
+            {
+                // Prevents code from running more than once
+                canTempestCharge2 = true;
+
+                // Animate
+                animator.Play("Quick Attack");
+
+                GameObject _dashEndTelegraph = Instantiate(tempestCharge2Prefab, firePoint.position, firePoint.rotation);
+                Destroy(_dashEndTelegraph, .3f);
+            }
+            canTempestCharge2 = false;
+        }
+    }
+
+    void PlayerDefensiveState()
     {
         if (canParryStrike)
         {
@@ -445,25 +445,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    void PlayerAbility3State()
+    void PlayerAbility2State()
     {
-        if (canAbility3)
+        if (canHeavyBlow)
         {
-            canAbility3 = false;
+            canHeavyBlow = false;
 
             animator.Play("Slow Attack");
 
             AngleToMouse();
             AnimationDirection();
 
-            StartCoroutine(Ability3CoolDown());
+            StartCoroutine(HeavyBlowCoolDown());
         }
 
-        if (isAbility3Active)
+        if (isHeavyBlowActive)
         {
-            isAbility3Active = false;
+            isHeavyBlowActive = false;
 
-            Instantiate(ability3Prefab, firePoint.position, firePoint.rotation);
+            Instantiate(heavyBlowPrefab, firePoint.position, firePoint.rotation);
         }
     }
 
@@ -535,6 +535,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void AbilityKeyPressed()
+    {
+        bool held = Input.GetKeyUp(abilityKey);
+
+        if (Input.GetKey(abilityKey) && canSweepingGust)
+        {
+            sweepingGustIndicator.SetActive(true);
+        }
+        else
+        {
+            sweepingGustIndicator.SetActive(false);
+        }
+
+        if (held && canSweepingGust)
+        {
+            sweepingGustIndicator.SetActive(false);
+            state = PlayerState.ability;
+        }
+    }
+
     public void DashKeyPressed()
     {
         bool held = Input.GetKeyUp(mobilityKey);
@@ -552,56 +572,36 @@ public class Player : MonoBehaviour
         if (held && canTempestCharge)
         {
             tempestChargeIndicator.SetActive(false);
-            state = PlayerState.dash;
+            state = PlayerState.mobility;
         }
     }
 
-    public void Ability1KeyPressed()
+    public void DefensiveKeyPressed()
     {
-        bool held = Input.GetKeyUp(abilityKey);
-
-        if (Input.GetKey(abilityKey) && canSweepingGust)
+        if (Input.GetKey(defensiveKey) && canParryStrike)
         {
-            sweepingGustIndicator.SetActive(true);
-        }
-        else
-        {
-            sweepingGustIndicator.SetActive(false);
-        }
-
-        if (held && canSweepingGust)
-        {
-            sweepingGustIndicator.SetActive(false);
-            state = PlayerState.ability1;
+            state = PlayerState.defensive;
+            StartCoroutine(ParryStrikeCoolDown());
         }
     }
 
     public void Ability2KeyPressed()
     {
-        if (Input.GetKey(defensiveKey) && canParryStrike)
-        {
-            state = PlayerState.ability2;
-            StartCoroutine(Ability2CoolDown());
-        }
-    }
-
-    public void Ability3KeyPressed()
-    {
         bool held = Input.GetKeyUp(ability2Key);
 
-        if (Input.GetKey(ability2Key) && canAbility3)
+        if (Input.GetKey(ability2Key) && canHeavyBlow)
         {
-            slamIndicator.SetActive(true);
+            heavyBlowIndicator.SetActive(true);
         }
         else
         {
-            slamIndicator.SetActive(false);
+            heavyBlowIndicator.SetActive(false);
         }
 
-        if (held && canAbility3)
+        if (held && canHeavyBlow)
         {
-            slamIndicator.SetActive(false);
-            state = PlayerState.ability3;
+            heavyBlowIndicator.SetActive(false);
+            state = PlayerState.ability2;
         }
     }
 
@@ -618,23 +618,6 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Coroutines
-    IEnumerator DashDelay()
-    {
-        yield return new WaitForSeconds(.5f);
-        if (!tempestChargeCollisionTrigger && state == PlayerState.dash)
-        {
-            rb.velocity = new Vector2(0, 0);
-            state = PlayerState.idle;
-        }
-    }
-
-    IEnumerator DashCoolDown()
-    {
-        yield return new WaitForSeconds(tempestChargeCoolDown);
-
-        canTempestCharge = true;
-    }
-
     IEnumerator BasicAttackCoolDown()
     {
         yield return new WaitForSeconds(windSlashCoolDown);
@@ -642,22 +625,39 @@ public class Player : MonoBehaviour
         canWindSlash = true;
     }
 
-    IEnumerator Ability1CoolDown()
+    IEnumerator TempestChargeDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (!tempestChargeCollisionTrigger && state == PlayerState.mobility)
+        {
+            rb.velocity = new Vector2(0, 0);
+            state = PlayerState.idle;
+        }
+    }
+
+    IEnumerator TempestChargeCoolDown()
+    {
+        yield return new WaitForSeconds(tempestChargeCoolDown);
+
+        canTempestCharge = true;
+    }
+
+    IEnumerator SweepingGustCoolDown()
     {
         yield return new WaitForSeconds(sweepingGustCoolDown);
         canSweepingGust = true;
     }
 
-    IEnumerator Ability2CoolDown()
+    IEnumerator ParryStrikeCoolDown()
     {
         yield return new WaitForSeconds(parryStrikeCoolDown);
         canParryStrike = true;
     }
 
-    IEnumerator Ability3CoolDown()
+    IEnumerator HeavyBlowCoolDown()
     {
-        yield return new WaitForSeconds(ability3CoolDown);
-        canAbility3 = true;
+        yield return new WaitForSeconds(heavyBlowCoolDown);
+        canHeavyBlow = true;
     }
 
     IEnumerator UltimateCoolDown()
@@ -733,48 +733,48 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Animation Events
-    public void AE_BasicAttack()
+    public void AE_WindSlash()
     {
         isWindSlashing = true;
     }
 
-    public void AE_BasicAttack2()
+    public void AE_WindSlash2()
     {
         canWindSlash2 = true;
     }
 
-    public void AE_BasicAttack3()
+    public void AE_WindSlash3()
     {
         canWindSlash3 = true;
     }
 
-    public void AE_BasicAttackEnd()
+    public void AE_WindSlashEnd()
     {
         canWindSlash2 = false;
         canWindSlash3 = false;
         state = PlayerState.idle;
     }
 
-    public void AE_Ability1()
+    public void AE_SweepingGust()
     {
         // Prevents shooting 2 projectiles - This is because it's a shared animation with basic attack
-        if (state == PlayerState.ability1)
+        if (state == PlayerState.ability)
         {
             isSweepingGustActive = true;
         }
     }
 
-    public void AE_Ability2()
+    public void AE_ParryStrike()
     {
-        if (state == PlayerState.ability2)
+        if (state == PlayerState.defensive)
         {
             isParryStrikeActive = true;
         }
     }
 
-    public void AE_Ability3()
+    public void AE_HeavyBlow()
     {
-        isAbility3Active = true;
+        isHeavyBlowActive = true;
     }
 
     public void AE_Ultimate()
