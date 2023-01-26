@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] HealthBar healthbar;
+    [SerializeField] CircleCollider2D circleCollider;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform firePoint;
     [SerializeField] Animator animator;
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
     public float parryStrikeCoolDown;
     public static bool parryStrikeTrigger = false;
     public static bool parryStrikeEnd = false;
+    float parryStrikeTimer;
     bool canParryStrike = true;
     bool isParryStrikeActive = false;
 
@@ -419,6 +421,9 @@ public class Player : MonoBehaviour
             // Prevents Attacking more than once
             canParryStrike = false;
 
+            // Disable Player Collider
+            circleCollider.enabled = false;
+
             // Animate - No animation event
             animator.Play("Counter");
 
@@ -426,7 +431,7 @@ public class Player : MonoBehaviour
             Instantiate(parryStrikePrefab, transform.position, Quaternion.identity);
         }
 
-        // Transition - If Parry Strike is Triggered, Attack
+        // Transition - If Parry Strike is Triggered, Attack Animation
         if (parryStrikeTrigger)
         {
             // Prevents Attacking More than Once
@@ -449,6 +454,9 @@ public class Player : MonoBehaviour
         if (parryStrikeEnd)
         {
             parryStrikeEnd = false;
+
+            //
+            circleCollider.enabled = true;
 
             state = PlayerState.idle;
         }

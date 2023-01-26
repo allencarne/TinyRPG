@@ -11435,6 +11435,7 @@ MonoBehaviour:
   maxHealth: 10
   isPlayerHurt: 0
   healthbar: {fileID: 1486545533}
+  circleCollider: {fileID: 1486545536}
   rb: {fileID: 1486545529}
   firePoint: {fileID: 991706384}
   animator: {fileID: 1486545530}
@@ -11463,14 +11464,14 @@ MonoBehaviour:
   heavyBlowIndicator: {fileID: 179981504}
   heavyBlowCoolDown: 3
   ultimatePrefab: {fileID: 1603384472521821712, guid: a6980e24d126bee4f9b161dece9a5c79, type: 3}
-  ultimateCoolDown: 0
+  eruptionCoolDown: 0
   upKey: 119
   downKey: 115
   leftKey: 97
   rightKey: 100
   basicAttackKey: 323
-  mobilityKey: 32
   abilityKey: 324
+  mobilityKey: 32
   defensiveKey: 113
   ability2Key: 101
   ultimateKey: 114
