@@ -90,8 +90,8 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode leftKey;
     [SerializeField] KeyCode rightKey;
     [SerializeField] KeyCode basicAttackKey;
-    [SerializeField] KeyCode mobilityKey;
     [SerializeField] KeyCode abilityKey;
+    [SerializeField] KeyCode mobilityKey;
     [SerializeField] KeyCode defensiveKey;
     [SerializeField] KeyCode ability2Key;
     [SerializeField] KeyCode ultimateKey;
@@ -777,7 +777,7 @@ public class Player : MonoBehaviour
         isHeavyBlowActive = true;
     }
 
-    public void AE_Ultimate()
+    public void AE_Eruption()
     {
         isUltimateActive = true;
     }
