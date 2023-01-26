@@ -171,11 +171,6 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            parryStrikeTrigger = true;
-        }
-
         if (Input.GetKeyDown(KeyCode.Z))
         {
             TakeDamage(1);
