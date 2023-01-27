@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 120724568229383080}
   - component: {fileID: 120724568229383081}
   - component: {fileID: 120724568229383082}
-  - component: {fileID: 1905398895690264173}
   m_Layer: 6
   m_Name: Training Dummy
   m_TagString: Dummy
@@ -195,30 +194,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1905398895690264173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120724568229383092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0ee38807031174fb28c10bd18be1f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shadowData: {fileID: 0}
-  _shadowColor:
-    _value: {r: 0, g: 0, b: 0, a: 0}
-  _shadowReflectiveness:
-    _value: 0
-  _shadowAlpha:
-    _value: 0
-  _shadowNarrowing:
-    _value: 0
-  _shadowFalloff:
-    _value: 0
-  extendedProperties: 0
 --- !u!1 &2599378205330906288
 GameObject:
   m_ObjectHideFlags: 0
