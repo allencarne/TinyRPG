@@ -270,6 +270,8 @@ public class Enemy : MonoBehaviour
         if (enemyHealth <= 0)
         {
             state = EnemyState.death;
+
+            SpawnManager.enemyCount--;
         }
     }
 
