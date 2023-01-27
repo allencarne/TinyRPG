@@ -95,10 +95,10 @@ Material:
     - _falloffByEdges: 1
     - _fastAntyaliasing: 0
     - _sceneLighten: 0
-    - _shadowBaseAlpha: 0.561
-    - _shadowFalloff: 5.36
+    - _shadowBaseAlpha: 0.809
+    - _shadowFalloff: 8.96
     - _shadowLeftNarrowing: 0.033
-    - _shadowNarrowing: 0.678
+    - _shadowNarrowing: 0.638
     - _shadowReflectiveness: 0.095
     - _shadowRightNarrowing: 1
     - _shadowTexture: 0
@@ -113,7 +113,7 @@ Material:
     - _colorMlpScales: {r: 1, g: 1, b: 1, a: 0}
     - _distMinMax: {r: 0.3, g: 4, b: 0, a: 0}
     - _edgeColor: {r: 0, g: 0, b: 0, a: 0}
-    - _shadowBaseColor: {r: 0.011480957, g: 0.039897826, b: 0.05660379, a: 0}
+    - _shadowBaseColor: {r: 0, g: 0, b: 0, a: 0}
     - _shadowColor: {r: 0.010012461, g: 0.07634646, b: 0.084905684, a: 0}
     - _source: {r: -0.47371382, g: -1.3746159, b: 0, a: 0}
   m_BuildTextureStacks: []
