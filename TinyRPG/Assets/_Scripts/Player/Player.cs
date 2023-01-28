@@ -22,6 +22,27 @@ public class Player : MonoBehaviour
     //[SerializeField] GameObject hitSpark;
     [HideInInspector] Camera cam;
 
+    [Header("Buffs")]
+    [SerializeField] GameObject playerAlactrityIcon;
+    [SerializeField] GameObject playerHasteIcon;
+    [SerializeField] GameObject playerMightIcon;
+    [SerializeField] GameObject playerProtectionIcon;
+    [SerializeField] GameObject playerRegenerationIcon;
+
+    [Header("DeBuffs")]
+    [SerializeField] GameObject playerBleedIcon;
+    [SerializeField] GameObject playerImpedeIcon;
+    [SerializeField] GameObject playerSlowIcon;
+    [SerializeField] GameObject playerVulnerabilityIcon;
+    [SerializeField] GameObject playerWeaknessIcon;
+
+    [Header("CC")]
+    [SerializeField] GameObject playerImmobilizeIcon;
+    [SerializeField] GameObject playerIncapacitateIcon;
+    [SerializeField] GameObject playerKnockBackIcon;
+    [SerializeField] GameObject playerSilenceIcon;
+    [SerializeField] GameObject playerStunIcon;
+
     [Header("Wind Slash")]
     //[SerializeField] GameObject windSlashHitSpark;
     [SerializeField] GameObject windSlashPrefab;
