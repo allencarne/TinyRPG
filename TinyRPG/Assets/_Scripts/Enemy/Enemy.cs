@@ -310,7 +310,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        if (enemySlowDuration >= Player.sweepingGustSlowDuration)
+        if (enemySlowDuration >= 300)
         {
             // Return to normal speed
             enemyCurrentSpeed = enemySpeed;
@@ -345,7 +345,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        if (enemyStunDuration >= 500)
+        if (enemyStunDuration >= 200)
         {
             isEnemyStunned = false;
             enemyStunDuration = 0;
