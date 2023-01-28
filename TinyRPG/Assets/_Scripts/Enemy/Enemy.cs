@@ -287,7 +287,7 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
-    #region Helper Methods
+    #region Debuffs
     void EnemySlowed()
     {
         if (enemySlowedTrigger)
@@ -310,7 +310,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        if (enemySlowDuration >= 1000)
+        if (enemySlowDuration >= Player.sweepingGustSlowDuration)
         {
             // Return to normal speed
             enemyCurrentSpeed = enemySpeed;
@@ -337,10 +337,15 @@ public class Enemy : MonoBehaviour
         if (isEnemyStunned)
         {
             enemyStunDuration++;
+            enemyAnimator.StartPlayback();
+
+        } else
+        {
+            enemyAnimator.StopPlayback();
         }
 
 
-        if (enemyStunDuration >= 1000)
+        if (enemyStunDuration >= 500)
         {
             isEnemyStunned = false;
             enemyStunDuration = 0;
@@ -376,6 +381,8 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
+    #region Animation Events
+
     public void AE_Idle()
     {
         state = EnemyState.idle;
@@ -385,6 +392,13 @@ public class Enemy : MonoBehaviour
     {
         isMeleeAttacking = true;
     }
+
+    public void AE_EnemyHurt()
+    {
+        state = EnemyState.idle;
+    }
+
+    #endregion
 
     public void TakeDamage(float damage)
     {

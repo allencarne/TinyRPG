@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     bool canSweepingGust = true;
     bool isSweepingGustActive;
     public static float sweepingGustSlowAmount = 2;
+    public static float sweepingGustSlowDuration = 4;
 
     [Header("Tempest Charge")]
     [SerializeField] GameObject tempestChargeIndicator;
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform tempestChargeEndPosition;
     [SerializeField] float tempestChargeCoolDown;
     [SerializeField] float tempestChargeVelocity;
+    public static float tempestChargeStunDuration = 2;
     public static bool tempestChargeCollisionTrigger = false;
     bool canTempestCharge = true;
     bool canTempestCharge2 = false;
@@ -519,6 +521,21 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    public void IsPlayerSlowed()
+    {
+
+    }
+
+    public void IsPlayerKnockedBack()
+    {
+
+    }
+
+    public void IsPlayerStunned()
+    {
+
+    }
 
     #region Input
     public void MoveKeyPressed()
