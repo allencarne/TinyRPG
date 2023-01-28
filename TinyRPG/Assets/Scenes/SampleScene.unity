@@ -3078,6 +3078,21 @@ MonoScript:
   m_ClassName: CinemachineVirtualCamera
   m_Namespace: Cinemachine
   m_AssemblyName: Cinemachine
+--- !u!115 &1441239076
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: CinemachinePixelPerfect
+  m_Namespace: Cinemachine
+  m_AssemblyName: Cinemachine
 --- !u!1 &1442922139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,7 +3792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508815340}
   - component: {fileID: 1508815339}
-  - component: {fileID: 1508815338}
+  - component: {fileID: 1508815341}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -3785,18 +3800,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1508815338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508815337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1821699545}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1508815339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3852,6 +3855,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508815341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508815337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1441239076}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1517686977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4071,7 +4086,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4651,21 +4666,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728898451}
   m_CullTransparentMesh: 1
---- !u!115 &1821699545
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 7
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_Type: 0
-  m_ExecutionOrder: 0
-  m_ClassName: CinemachinePixelPerfect
-  m_Namespace: Cinemachine
-  m_AssemblyName: Cinemachine
 --- !u!4 &1832675125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 120724568229383095, guid: fc24ec028a64f8f44aa1e9272796b049, type: 3}
