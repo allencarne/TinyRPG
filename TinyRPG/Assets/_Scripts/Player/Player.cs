@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Variables")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float currentMoveSpeed;
     [HideInInspector] Vector2 movement;
     [HideInInspector] Vector2 angleToMouse;
     public float health;
@@ -33,6 +34,11 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject playerBleedIcon;
     [SerializeField] GameObject playerImpedeIcon;
     [SerializeField] GameObject playerSlowIcon;
+    public bool playerSlowTrigger;
+    public bool isPlayerSlowed;
+    float playerSlowDuration;
+
+
     [SerializeField] GameObject playerVulnerabilityIcon;
     [SerializeField] GameObject playerWeaknessIcon;
 
@@ -197,6 +203,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             TakeDamage(1);
+            playerSlowTrigger = true;
+            PlayerSlowed();
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -543,17 +551,45 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    public void IsPlayerSlowed()
+    public void PlayerSlowed()
+    {
+        if (playerSlowTrigger)
+        {
+            playerSlowTrigger = false;
+
+            isPlayerSlowed = true;
+
+            playerSlowDuration = 0;
+
+            playerSlowIcon.SetActive(true);
+
+            // Slow
+            currentMoveSpeed = 3;
+        }
+
+        if (isPlayerSlowed)
+        {
+            playerSlowDuration++;
+        }
+
+
+        if (playerSlowDuration >= 300)
+        {
+            // Return to normal speed
+            currentMoveSpeed = moveSpeed;
+
+            isPlayerSlowed = false;
+            playerSlowDuration = 0;
+            playerSlowIcon.SetActive(false);
+        }
+    }
+
+    public void PlayerKnockedBack()
     {
 
     }
 
-    public void IsPlayerKnockedBack()
-    {
-
-    }
-
-    public void IsPlayerStunned()
+    public void PlayerStunned()
     {
 
     }
