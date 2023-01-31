@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public float enemyMaxHealth;
     public float enemySpeed;
     public float enemyCurrentSpeed;
+    public float wanderRadius;
     float damage;
     bool isEnemyWandering;
     float randomWanderDirection;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     [Header("Combat")]
     public GameObject hitSparkPrefab;
     [SerializeField] float aggroRange;
+    [SerializeField] float deAggroRange;
     float idleTime;
     bool canWander = true;
     Vector2 enemyStartingPosition;
@@ -84,7 +86,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
+        Debug.Log(idleTime);
 
         switch (state)
         {
@@ -127,12 +129,11 @@ public class Enemy : MonoBehaviour
             isEnemyWandering = false;
 
             // Get Move Direction
-            newMoveDirection = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+            newMoveDirection = Random.insideUnitCircle * wanderRadius;
 
             // Move
-            Vector2 newTarget = new Vector2(target.position.x, target.position.y);
-            Vector2 newPos = Vector2.MoveTowards(enemyRB.position, newTarget, enemyCurrentSpeed * Time.deltaTime);
-            enemyRB.MovePosition(newPos);
+            enemyRB.velocity = newMoveDirection * enemyCurrentSpeed;
+            Debug.Log(newMoveDirection);
         }
     }
 
@@ -153,9 +154,9 @@ public class Enemy : MonoBehaviour
         // Behaviour
         enemyRB.velocity = new Vector2(0, 0);
 
-        idleTime++;
+        idleTime += 1 * Time.deltaTime;
 
-        if (idleTime >= 500)
+        if (idleTime >= 5)
         {
             int change = Random.Range(0, 2);
             switch (change)
@@ -189,18 +190,20 @@ public class Enemy : MonoBehaviour
     {
         // Animation
         enemyAnimator.Play("Move");
-        enemyAnimator.SetFloat("Horizontal", newMoveDirection.x - enemyRB.position.x);
-        enemyAnimator.SetFloat("Vertical", newMoveDirection.y - enemyRB.position.y);
+        enemyAnimator.SetFloat("Horizontal", newMoveDirection.x);
+        enemyAnimator.SetFloat("Vertical", newMoveDirection.y);
 
         // Behaviour
         if (canWander)
         {
             canWander = false;
 
+            isEnemyWandering = true;
+
+            //newMoveDirection = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+
             StartCoroutine(Wandering());
         }
-
-        isEnemyWandering = true;
         //enemyRB.velocity = newMoveDirection * enemySpeed * Time.deltaTime;
 
         // Transition
@@ -240,7 +243,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if (Vector2.Distance(target.position, enemyRB.position) >= aggroRange)
+        if (Vector2.Distance(target.position, enemyRB.position) >= deAggroRange)
         {
             state = EnemyState.idle;
         }
@@ -431,7 +434,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Wandering()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         canWander = true;
         state = EnemyState.idle;
     }
@@ -446,7 +449,11 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position, deAggroRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, wanderRadius);
     }
 }
