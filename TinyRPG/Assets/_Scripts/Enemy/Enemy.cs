@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public float enemyCurrentSpeed;
     float damage;
+    bool isEnemyWandering;
+    float randomWanderDirection;
 
     [Header("Combat")]
     public GameObject hitSparkPrefab;
@@ -117,6 +119,23 @@ public class Enemy : MonoBehaviour
         EnemyKnockBack();
     }
 
+    private void FixedUpdate()
+    {
+        if (isEnemyWandering)
+        {
+            // Prevents from running more than once
+            isEnemyWandering = false;
+
+            // Get Move Direction
+            newMoveDirection = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+
+            // Move
+            Vector2 newTarget = new Vector2(target.position.x, target.position.y);
+            Vector2 newPos = Vector2.MoveTowards(enemyRB.position, newTarget, enemyCurrentSpeed * Time.deltaTime);
+            enemyRB.MovePosition(newPos);
+        }
+    }
+
     #region Enemy States
 
     void EnemySpawnState()
@@ -178,12 +197,10 @@ public class Enemy : MonoBehaviour
         {
             canWander = false;
 
-            newMoveDirection = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-
             StartCoroutine(Wandering());
         }
-        Vector2 newWanderPos = Vector2.MoveTowards(enemyRB.position, newMoveDirection, enemyCurrentSpeed * Time.deltaTime);
-        enemyRB.MovePosition(newWanderPos);
+
+        isEnemyWandering = true;
         //enemyRB.velocity = newMoveDirection * enemySpeed * Time.deltaTime;
 
         // Transition

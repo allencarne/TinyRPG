@@ -4656,8 +4656,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 2
-  m_AngularDrag: 2
+  m_LinearDrag: 5
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: ae82cf9c28047ea4781def9a9426fcca, type: 2}
   m_IncludeLayers:
@@ -4703,9 +4703,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  currentMoveSpeed: 0
   health: 0
   maxHealth: 10
   isPlayerHurt: 0
+  isPlayerSliding: 0
   healthbar: {fileID: 1486545533}
   circleCollider: {fileID: 1486545536}
   rb: {fileID: 1486545529}
@@ -4719,6 +4721,8 @@ MonoBehaviour:
   playerBleedIcon: {fileID: 1749003403}
   playerImpedeIcon: {fileID: 760002349}
   playerSlowIcon: {fileID: 2090983272}
+  playerSlowTrigger: 0
+  isPlayerSlowed: 0
   playerVulnerabilityIcon: {fileID: 1566431423}
   playerWeaknessIcon: {fileID: 2033680439}
   playerImmobilizeIcon: {fileID: 492205854}
@@ -4730,7 +4734,7 @@ MonoBehaviour:
   windSlashCoolDown: 0.8
   windSlashForce: 1
   windSlashAttackRange: 10.2
-  windSlashSlideForce: 1
+  windSlashSlideForce: 50
   windSlash2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
   windSlash3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
   sweepingGustIndicator: {fileID: 1932559554}
@@ -4743,7 +4747,7 @@ MonoBehaviour:
   tempestCharge2Prefab: {fileID: 2968445849334936289, guid: 397dbf0f3c9f29746b42f31a39d21996, type: 3}
   tempestChargeEndPosition: {fileID: 849751881}
   tempestChargeCoolDown: 1
-  tempestChargeVelocity: 15
+  tempestChargeVelocity: 25
   parryStrikePrefab: {fileID: 3415560185572391989, guid: bd2f3c18629099f4688a40117bdd07fa, type: 3}
   whilrWindPrefab: {fileID: 666635300205636536, guid: dbe92af68c0ceee4c841760d7d6cd5a3, type: 3}
   parryStrikeCoolDown: 2

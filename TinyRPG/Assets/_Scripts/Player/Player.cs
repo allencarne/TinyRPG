@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float health;
     public float maxHealth;
     public bool isPlayerHurt;
+    public bool isPlayerSliding;
     float damage;
 
     [Header("Components")]
@@ -91,6 +92,8 @@ public class Player : MonoBehaviour
     public static bool tempestChargeCollisionTrigger = false;
     bool canTempestCharge = true;
     bool canTempestCharge2 = false;
+    Vector3 tempestChargeAngle;
+    bool isTempestChargeActive;
 
     [Header("Parry Strike")]
     [SerializeField] GameObject parryStrikePrefab;
@@ -213,6 +216,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (state == PlayerState.move)
+        {
+            Movement();
+        }
+        
+        if (state == PlayerState.mobility)
+        {
+            if (isTempestChargeActive)
+            {
+                isTempestChargeActive = false;
+                rb.velocity = tempestChargeAngle.normalized * tempestChargeVelocity;
+            }
+        }
+        
+        if (state == PlayerState.attack || state == PlayerState.attack2 || state == PlayerState.attack3)
+        {
+            if (isPlayerSliding)
+            {
+                isPlayerSliding = false;
+                SlideForwad();
+            }
+        }
+    }
+
     #region States
     void PlayerIdleState()
     {
@@ -252,7 +281,7 @@ public class Player : MonoBehaviour
         movement = moveInput.normalized * moveSpeed;
 
         // Movement
-        Movement();
+        //Movement();
 
         // Transitions
         NoMoveKeyPressed();
@@ -286,7 +315,8 @@ public class Player : MonoBehaviour
             Rigidbody2D basicAttackRB = basicAttack.GetComponent<Rigidbody2D>();
             basicAttackRB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
-            SlideForwad();
+            //SlideForwad();
+            isPlayerSliding = true;
         }
 
         // Transition
@@ -318,7 +348,8 @@ public class Player : MonoBehaviour
             Rigidbody2D basicAttack2RB = basicAttack2.GetComponent<Rigidbody2D>();
             basicAttack2RB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
-            SlideForwad();
+            //SlideForwad();
+            isPlayerSliding = true;
         }
 
         // Transition
@@ -350,7 +381,8 @@ public class Player : MonoBehaviour
             Rigidbody2D basicAttack3RB = basicAttack3.GetComponent<Rigidbody2D>();
             basicAttack3RB.AddForce(firePoint.right * windSlashForce, ForceMode2D.Impulse);
 
-            SlideForwad();
+            //SlideForwad();
+            isPlayerSliding = true;
         }
     }
 
@@ -399,17 +431,18 @@ public class Player : MonoBehaviour
             animator.Play("Run");
 
             // Get the ablge of the indicator end position and player position
-            Vector3 angle = tempestChargeEndPosition.position - transform.position;
+            tempestChargeAngle = tempestChargeEndPosition.position - transform.position;
 
             // Set Attack Animation Depending on Mouse Position
-            animator.SetFloat("Aim Horizontal", angle.x);
-            animator.SetFloat("Aim Vertical", angle.y);
+            animator.SetFloat("Aim Horizontal", tempestChargeAngle.x);
+            animator.SetFloat("Aim Vertical", tempestChargeAngle.y);
             // Set Idle to last attack position
-            animator.SetFloat("Horizontal", angle.x);
-            animator.SetFloat("Vertical", angle.y);
+            animator.SetFloat("Horizontal", tempestChargeAngle.x);
+            animator.SetFloat("Vertical", tempestChargeAngle.y);
 
             // Add Velocity Based on Angle
-            rb.velocity = angle.normalized * tempestChargeVelocity;
+            //rb.velocity = angle.normalized * tempestChargeVelocity;
+            isTempestChargeActive = true;
 
             // Instantiate Dash Telegraph and Destroy It
             GameObject _dashTelegraph = Instantiate(tempestChargePrefab, firePoint.position, firePoint.rotation);
@@ -775,17 +808,10 @@ public class Player : MonoBehaviour
         animator.SetFloat("Vertical", angleToMouse.y);
     }
 
-    public void Blink()
-    {
-        // Instantly Teleport in direction of movement keys
-        // Does not teleport if no movment keys are being pressed
-        rb.MovePosition(rb.position + movement * tempestChargeVelocity);
-    }
-
     public void Movement()
     {
         // Move in direction of movement keys
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * Time.deltaTime);
     }
 
     public void SlideForwad()
@@ -803,7 +829,7 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            rb.MovePosition(rb.position + angleToMouse);
+            rb.MovePosition(rb.position + angleToMouse * Time.deltaTime);
         }
 
         if (Input.GetKey(upKey) || Input.GetKey(leftKey) || Input.GetKey(downKey) || Input.GetKey(rightKey))
@@ -815,7 +841,7 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            rb.MovePosition(rb.position + angleToMouse);
+            rb.MovePosition(rb.position + angleToMouse * Time.deltaTime);
         }
     }
 

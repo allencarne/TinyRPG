@@ -454,7 +454,7 @@ MonoBehaviour:
   enemySpeed: 5
   enemyCurrentSpeed: 0
   hitSparkPrefab: {fileID: 2483648643277789687, guid: 45311f963984e26488c60e0b3aa24221, type: 3}
-  aggroRange: 7
+  aggroRange: 5
   enemySlowIcon: {fileID: 4539605823408600700}
   enemySlowedTrigger: 0
   isEnemySlowed: 0
