@@ -20,14 +20,16 @@ public class Enemy : MonoBehaviour
     public float wanderRadius;
     float damage;
     bool isEnemyWandering;
+    bool isEnemyChasing;
+    bool canChase = true;
     float randomWanderDirection;
+    bool canWander = true;
 
     [Header("Combat")]
     public GameObject hitSparkPrefab;
     [SerializeField] float aggroRange;
     [SerializeField] float deAggroRange;
     float idleTime;
-    bool canWander = true;
     Vector2 enemyStartingPosition;
     Vector2 newMoveDirection;
 
@@ -86,7 +88,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(idleTime);
+        //Debug.Log(idleTime);
 
         switch (state)
         {
@@ -133,7 +135,29 @@ public class Enemy : MonoBehaviour
 
             // Move
             enemyRB.velocity = newMoveDirection * enemyCurrentSpeed;
-            Debug.Log(newMoveDirection);
+        }
+
+        if (isEnemyChasing)
+        {
+            // Prevents from running more than once
+            //isEnemyChasing = false;
+
+            //Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            //enemyRB.velocity = direction * Player.windSlashKnockBackForce;
+
+            // Get Direction
+            Vector3 direction = target.position - transform.position;
+            newMoveDirection = direction.normalized;
+
+            // Animate
+            enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
+            enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
+
+            Vector2 newPos = new Vector2(transform.position.x, transform.position.y);
+
+            // Move
+            enemyRB.MovePosition(enemyRB.position + newMoveDirection * enemyCurrentSpeed * Time.deltaTime);
+
         }
     }
 
@@ -171,6 +195,9 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        // Reset chase variable
+        canChase = true;
+
         // Transition
         if (Vector2.Distance(target.position, enemyRB.position) <= aggroRange)
         {
@@ -200,11 +227,8 @@ public class Enemy : MonoBehaviour
 
             isEnemyWandering = true;
 
-            //newMoveDirection = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-
             StartCoroutine(Wandering());
         }
-        //enemyRB.velocity = newMoveDirection * enemySpeed * Time.deltaTime;
 
         // Transition
         if (Vector2.Distance(target.position, enemyRB.position) <= aggroRange)
@@ -226,25 +250,26 @@ public class Enemy : MonoBehaviour
         // Animation
         enemyAnimator.Play("Move");
 
-        // Behaviour
-        Vector2 newTarget = new Vector2(target.position.x, target.position.y);
-        Vector2 newPos = Vector2.MoveTowards(enemyRB.position, newTarget, enemyCurrentSpeed * Time.deltaTime);
-        enemyRB.MovePosition(newPos);
+        if (canChase)
+        {
+            canChase = false;
 
-        enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
-        enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
+            isEnemyChasing = true;
+        }
 
         // Transition
         if (Vector2.Distance(target.position, enemyRB.position) <= meleeAttackRange)
         {
             if (canMeleeAttack)
             {
+                isEnemyChasing = false;
                 state = EnemyState.meleeAttack;
             }
         }
 
         if (Vector2.Distance(target.position, enemyRB.position) >= deAggroRange)
         {
+            isEnemyChasing = false;
             state = EnemyState.idle;
         }
     }

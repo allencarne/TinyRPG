@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     public float sweepingGustCoolDown;
     bool canSweepingGust = true;
     bool isSweepingGustActive;
-    public static float sweepingGustSlowAmount = 2;
+    public static float sweepingGustSlowAmount = .1f;
     public static float sweepingGustSlowDuration = 4;
 
     [Header("Tempest Charge")]

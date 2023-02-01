@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 476401476}
   - component: {fileID: 476401475}
   m_Layer: 5
-  m_Name: Slam
+  m_Name: Heavy Blow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 873991b09eded8147abdfd0430da0acc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0458f61ea76598543a6c76081da4e914, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
