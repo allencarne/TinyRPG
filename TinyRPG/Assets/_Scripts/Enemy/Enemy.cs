@@ -137,14 +137,16 @@ public class Enemy : MonoBehaviour
             enemyRB.velocity = newMoveDirection * enemyCurrentSpeed;
         }
 
+        if (state == EnemyState.chase)
+        {
+            isEnemyChasing = true;
+        } else
+        {
+            isEnemyChasing = false;
+        }
+
         if (isEnemyChasing)
         {
-            // Prevents from running more than once
-            //isEnemyChasing = false;
-
-            //Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            //enemyRB.velocity = direction * Player.windSlashKnockBackForce;
-
             // Get Direction
             Vector3 direction = target.position - transform.position;
             newMoveDirection = direction.normalized;
@@ -153,11 +155,9 @@ public class Enemy : MonoBehaviour
             enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
             enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
 
-            Vector2 newPos = new Vector2(transform.position.x, transform.position.y);
 
             // Move
             enemyRB.MovePosition(enemyRB.position + newMoveDirection * enemyCurrentSpeed * Time.deltaTime);
-
         }
     }
 
@@ -253,23 +253,21 @@ public class Enemy : MonoBehaviour
         if (canChase)
         {
             canChase = false;
-
-            isEnemyChasing = true;
         }
 
-        // Transition
+        // If Target is inside attack range - Attack
         if (Vector2.Distance(target.position, enemyRB.position) <= meleeAttackRange)
         {
             if (canMeleeAttack)
             {
-                isEnemyChasing = false;
                 state = EnemyState.meleeAttack;
             }
         }
 
+        // If Target is outside of deAggro Range - Return to Spawn Position
         if (Vector2.Distance(target.position, enemyRB.position) >= deAggroRange)
         {
-            isEnemyChasing = false;
+            // Return to spawn position
             state = EnemyState.idle;
         }
     }
@@ -308,10 +306,7 @@ public class Enemy : MonoBehaviour
         // Behaviour
         TakeDamage(damage);
 
-        // Transition
-        // if hurt animation is done playing and player cc'd - wait until cc is done, then idle
-
-        // Transition
+        // Die
         if (enemyHealth <= 0)
         {
             state = EnemyState.death;
