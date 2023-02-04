@@ -465,7 +465,8 @@ MonoBehaviour:
   isEnemyStunned: 0
   enemyKnockBackIcon: {fileID: 3275660028188644717}
   enemyKnockBackTrigger: 0
-  meleeAttackTelegraph: {fileID: 1678005024966795067, guid: 6769b04942c89234a98f6d9a84ef056e, type: 3}
+  meleeAttackTelegraph: {fileID: 7923142244627032517, guid: 81085651dfec1a945b43214dd0ae3983, type: 3}
+  maleeAttackPrefab: {fileID: 1678005024966795067, guid: 6769b04942c89234a98f6d9a84ef056e, type: 3}
   meleeAttackCoolDown: 2
   meleeAttackRange: 0.6
 --- !u!114 &4415691388500720130

@@ -51,10 +51,11 @@ public class Enemy : MonoBehaviour
 
 
     [Header("MeleeAttack")]
-    public static float basicAttackDamage;
     [SerializeField] GameObject meleeAttackTelegraph;
+    [SerializeField] GameObject maleeAttackPrefab;
     [SerializeField] float meleeAttackCoolDown;
     [SerializeField] float meleeAttackRange;
+    public static float basicAttackDamage;
     bool canMeleeAttack = true;
     bool isMeleeAttacking = false;
 
@@ -283,6 +284,8 @@ public class Enemy : MonoBehaviour
         {
             canMeleeAttack = false;
 
+            Instantiate(meleeAttackTelegraph, enemyFirePoint.position, enemyFirePoint.rotation);
+
             StartCoroutine(MeleeAttackCoolDown());
         }
 
@@ -290,7 +293,7 @@ public class Enemy : MonoBehaviour
         {
             isMeleeAttacking = false;
 
-            Instantiate(meleeAttackTelegraph, enemyFirePoint.position, enemyFirePoint.rotation);
+            Instantiate(maleeAttackPrefab, enemyFirePoint.position, enemyFirePoint.rotation);
         }
     }
 
