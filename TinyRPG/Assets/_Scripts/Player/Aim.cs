@@ -6,10 +6,14 @@ public class Aim : MonoBehaviour
 {
     public float offset;
     public Transform firePoint;
+    public static bool pauseDirection = false;
 
     void Update()
     {
-        Rotate();
+        if (!pauseDirection)
+        {
+            Rotate();
+        }
     }
 
     public void Rotate()

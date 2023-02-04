@@ -295,12 +295,17 @@ public class Player : MonoBehaviour
 
     void PlayerAttackState()
     {
-        // Animation
-        animator.Play("Attack");
+        if (!Aim.pauseDirection)
+        {
+            // Animation
+            animator.Play("Attack");
 
-        // Calculate the difference between mouse position and player position
-        AngleToMouse();
-        AnimationDirection();
+            // Calculate the difference between mouse position and player position
+            AngleToMouse();
+            AnimationDirection();
+
+            Aim.pauseDirection = true;
+        }
 
         // Prevents Attacking more than once
         canWindSlash = false;
@@ -322,6 +327,7 @@ public class Player : MonoBehaviour
         // Transition
         if (canWindSlash2 && Input.GetKey(basicAttackKey))
         {
+            Aim.pauseDirection = false;
             state = PlayerState.attack2;
         }
     }
@@ -355,6 +361,7 @@ public class Player : MonoBehaviour
         // Transition
         if (canWindSlash3 && Input.GetKey(basicAttackKey))
         {
+            Aim.pauseDirection = false;
             state = PlayerState.attack3;
         }
     }
@@ -865,6 +872,7 @@ public class Player : MonoBehaviour
 
     public void AE_WindSlashEnd()
     {
+        Aim.pauseDirection = false;
         canWindSlash2 = false;
         canWindSlash3 = false;
         state = PlayerState.idle;
