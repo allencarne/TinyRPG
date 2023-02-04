@@ -829,7 +829,7 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            rb.MovePosition(rb.position + angleToMouse * Time.deltaTime);
+            rb.MovePosition(rb.position + angleToMouse * moveSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(upKey) || Input.GetKey(leftKey) || Input.GetKey(downKey) || Input.GetKey(rightKey))
@@ -841,7 +841,7 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 6, true);
 
             // Slide in Attack Direction
-            rb.MovePosition(rb.position + angleToMouse * Time.deltaTime);
+            rb.MovePosition(rb.position + angleToMouse * moveSpeed * Time.deltaTime);
         }
     }
 

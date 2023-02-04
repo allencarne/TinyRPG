@@ -2070,8 +2070,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 0
-  m_YDamping: 0
+  m_XDamping: 0.5
+  m_YDamping: 0.5
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -4647,7 +4647,7 @@ MonoBehaviour:
   windSlashCoolDown: 0.8
   windSlashForce: 1
   windSlashAttackRange: 10.2
-  windSlashSlideForce: 50
+  windSlashSlideForce: 10
   windSlash2Prefab: {fileID: 4992891921587986670, guid: cacafc377378c2248a8b426c06909e14, type: 3}
   windSlash3Prefab: {fileID: 4539020850030800105, guid: 7ef3dd239ed991d4fbeb24082773e4f2, type: 3}
   sweepingGustIndicator: {fileID: 1932559554}
@@ -75060,9 +75060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5159b786682614eb7b5d42b1c0d326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: -0.1, y: -0.1, z: 0}
-  Material: {fileID: 2100000, guid: 311976e3329c5b04e9ec5c2e15053390, type: 2}
-  _shadow: {fileID: 0}
 --- !u!1 &2080396570
 GameObject:
   m_ObjectHideFlags: 0
