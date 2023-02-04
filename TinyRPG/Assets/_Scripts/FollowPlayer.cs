@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     GameObject target;
+    [SerializeField] float offset;
 
     private void Awake()
     {
@@ -20,6 +21,8 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position;
+        Vector3 newPos = new Vector3 (0, offset, 0);
+
+        transform.position = target.transform.position + newPos;
     }
 }
