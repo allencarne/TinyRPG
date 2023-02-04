@@ -7,6 +7,7 @@ public class EnemyAim : MonoBehaviour
     public float offset;
     public Transform firePoint;
     Transform target;
+    public static bool pauseDirection = false;
 
     private void Awake()
     {
@@ -15,7 +16,10 @@ public class EnemyAim : MonoBehaviour
 
     void Update()
     {
-        Rotate();
+        if (!pauseDirection)
+        {
+            Rotate();
+        }
     }
 
     public void Rotate()

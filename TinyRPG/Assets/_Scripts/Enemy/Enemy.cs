@@ -275,10 +275,16 @@ public class Enemy : MonoBehaviour
 
     void EnemyMeleeAttackState()
     {
-        // Set Animation based on player location
-        enemyAnimator.Play("MeleeAttack");
-        enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
-        enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
+        // If Pause Direction is False, Pause Direction and face the player direction
+        if (!EnemyAim.pauseDirection)
+        {
+            // Set Animation based on player location
+            enemyAnimator.Play("MeleeAttack");
+            enemyAnimator.SetFloat("Horizontal", target.position.x - enemyRB.position.x);
+            enemyAnimator.SetFloat("Vertical", target.position.y - enemyRB.position.y);
+
+            EnemyAim.pauseDirection = true;
+        }
 
         if (canMeleeAttack)
         {
@@ -429,6 +435,7 @@ public class Enemy : MonoBehaviour
     public void AE_Idle()
     {
         state = EnemyState.idle;
+        EnemyAim.pauseDirection = false;
     }
 
     public void AE_MeleeAttack()
