@@ -826,7 +826,7 @@ public class Player : MonoBehaviour
         // Calculate the difference between mouse position and player position
         AngleToMouse();
 
-        // If Mouse 
+        // If Mouse is outside attack range - Slide
         if (Vector3.Distance(rb.position, cam.ScreenToWorldPoint(Input.mousePosition)) > windSlashAttackRange)
         {
             // Normalize movement vector and times it by attack move distance
@@ -839,6 +839,7 @@ public class Player : MonoBehaviour
             rb.MovePosition(rb.position + angleToMouse * moveSpeed * Time.deltaTime);
         }
 
+        // If Movement key is held while attacking - Slide
         if (Input.GetKey(upKey) || Input.GetKey(leftKey) || Input.GetKey(downKey) || Input.GetKey(rightKey))
         {
             // Normalize movement vector and times it by attack move distance

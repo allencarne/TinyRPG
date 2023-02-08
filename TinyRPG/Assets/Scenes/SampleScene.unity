@@ -2070,8 +2070,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 0.5
-  m_YDamping: 0.5
+  m_XDamping: 1
+  m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4415691388500720139, guid: 4f7841788e808cb4fa863676f940aac9, type: 3}
   size: {x: 15, y: 15, z: 0}
   center: {x: 23, y: 0, z: 0}
-  maxEnemyCount: 1
+  maxEnemyCount: 20
 --- !u!1001 &931481971
 PrefabInstance:
   m_ObjectHideFlags: 0

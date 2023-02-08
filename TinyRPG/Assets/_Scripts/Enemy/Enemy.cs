@@ -26,12 +26,13 @@ public class Enemy : MonoBehaviour
     bool canWander = true;
 
     [Header("Combat")]
-    public GameObject hitSparkPrefab;
+    [SerializeField] GameObject hitSparkPrefab;
     [SerializeField] float aggroRange;
     [SerializeField] float deAggroRange;
-    float idleTime;
+    public static bool isEnemyHurt;
     Vector2 enemyStartingPosition;
     Vector2 newMoveDirection;
+    float idleTime;
 
     [Header("DeBuffs")]
     [SerializeField] GameObject enemySlowIcon;
@@ -307,6 +308,9 @@ public class Enemy : MonoBehaviour
     {
         state = EnemyState.hurt;
 
+        // If enemy is hurt - Destroy Attack Telegraph
+        isEnemyHurt = true;
+
         // Animate
         enemyAnimator.Play("Hurt");
         enemyAnimator.SetFloat("Horizontal", enemyRB.position.x - target.position.x);
@@ -434,8 +438,9 @@ public class Enemy : MonoBehaviour
 
     public void AE_Idle()
     {
-        state = EnemyState.idle;
         EnemyAim.pauseDirection = false;
+        isEnemyHurt = false;
+        state = EnemyState.idle;
     }
 
     public void AE_MeleeAttack()
@@ -445,6 +450,8 @@ public class Enemy : MonoBehaviour
 
     public void AE_EnemyHurt()
     {
+        EnemyAim.pauseDirection = false;
+        isEnemyHurt = false;
         state = EnemyState.idle;
     }
 
