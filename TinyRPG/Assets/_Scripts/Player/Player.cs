@@ -591,6 +591,8 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region Status Effects
+
     public void PlayerSlowed()
     {
         if (playerSlowTrigger)
@@ -633,6 +635,8 @@ public class Player : MonoBehaviour
     {
 
     }
+
+    #endregion
 
     #region Input
     public void MoveKeyPressed()
