@@ -1,7 +1,475 @@
 fileFormatVersion: 2
 guid: 351103358ccc85f448e6c4eb9f2acee1
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: ParryStrike_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 36
+      height: 43
+    spriteID: 9fd4e2966083ec44e9881d53f05dead5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: ParryStrike_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 55
+      width: 36
+      height: 43
+    spriteID: 404653b44c12d6946854b1a954b41577
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 55}
+  - name: ParryStrike_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 106
+      width: 36
+      height: 43
+    spriteID: 055c6d2b7fac9394d96a5f5ddb7a6fde
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 106}
+  - name: ParryStrike_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 157
+      width: 36
+      height: 43
+    spriteID: 904b8a7089cc2054c9f00b6119e21102
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 157}
+  - name: ParryStrike_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 208
+      width: 36
+      height: 43
+    spriteID: 9c5f9ab9ccf39f44bb34bf9551c0e1c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 208}
+  - name: ParryStrike_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 4
+      width: 36
+      height: 43
+    spriteID: 56d8fd63ee648b243b5723a6240f5c4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 4}
+  - name: ParryStrike_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 55
+      width: 36
+      height: 43
+    spriteID: ad0170d5f25730144a5f12342c504874
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 55}
+  - name: ParryStrike_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 106
+      width: 36
+      height: 43
+    spriteID: cbf4cb843dd9fea419a2e4952091210b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 106}
+  - name: ParryStrike_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 157
+      width: 36
+      height: 43
+    spriteID: b375267865c607c49b01d73d75bac2b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 157}
+  - name: ParryStrike_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 208
+      width: 36
+      height: 43
+    spriteID: 22f57c7ec6ed1af4e9ef944734ba1b9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 208}
+  - name: ParryStrike_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 92
+      y: 4
+      width: 36
+      height: 43
+    spriteID: ceefd965ec5fda34a8a1a62116cb5ee7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 92, y: 4}
+  - name: ParryStrike_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.3255814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 92
+      y: 55
+      width: 36
+      height: 43
+    spriteID: e448a7b869474e142894803c60d610a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 92, y: 55}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1745793878
+    name: ParryStrike
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ParryStrike_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 9fd4e2966083ec44e9881d53f05dead5
+    - name: ParryStrike_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 404653b44c12d6946854b1a954b41577
+    - name: ParryStrike_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 055c6d2b7fac9394d96a5f5ddb7a6fde
+    - name: ParryStrike_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 904b8a7089cc2054c9f00b6119e21102
+    - name: ParryStrike_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 9c5f9ab9ccf39f44bb34bf9551c0e1c2
+    - name: ParryStrike_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 56d8fd63ee648b243b5723a6240f5c4a
+    - name: ParryStrike_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: ad0170d5f25730144a5f12342c504874
+    - name: ParryStrike_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: cbf4cb843dd9fea419a2e4952091210b
+    - name: ParryStrike_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: b375267865c607c49b01d73d75bac2b2
+    - name: ParryStrike_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: 22f57c7ec6ed1af4e9ef944734ba1b9a
+    - name: ParryStrike_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: ceefd965ec5fda34a8a1a62116cb5ee7
+    - name: ParryStrike_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 14
+        y: 14
+        width: 36
+        height: 43
+      spriteId: e448a7b869474e142894803c60d610a9
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

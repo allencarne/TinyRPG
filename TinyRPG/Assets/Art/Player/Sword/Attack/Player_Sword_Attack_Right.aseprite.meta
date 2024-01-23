@@ -1,7 +1,1035 @@
 fileFormatVersion: 2
 guid: 1b526b8a918993348ab4b0bb9eb75d8e
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Player_Sword_Attack_Right_Frame_3
+    originalName: 
+    pivot: {x: 0.74418604, y: -0.074074075}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 43
+      height: 54
+    spriteID: f742e227ef775454290760ff6219019f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Player_Sword_Attack_Right_Frame_4
+    originalName: 
+    pivot: {x: 0.2, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 252
+      width: 40
+      height: 54
+    spriteID: 495ead6167ad26543ac05f2ebeb96117
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 252}
+  - name: Player_Sword_Attack_Right_Frame_5
+    originalName: 
+    pivot: {x: 0.55813956, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 4
+      width: 43
+      height: 48
+    spriteID: 1bcba7070e1bb9548a45c9f95eb79fd7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 4}
+  - name: Player_Sword_Attack_Right_Frame_11
+    originalName: 
+    pivot: {x: 0.2, y: -0.074074075}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 314
+      width: 40
+      height: 54
+    spriteID: aa9c335985136d641a1614ef4dfaa228
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 314}
+  - name: Player_Sword_Attack_Right_Frame_12
+    originalName: 
+    pivot: {x: 0.74418604, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 66
+      width: 43
+      height: 54
+    spriteID: 27e08bbcf3e435247801ce2717d36229
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 66}
+  - name: Player_Sword_Attack_Right_Frame_13
+    originalName: 
+    pivot: {x: 0.44186047, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 60
+      width: 43
+      height: 48
+    spriteID: a768a9fe66bb057419443847b1e47972
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 60}
+  - name: Player_Sword_Attack_Right_Frame_19
+    originalName: 
+    pivot: {x: 0.74418604, y: -0.074074075}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 128
+      width: 43
+      height: 54
+    spriteID: b5e762e20d7938a4eaff853d07cfd104
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 128}
+  - name: Player_Sword_Attack_Right_Frame_20
+    originalName: 
+    pivot: {x: 0.2, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 376
+      width: 40
+      height: 54
+    spriteID: 5721c98574b63bf459fd58b074757c9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 376}
+  - name: Player_Sword_Attack_Right_Frame_21
+    originalName: 
+    pivot: {x: 0.55813956, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 116
+      width: 43
+      height: 48
+    spriteID: 7f1f2ab9d4ddc3a418f288bcb7504cf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 116}
+  - name: Player_Sword_Attack_Right_Frame_27
+    originalName: 
+    pivot: {x: 0.2, y: -0.074074075}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 438
+      width: 40
+      height: 54
+    spriteID: a3aae30589d73554b9d7b2b9ab52a3d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 438}
+  - name: Player_Sword_Attack_Right_Frame_28
+    originalName: 
+    pivot: {x: 0.74418604, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 190
+      width: 43
+      height: 54
+    spriteID: a8679673b4b40cf49ada2fba2ff1b64c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 190}
+  - name: Player_Sword_Attack_Right_Frame_29
+    originalName: 
+    pivot: {x: 0.44186047, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 172
+      width: 43
+      height: 48
+    spriteID: 0d331eab05a34d64db7b74b96378566e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 172}
+  - name: Player_Sword_Attack_Right_Frame_0
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.44444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 420
+      width: 21
+      height: 36
+    spriteID: 35b1c99d3a39f4545b66df56c7289b10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 420}
+  - name: Player_Sword_Attack_Right_Frame_1
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 4
+      width: 21
+      height: 35
+    spriteID: 7b85c1afe24b1e84ca0a098af7b5c0d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 146, y: 4}
+  - name: Player_Sword_Attack_Right_Frame_2
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 47
+      width: 21
+      height: 35
+    spriteID: 8eef198e9732fca4fa5f6503aaf2cf66
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 146, y: 47}
+  - name: Player_Sword_Attack_Right_Frame_6
+    originalName: 
+    pivot: {x: 0.6857143, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 228
+      width: 35
+      height: 44
+    spriteID: 936fb0e42113daa41a5e1ec39e596070
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 228}
+  - name: Player_Sword_Attack_Right_Frame_7
+    originalName: 
+    pivot: {x: 0.6857143, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 280
+      width: 35
+      height: 44
+    spriteID: f78155b818cd1ab45bf418e8baa922d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 280}
+  - name: Player_Sword_Attack_Right_Frame_8
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.44444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 160
+      width: 23
+      height: 36
+    spriteID: fae1025523d1f614a84d6e7971145322
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 160}
+  - name: Player_Sword_Attack_Right_Frame_9
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 248
+      width: 23
+      height: 35
+    spriteID: d76455ca64cec3c41a54800fcaae5d49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 248}
+  - name: Player_Sword_Attack_Right_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 334
+      width: 22
+      height: 35
+    spriteID: a8e16d527ad85804d9242c0f8b1909db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 334}
+  - name: Player_Sword_Attack_Right_Frame_14
+    originalName: 
+    pivot: {x: 0.25, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 436
+      width: 32
+      height: 44
+    spriteID: 7d9ef5c5d69a9bb479f8c21a1a0d41c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 436}
+  - name: Player_Sword_Attack_Right_Frame_15
+    originalName: 
+    pivot: {x: 0.25, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 4
+      width: 32
+      height: 44
+    spriteID: f92d78708fec7ca44846c7d06df134e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 4}
+  - name: Player_Sword_Attack_Right_Frame_16
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.44444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 464
+      width: 21
+      height: 36
+    spriteID: 8918828a538446847832040ffe5ec22d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 464}
+  - name: Player_Sword_Attack_Right_Frame_17
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 90
+      width: 21
+      height: 35
+    spriteID: f82ff7fc3c3b99941a303ca45e581413
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 146, y: 90}
+  - name: Player_Sword_Attack_Right_Frame_18
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 133
+      width: 21
+      height: 35
+    spriteID: 4dde33c75b5c19144a891cdb12bd1725
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 146, y: 133}
+  - name: Player_Sword_Attack_Right_Frame_22
+    originalName: 
+    pivot: {x: 0.6857143, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 332
+      width: 35
+      height: 44
+    spriteID: def59d96f73d6fa4a9a5747a72948291
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 332}
+  - name: Player_Sword_Attack_Right_Frame_23
+    originalName: 
+    pivot: {x: 0.6857143, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 384
+      width: 35
+      height: 44
+    spriteID: a5bf1fb1002329c408c637d2048671f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 384}
+  - name: Player_Sword_Attack_Right_Frame_24
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.44444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 204
+      width: 23
+      height: 36
+    spriteID: 32aa4fc74ec77a147adf92d76d905109
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 204}
+  - name: Player_Sword_Attack_Right_Frame_25
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 291
+      width: 23
+      height: 35
+    spriteID: b03454dc0cfa8b840b7505d04274f8b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 291}
+  - name: Player_Sword_Attack_Right_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 377
+      width: 22
+      height: 35
+    spriteID: 890f24676c138bd44b4cb18d41d9b561
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 377}
+  - name: Player_Sword_Attack_Right_Frame_30
+    originalName: 
+    pivot: {x: 0.25, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 56
+      width: 32
+      height: 44
+    spriteID: aa056dbfde6a186459636bb1abb66b4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 56}
+  - name: Player_Sword_Attack_Right_Frame_31
+    originalName: 
+    pivot: {x: 0.25, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 108
+      width: 32
+      height: 44
+    spriteID: 83707740e1d62a5418b350fe9e0c4ac4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 108}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 699605057
+    name: Player_Sword_Attack_Right
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Player_Sword_Attack_Right_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 4
+        width: 43
+        height: 54
+      spriteId: f742e227ef775454290760ff6219019f
+    - name: Player_Sword_Attack_Right_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 24
+        y: 6
+        width: 40
+        height: 54
+      spriteId: 495ead6167ad26543ac05f2ebeb96117
+    - name: Player_Sword_Attack_Right_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 8
+        y: 16
+        width: 43
+        height: 48
+      spriteId: 1bcba7070e1bb9548a45c9f95eb79fd7
+    - name: Player_Sword_Attack_Right_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 24
+        y: 4
+        width: 40
+        height: 54
+      spriteId: aa9c335985136d641a1614ef4dfaa228
+    - name: Player_Sword_Attack_Right_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 6
+        width: 43
+        height: 54
+      spriteId: 27e08bbcf3e435247801ce2717d36229
+    - name: Player_Sword_Attack_Right_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 13
+        y: 16
+        width: 43
+        height: 48
+      spriteId: a768a9fe66bb057419443847b1e47972
+    - name: Player_Sword_Attack_Right_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 4
+        width: 43
+        height: 54
+      spriteId: b5e762e20d7938a4eaff853d07cfd104
+    - name: Player_Sword_Attack_Right_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 24
+        y: 6
+        width: 40
+        height: 54
+      spriteId: 5721c98574b63bf459fd58b074757c9c
+    - name: Player_Sword_Attack_Right_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 8
+        y: 16
+        width: 43
+        height: 48
+      spriteId: 7f1f2ab9d4ddc3a418f288bcb7504cf2
+    - name: Player_Sword_Attack_Right_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 24
+        y: 4
+        width: 40
+        height: 54
+      spriteId: a3aae30589d73554b9d7b2b9ab52a3d0
+    - name: Player_Sword_Attack_Right_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 0
+        y: 6
+        width: 43
+        height: 54
+      spriteId: a8679673b4b40cf49ada2fba2ff1b64c
+    - name: Player_Sword_Attack_Right_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 13
+        y: 16
+        width: 43
+        height: 48
+      spriteId: 0d331eab05a34d64db7b74b96378566e
+    - name: Player_Sword_Attack_Right_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 36
+      spriteId: 35b1c99d3a39f4545b66df56c7289b10
+    - name: Player_Sword_Attack_Right_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 7b85c1afe24b1e84ca0a098af7b5c0d9
+    - name: Player_Sword_Attack_Right_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 8eef198e9732fca4fa5f6503aaf2cf66
+    - name: Player_Sword_Attack_Right_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 8
+        y: 16
+        width: 35
+        height: 44
+      spriteId: 936fb0e42113daa41a5e1ec39e596070
+    - name: Player_Sword_Attack_Right_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 8
+        y: 16
+        width: 35
+        height: 44
+      spriteId: f78155b818cd1ab45bf418e8baa922d2
+    - name: Player_Sword_Attack_Right_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 20
+        y: 16
+        width: 23
+        height: 36
+      spriteId: fae1025523d1f614a84d6e7971145322
+    - name: Player_Sword_Attack_Right_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 20
+        y: 16
+        width: 23
+        height: 35
+      spriteId: d76455ca64cec3c41a54800fcaae5d49
+    - name: Player_Sword_Attack_Right_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 21
+        y: 16
+        width: 22
+        height: 35
+      spriteId: a8e16d527ad85804d9242c0f8b1909db
+    - name: Player_Sword_Attack_Right_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 24
+        y: 16
+        width: 32
+        height: 44
+      spriteId: 7d9ef5c5d69a9bb479f8c21a1a0d41c0
+    - name: Player_Sword_Attack_Right_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 24
+        y: 16
+        width: 32
+        height: 44
+      spriteId: f92d78708fec7ca44846c7d06df134e1
+    - name: Player_Sword_Attack_Right_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 36
+      spriteId: 8918828a538446847832040ffe5ec22d
+    - name: Player_Sword_Attack_Right_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 35
+      spriteId: f82ff7fc3c3b99941a303ca45e581413
+    - name: Player_Sword_Attack_Right_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 4dde33c75b5c19144a891cdb12bd1725
+    - name: Player_Sword_Attack_Right_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 8
+        y: 16
+        width: 35
+        height: 44
+      spriteId: def59d96f73d6fa4a9a5747a72948291
+    - name: Player_Sword_Attack_Right_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 8
+        y: 16
+        width: 35
+        height: 44
+      spriteId: a5bf1fb1002329c408c637d2048671f4
+    - name: Player_Sword_Attack_Right_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 20
+        y: 16
+        width: 23
+        height: 36
+      spriteId: 32aa4fc74ec77a147adf92d76d905109
+    - name: Player_Sword_Attack_Right_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 20
+        y: 16
+        width: 23
+        height: 35
+      spriteId: b03454dc0cfa8b840b7505d04274f8b3
+    - name: Player_Sword_Attack_Right_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 21
+        y: 16
+        width: 22
+        height: 35
+      spriteId: 890f24676c138bd44b4cb18d41d9b561
+    - name: Player_Sword_Attack_Right_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 24
+        y: 16
+        width: 32
+        height: 44
+      spriteId: aa056dbfde6a186459636bb1abb66b4f
+    - name: Player_Sword_Attack_Right_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 24
+        y: 16
+        width: 32
+        height: 44
+      spriteId: 83707740e1d62a5418b350fe9e0c4ac4
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

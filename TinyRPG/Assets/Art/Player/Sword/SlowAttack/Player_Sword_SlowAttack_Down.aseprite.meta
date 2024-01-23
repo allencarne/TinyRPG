@@ -1,7 +1,475 @@
 fileFormatVersion: 2
 guid: 837675aaf3d50d04ba7da77c6d5361bf
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Player_Sword_SlowAttack_Down_Frame_0
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.44444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 21
+      height: 36
+    spriteID: 107bbc8f65def6345b99c8a2707dfc8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
+  - name: Player_Sword_SlowAttack_Down_Frame_1
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 48
+      width: 21
+      height: 35
+    spriteID: 73e91a75ab8a748468760b83cf233550
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 48}
+  - name: Player_Sword_SlowAttack_Down_Frame_2
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 91
+      width: 21
+      height: 35
+    spriteID: a7b619c66437c3f499b32cf10fdaef4c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 91}
+  - name: Player_Sword_SlowAttack_Down_Frame_3
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 134
+      width: 21
+      height: 35
+    spriteID: 8850ef8d587e6a3499b6fc9bb44debf6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 134}
+  - name: Player_Sword_SlowAttack_Down_Frame_4
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 177
+      width: 21
+      height: 35
+    spriteID: 384987307638931458bd61fb58233dd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 177}
+  - name: Player_Sword_SlowAttack_Down_Frame_5
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 4
+      width: 21
+      height: 35
+    spriteID: 794daa4a608f2ab4f84415b414f997b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 4}
+  - name: Player_Sword_SlowAttack_Down_Frame_6
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.45714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 47
+      width: 21
+      height: 35
+    spriteID: 67355e0f818e54949b3209843feebdc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 47}
+  - name: Player_Sword_SlowAttack_Down_Frame_8
+    originalName: 
+    pivot: {x: 0.1724138, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 160
+      width: 29
+      height: 44
+    spriteID: 322baa9d75b63574eb2bfca16592b129
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 160}
+  - name: Player_Sword_SlowAttack_Down_Frame_9
+    originalName: 
+    pivot: {x: 0.75, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 44
+    spriteID: fec7e1c8e2a98e7498331061fe88e540
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Player_Sword_SlowAttack_Down_Frame_10
+    originalName: 
+    pivot: {x: 0.75, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 56
+      width: 32
+      height: 44
+    spriteID: 4f60e06433bdd6e45a54f8335bf1a68d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 56}
+  - name: Player_Sword_SlowAttack_Down_Frame_11
+    originalName: 
+    pivot: {x: 0.75, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 108
+      width: 32
+      height: 44
+    spriteID: 4d138f18e238c0948a6313dd5cc28ddf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 108}
+  - name: Player_Sword_SlowAttack_Down_Frame_7
+    originalName: 
+    pivot: {x: 0.8275862, y: -0.10526316}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 212
+      width: 29
+      height: 38
+    spriteID: 3ca35c137f91b6d46b1b77d763fc4a94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 212}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -956757016
+    name: Player_Sword_SlowAttack_Down
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Player_Sword_SlowAttack_Down_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 36
+      spriteId: 107bbc8f65def6345b99c8a2707dfc8f
+    - name: Player_Sword_SlowAttack_Down_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 73e91a75ab8a748468760b83cf233550
+    - name: Player_Sword_SlowAttack_Down_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: a7b619c66437c3f499b32cf10fdaef4c
+    - name: Player_Sword_SlowAttack_Down_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 8850ef8d587e6a3499b6fc9bb44debf6
+    - name: Player_Sword_SlowAttack_Down_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 384987307638931458bd61fb58233dd0
+    - name: Player_Sword_SlowAttack_Down_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 794daa4a608f2ab4f84415b414f997b5
+    - name: Player_Sword_SlowAttack_Down_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 35
+      spriteId: 67355e0f818e54949b3209843feebdc5
+    - name: Player_Sword_SlowAttack_Down_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 27
+        y: 16
+        width: 29
+        height: 44
+      spriteId: 322baa9d75b63574eb2bfca16592b129
+    - name: Player_Sword_SlowAttack_Down_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 8
+        y: 16
+        width: 32
+        height: 44
+      spriteId: fec7e1c8e2a98e7498331061fe88e540
+    - name: Player_Sword_SlowAttack_Down_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 8
+        y: 16
+        width: 32
+        height: 44
+      spriteId: 4f60e06433bdd6e45a54f8335bf1a68d
+    - name: Player_Sword_SlowAttack_Down_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 8
+        y: 16
+        width: 32
+        height: 44
+      spriteId: 4d138f18e238c0948a6313dd5cc28ddf
+    - name: Player_Sword_SlowAttack_Down_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 8
+        y: 4
+        width: 29
+        height: 38
+      spriteId: 3ca35c137f91b6d46b1b77d763fc4a94
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

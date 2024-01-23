@@ -1,7 +1,1483 @@
 fileFormatVersion: 2
 guid: 4e8a2df77f8741f489687e3949287306
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Slime_Move_Down_Frame_0
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 24
+      height: 8
+    spriteID: ea932abc024af1844a1fee0b18852aa1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Slime_Move_Down_Frame_1
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 20
+      width: 24
+      height: 8
+    spriteID: 5df045ef0022b454fa1a61c7dd0a58e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 20}
+  - name: Slime_Move_Down_Frame_2
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 24
+      height: 8
+    spriteID: 829271dc99e9922499d36731e8d6d042
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: Slime_Move_Down_Frame_3
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 24
+      height: 8
+    spriteID: 5377433254b4fdc4b9e192c08e46f2fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: Slime_Move_Down_Frame_4
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 68
+      width: 24
+      height: 8
+    spriteID: 2e9c7b256819af145af83a83de9f0219
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 68}
+  - name: Slime_Move_Down_Frame_5
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 24
+      height: 8
+    spriteID: b65ea838ef482e9478d36a09d5a756d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
+  - name: Slime_Move_Down_Frame_6
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 100
+      width: 24
+      height: 8
+    spriteID: fe5d19a1a0c7ca043bf4926fa8154330
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 100}
+  - name: Slime_Move_Down_Frame_7
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 116
+      width: 24
+      height: 8
+    spriteID: db1994938ecd16444b31cf3266ddf945
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 116}
+  - name: Slime_Move_Down_Frame_8
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 116
+      width: 23
+      height: 8
+    spriteID: a894866bf6cf5c246b58d8ae2bdc1213
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 116}
+  - name: Slime_Move_Down_Frame_9
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 132
+      width: 23
+      height: 8
+    spriteID: 24e1cf3014b0f98488463de1603e5632
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 132}
+  - name: Slime_Move_Down_Frame_10
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 148
+      width: 23
+      height: 8
+    spriteID: 1185685f2d0c8174c99d813e63d1807e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 148}
+  - name: Slime_Move_Down_Frame_11
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 164
+      width: 23
+      height: 8
+    spriteID: adf08dd46e1145c4d88ffd47faa5bcbf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 164}
+  - name: Slime_Move_Down_Frame_12
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 132
+      width: 24
+      height: 8
+    spriteID: 146075baafaced14d972dde3a57ed3ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 132}
+  - name: Slime_Move_Down_Frame_13
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 24
+      height: 8
+    spriteID: 9d55eb4eb41a9854d94001a66ef179c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: Slime_Move_Down_Frame_14
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 164
+      width: 24
+      height: 8
+    spriteID: f447767781a13dc4d8327f253ad6fe74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 164}
+  - name: Slime_Move_Down_Frame_15
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 180
+      width: 24
+      height: 8
+    spriteID: 53410517aad4fa348acc2e2106c5bf09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 180}
+  - name: Slime_Move_Down_Frame_16
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 196
+      width: 24
+      height: 8
+    spriteID: e2eb0a7d9095dce439d7031526b088e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 196}
+  - name: Slime_Move_Down_Frame_17
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 212
+      width: 24
+      height: 8
+    spriteID: c22908c070b5ce64e81ebcfcc9d6700e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 212}
+  - name: Slime_Move_Down_Frame_18
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 228
+      width: 24
+      height: 8
+    spriteID: 106573634d4298940948d0351fb89419
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 228}
+  - name: Slime_Move_Down_Frame_19
+    originalName: 
+    pivot: {x: 0.625, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 244
+      width: 24
+      height: 7
+    spriteID: 8c6bc10ba533a98488e6b5e783d16d59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 244}
+  - name: Slime_Move_Down_Frame_20
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 64
+      width: 23
+      height: 7
+    spriteID: c560d9adcb603fe42aec0c8790e6e590
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 64}
+  - name: Slime_Move_Down_Frame_21
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 79
+      width: 23
+      height: 7
+    spriteID: d955e350663bb784680b1d26cadf9706
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 79}
+  - name: Slime_Move_Down_Frame_22
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 180
+      width: 23
+      height: 8
+    spriteID: 79acbb66afef3bc42b75541d9a4c0d16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 180}
+  - name: Slime_Move_Down_Frame_23
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 196
+      width: 23
+      height: 8
+    spriteID: 296ae7f18a13c3c4eaf5c46d5d412037
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 196}
+  - name: Slime_Move_Down_Frame_24
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 244
+      width: 24
+      height: 8
+    spriteID: 1b356b5b66e17d04898cc90666dc05d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 244}
+  - name: Slime_Move_Down_Frame_25
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 24
+      height: 8
+    spriteID: 2b9e1fa4c35d7784da8c2336bd4c0fff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 4}
+  - name: Slime_Move_Down_Frame_26
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 20
+      width: 24
+      height: 8
+    spriteID: a3a71163f725e9f46962b7bacb57536f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 20}
+  - name: Slime_Move_Down_Frame_27
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 212
+      width: 23
+      height: 8
+    spriteID: a8134e48b36bc4d408dc234f68d38182
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 212}
+  - name: Slime_Move_Down_Frame_28
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 94
+      width: 23
+      height: 7
+    spriteID: 6001a2e1ffcda4b49a442608bf16f13b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 94}
+  - name: Slime_Move_Down_Frame_29
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 109
+      width: 23
+      height: 7
+    spriteID: b0282ed8ea60ffa419870f3726baa4f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 109}
+  - name: Slime_Move_Down_Frame_30
+    originalName: 
+    pivot: {x: 0.65217394, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 228
+      width: 23
+      height: 8
+    spriteID: 26c13eb2c38d31044b017c2dcee5cb4d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 228}
+  - name: Slime_Move_Down_Frame_31
+    originalName: 
+    pivot: {x: 0.625, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 4
+      width: 24
+      height: 7
+    spriteID: cc8851b22e585174fa70b69af9be2ecb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 4}
+  - name: Slime_Move_Down_Frame_32
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 36
+      width: 24
+      height: 8
+    spriteID: 918bece63684cd4479109da5e54b6575
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 36}
+  - name: Slime_Move_Down_Frame_33
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 52
+      width: 24
+      height: 8
+    spriteID: 2bfddaca362f8b64a9a087a5b8839ccf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 52}
+  - name: Slime_Move_Down_Frame_34
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 68
+      width: 24
+      height: 8
+    spriteID: 2acff349fc4e33f4d90c504a894f4f7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 68}
+  - name: Slime_Move_Down_Frame_35
+    originalName: 
+    pivot: {x: 0.625, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 19
+      width: 24
+      height: 7
+    spriteID: 4d8e9271fc2f5a649b838d56ba132169
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 19}
+  - name: Slime_Move_Down_Frame_36
+    originalName: 
+    pivot: {x: 0.625, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 34
+      width: 24
+      height: 7
+    spriteID: 76cd814c0b3d0714bb43f525bd1ffbed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 34}
+  - name: Slime_Move_Down_Frame_37
+    originalName: 
+    pivot: {x: 0.625, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 49
+      width: 24
+      height: 7
+    spriteID: 7b94a18361aacc340affaf9c43d15d20
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 49}
+  - name: Slime_Move_Down_Frame_38
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 84
+      width: 24
+      height: 8
+    spriteID: d260a9cdaf2c127418902497a35f13d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 84}
+  - name: Slime_Move_Down_Frame_39
+    originalName: 
+    pivot: {x: 0.625, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 100
+      width: 24
+      height: 8
+    spriteID: 8546e1880915cf449be24d48bcb5f814
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 100}
+  - name: Slime_Move_Down_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 124
+      width: 18
+      height: 8
+    spriteID: 9431bceb3ee502948ae56182b0e74c00
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 124}
+  - name: Slime_Move_Down_Frame_41
+    originalName: 
+    pivot: {x: 0.5, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 140
+      width: 18
+      height: 8
+    spriteID: e91e636f372f5664bbd7a14a4341524e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 140}
+  - name: Slime_Move_Down_Frame_42
+    originalName: 
+    pivot: {x: 0.5, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 156
+      width: 18
+      height: 8
+    spriteID: b39a92832d1399546b785edf82b5379e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 156}
+  - name: Slime_Move_Down_Frame_43
+    originalName: 
+    pivot: {x: 0.5, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 188
+      width: 18
+      height: 7
+    spriteID: 22820979e93391b4fb1cb1ab1335a3e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 188}
+  - name: Slime_Move_Down_Frame_44
+    originalName: 
+    pivot: {x: 0.5, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 203
+      width: 16
+      height: 7
+    spriteID: e487b7bcac27e524fbd99fce02706205
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 203}
+  - name: Slime_Move_Down_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 218
+      width: 16
+      height: 7
+    spriteID: 7a836f75a273be24c85206172adea634
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 218}
+  - name: Slime_Move_Down_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: -1.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 233
+      width: 16
+      height: 7
+    spriteID: eaf1d0f494c88e74da942bfb48db6439
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 233}
+  - name: Slime_Move_Down_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 172
+      width: 16
+      height: 8
+    spriteID: abbabbc0cf1fc3743baafbe7235d15fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 172}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 579571413
+    name: Slime_Move_Down
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Slime_Move_Down_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: ea932abc024af1844a1fee0b18852aa1
+    - name: Slime_Move_Down_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 5df045ef0022b454fa1a61c7dd0a58e8
+    - name: Slime_Move_Down_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 829271dc99e9922499d36731e8d6d042
+    - name: Slime_Move_Down_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 5377433254b4fdc4b9e192c08e46f2fe
+    - name: Slime_Move_Down_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 2e9c7b256819af145af83a83de9f0219
+    - name: Slime_Move_Down_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: b65ea838ef482e9478d36a09d5a756d7
+    - name: Slime_Move_Down_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: fe5d19a1a0c7ca043bf4926fa8154330
+    - name: Slime_Move_Down_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: db1994938ecd16444b31cf3266ddf945
+    - name: Slime_Move_Down_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: a894866bf6cf5c246b58d8ae2bdc1213
+    - name: Slime_Move_Down_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: 24e1cf3014b0f98488463de1603e5632
+    - name: Slime_Move_Down_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: 1185685f2d0c8174c99d813e63d1807e
+    - name: Slime_Move_Down_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: adf08dd46e1145c4d88ffd47faa5bcbf
+    - name: Slime_Move_Down_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 146075baafaced14d972dde3a57ed3ce
+    - name: Slime_Move_Down_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 9d55eb4eb41a9854d94001a66ef179c4
+    - name: Slime_Move_Down_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: f447767781a13dc4d8327f253ad6fe74
+    - name: Slime_Move_Down_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 53410517aad4fa348acc2e2106c5bf09
+    - name: Slime_Move_Down_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: e2eb0a7d9095dce439d7031526b088e3
+    - name: Slime_Move_Down_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: c22908c070b5ce64e81ebcfcc9d6700e
+    - name: Slime_Move_Down_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 106573634d4298940948d0351fb89419
+    - name: Slime_Move_Down_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 7
+      spriteId: 8c6bc10ba533a98488e6b5e783d16d59
+    - name: Slime_Move_Down_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 7
+      spriteId: c560d9adcb603fe42aec0c8790e6e590
+    - name: Slime_Move_Down_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 7
+      spriteId: d955e350663bb784680b1d26cadf9706
+    - name: Slime_Move_Down_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: 79acbb66afef3bc42b75541d9a4c0d16
+    - name: Slime_Move_Down_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: 296ae7f18a13c3c4eaf5c46d5d412037
+    - name: Slime_Move_Down_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 1b356b5b66e17d04898cc90666dc05d4
+    - name: Slime_Move_Down_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 2b9e1fa4c35d7784da8c2336bd4c0fff
+    - name: Slime_Move_Down_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: a3a71163f725e9f46962b7bacb57536f
+    - name: Slime_Move_Down_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: a8134e48b36bc4d408dc234f68d38182
+    - name: Slime_Move_Down_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 7
+      spriteId: 6001a2e1ffcda4b49a442608bf16f13b
+    - name: Slime_Move_Down_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 7
+      spriteId: b0282ed8ea60ffa419870f3726baa4f6
+    - name: Slime_Move_Down_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 1
+        y: 12
+        width: 23
+        height: 8
+      spriteId: 26c13eb2c38d31044b017c2dcee5cb4d
+    - name: Slime_Move_Down_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 7
+      spriteId: cc8851b22e585174fa70b69af9be2ecb
+    - name: Slime_Move_Down_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 918bece63684cd4479109da5e54b6575
+    - name: Slime_Move_Down_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 2bfddaca362f8b64a9a087a5b8839ccf
+    - name: Slime_Move_Down_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 2acff349fc4e33f4d90c504a894f4f7f
+    - name: Slime_Move_Down_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 7
+      spriteId: 4d8e9271fc2f5a649b838d56ba132169
+    - name: Slime_Move_Down_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 7
+      spriteId: 76cd814c0b3d0714bb43f525bd1ffbed
+    - name: Slime_Move_Down_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 7
+      spriteId: 7b94a18361aacc340affaf9c43d15d20
+    - name: Slime_Move_Down_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: d260a9cdaf2c127418902497a35f13d7
+    - name: Slime_Move_Down_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 1
+        y: 12
+        width: 24
+        height: 8
+      spriteId: 8546e1880915cf449be24d48bcb5f814
+    - name: Slime_Move_Down_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 7
+        y: 12
+        width: 18
+        height: 8
+      spriteId: 9431bceb3ee502948ae56182b0e74c00
+    - name: Slime_Move_Down_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 7
+        y: 12
+        width: 18
+        height: 8
+      spriteId: e91e636f372f5664bbd7a14a4341524e
+    - name: Slime_Move_Down_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 7
+        y: 12
+        width: 18
+        height: 8
+      spriteId: b39a92832d1399546b785edf82b5379e
+    - name: Slime_Move_Down_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 7
+        y: 12
+        width: 18
+        height: 7
+      spriteId: 22820979e93391b4fb1cb1ab1335a3e8
+    - name: Slime_Move_Down_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 8
+        y: 12
+        width: 16
+        height: 7
+      spriteId: e487b7bcac27e524fbd99fce02706205
+    - name: Slime_Move_Down_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 8
+        y: 12
+        width: 16
+        height: 7
+      spriteId: 7a836f75a273be24c85206172adea634
+    - name: Slime_Move_Down_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 8
+        y: 12
+        width: 16
+        height: 7
+      spriteId: eaf1d0f494c88e74da942bfb48db6439
+    - name: Slime_Move_Down_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 8
+        y: 12
+        width: 16
+        height: 8
+      spriteId: abbabbc0cf1fc3743baafbe7235d15fb
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}

@@ -1,7 +1,559 @@
 fileFormatVersion: 2
 guid: 4a1b82110f049044ea3823bf4e4212dd
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Slime_MeleeAttack_Right_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 36
+      width: 18
+      height: 11
+    spriteID: bf1144709d722314ea7ef9429a115f63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 36}
+  - name: Slime_MeleeAttack_Right_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 95
+      y: 36
+      width: 18
+      height: 11
+    spriteID: c7a8ea57e3338aa43b96d205e91ce25a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 95, y: 36}
+  - name: Slime_MeleeAttack_Right_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 58
+      width: 18
+      height: 11
+    spriteID: afa060786a0c7e7479a9704ddc8bb822
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 58}
+  - name: Slime_MeleeAttack_Right_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 58
+      width: 18
+      height: 11
+    spriteID: 8a33c6e831aee554f912306026ac3462
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: 58}
+  - name: Slime_MeleeAttack_Right_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 56
+      y: 58
+      width: 18
+      height: 11
+    spriteID: ba109d07ccff0644ba6734df1b9fcd23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 56, y: 58}
+  - name: Slime_MeleeAttack_Right_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 58
+      width: 18
+      height: 11
+    spriteID: f5d97f0c76c8abf47a4ea0b3f0c0e4ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 58}
+  - name: Slime_MeleeAttack_Right_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 77
+      width: 18
+      height: 11
+    spriteID: ec674dbdaeb832a4da79c62f8bf7cb02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 77}
+  - name: Slime_MeleeAttack_Right_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 77
+      width: 18
+      height: 11
+    spriteID: a21cbb0a4f916da48a30b9a77e5ddab0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: 77}
+  - name: Slime_MeleeAttack_Right_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 56
+      y: 77
+      width: 18
+      height: 11
+    spriteID: 0e32113d82ebf9d47a5bf6abd6ff4ec9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 56, y: 77}
+  - name: Slime_MeleeAttack_Right_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -2.5454545}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 77
+      width: 18
+      height: 11
+    spriteID: 0c8e45a9a2dc172499972571603d4986
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 77}
+  - name: Slime_MeleeAttack_Right_Frame_10
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.7857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 36
+      width: 20
+      height: 14
+    spriteID: 98d2003cef3285a4cacf54a35f591513
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 36}
+  - name: Slime_MeleeAttack_Right_Frame_11
+    originalName: 
+    pivot: {x: 0.31034482, y: -1.5714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 29
+      height: 14
+    spriteID: 151d6afc180d7ac4394d5b68cd238797
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: Slime_MeleeAttack_Right_Frame_12
+    originalName: 
+    pivot: {x: 0.3, y: -0.95}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 4
+      width: 30
+      height: 20
+    spriteID: 5170247d40062e948b0f7215d59dad03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 4}
+  - name: Slime_MeleeAttack_Right_Frame_13
+    originalName: 
+    pivot: {x: 0.31034482, y: -0.8181819}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 4
+      width: 29
+      height: 22
+    spriteID: 29c6dae67621f8a4fb889355ff0e79af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 4}
+  - name: Slime_MeleeAttack_Right_Frame_14
+    originalName: 
+    pivot: {x: 0.3214286, y: -0.7083334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 28
+      height: 24
+    spriteID: 7b32fd08e3c464a488aec14e7b8e22d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -768561056
+    name: Slime_MeleeAttack_Right
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Slime_MeleeAttack_Right_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: bf1144709d722314ea7ef9429a115f63
+    - name: Slime_MeleeAttack_Right_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: c7a8ea57e3338aa43b96d205e91ce25a
+    - name: Slime_MeleeAttack_Right_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: afa060786a0c7e7479a9704ddc8bb822
+    - name: Slime_MeleeAttack_Right_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: 8a33c6e831aee554f912306026ac3462
+    - name: Slime_MeleeAttack_Right_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: ba109d07ccff0644ba6734df1b9fcd23
+    - name: Slime_MeleeAttack_Right_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: f5d97f0c76c8abf47a4ea0b3f0c0e4ed
+    - name: Slime_MeleeAttack_Right_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: ec674dbdaeb832a4da79c62f8bf7cb02
+    - name: Slime_MeleeAttack_Right_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: a21cbb0a4f916da48a30b9a77e5ddab0
+    - name: Slime_MeleeAttack_Right_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: 0e32113d82ebf9d47a5bf6abd6ff4ec9
+    - name: Slime_MeleeAttack_Right_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 23
+        y: 28
+        width: 18
+        height: 11
+      spriteId: 0c8e45a9a2dc172499972571603d4986
+    - name: Slime_MeleeAttack_Right_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 23
+        y: 25
+        width: 20
+        height: 14
+      spriteId: 98d2003cef3285a4cacf54a35f591513
+    - name: Slime_MeleeAttack_Right_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 23
+        y: 22
+        width: 29
+        height: 14
+      spriteId: 151d6afc180d7ac4394d5b68cd238797
+    - name: Slime_MeleeAttack_Right_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 23
+        y: 19
+        width: 30
+        height: 20
+      spriteId: 5170247d40062e948b0f7215d59dad03
+    - name: Slime_MeleeAttack_Right_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 23
+        y: 18
+        width: 29
+        height: 22
+      spriteId: 29c6dae67621f8a4fb889355ff0e79af
+    - name: Slime_MeleeAttack_Right_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 23
+        y: 17
+        width: 28
+        height: 24
+      spriteId: 7b32fd08e3c464a488aec14e7b8e22d0
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

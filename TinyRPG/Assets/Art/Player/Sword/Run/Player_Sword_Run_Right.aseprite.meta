@@ -1,7 +1,363 @@
 fileFormatVersion: 2
 guid: 24b1d97de90c8744cb44612d5e471809
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Player_Sword_Run_Right_Frame_0
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.53333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 82
+      width: 21
+      height: 30
+    spriteID: 7348879247ab84048b1bbf7b07096e15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 82}
+  - name: Player_Sword_Run_Right_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.7407408}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 72
+      width: 22
+      height: 27
+    spriteID: ae5db93dfe1bd2948b53b551115e4154
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 63, y: 72}
+  - name: Player_Sword_Run_Right_Frame_2
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.84615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 4
+      width: 23
+      height: 26
+    spriteID: 46fadf16f8068a549bdb1c34bd4cc348
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 63, y: 4}
+  - name: Player_Sword_Run_Right_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.516129}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 22
+      height: 31
+    spriteID: 9d139c28707ee6b4483c9b481b11a680
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Player_Sword_Run_Right_Frame_4
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.53333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 4
+      width: 21
+      height: 30
+    spriteID: d590a8e344ddf9a49a03b5827fb30c8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 4}
+  - name: Player_Sword_Run_Right_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.7407408}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 4
+      width: 22
+      height: 27
+    spriteID: 1c00abcebbb39e14ab0bde8c1634074d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 94, y: 4}
+  - name: Player_Sword_Run_Right_Frame_6
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.84615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 38
+      width: 23
+      height: 26
+    spriteID: 8f0618df1b8e73a4385e04c66779b492
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 63, y: 38}
+  - name: Player_Sword_Run_Right_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.516129}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 43
+      width: 22
+      height: 31
+    spriteID: fff8e93fedb48104a86714d69fda3b86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 43}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 499650746
+    name: Player_Sword_Run_Right
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Player_Sword_Run_Right_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 30
+      spriteId: 7348879247ab84048b1bbf7b07096e15
+    - name: Player_Sword_Run_Right_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 21
+        y: 20
+        width: 22
+        height: 27
+      spriteId: ae5db93dfe1bd2948b53b551115e4154
+    - name: Player_Sword_Run_Right_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 20
+        y: 22
+        width: 23
+        height: 26
+      spriteId: 46fadf16f8068a549bdb1c34bd4cc348
+    - name: Player_Sword_Run_Right_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 21
+        y: 16
+        width: 22
+        height: 31
+      spriteId: 9d139c28707ee6b4483c9b481b11a680
+    - name: Player_Sword_Run_Right_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 22
+        y: 16
+        width: 21
+        height: 30
+      spriteId: d590a8e344ddf9a49a03b5827fb30c8d
+    - name: Player_Sword_Run_Right_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 21
+        y: 20
+        width: 22
+        height: 27
+      spriteId: 1c00abcebbb39e14ab0bde8c1634074d
+    - name: Player_Sword_Run_Right_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 20
+        y: 22
+        width: 23
+        height: 26
+      spriteId: 8f0618df1b8e73a4385e04c66779b492
+    - name: Player_Sword_Run_Right_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 21
+        y: 16
+        width: 22
+        height: 31
+      spriteId: fff8e93fedb48104a86714d69fda3b86
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}
